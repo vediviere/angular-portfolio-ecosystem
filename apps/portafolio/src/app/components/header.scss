@@ -1,0 +1,305 @@
+// Variables SCSS reutilizadas del Hero
+$primary-color: #2563eb;
+$secondary-color: #64748b;
+$accent-color: #f59e0b;
+$text-dark: #1e293b;
+$text-light: #64748b;
+$background-light: #f8fafc;
+$white: #ffffff;
+$dark-bg: #1e293b;
+$dark-surface: #334155;
+
+// Mixins para responsividad
+@mixin mobile {
+  @media (max-width: 768px) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: 769px) and (max-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: 1025px) {
+    @content;
+  }
+}
+
+@mixin smooth-transition($property: all, $duration: 0.3s) {
+  transition: $property $duration ease-in-out;
+}
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  padding: 1rem 0;
+  background-color: rgba($white, 0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba($secondary-color, 0.1);
+  @include smooth-transition(all, 0.3s);
+
+  // Scrolled state
+  &--scrolled {
+    background-color: rgba($white, 0.98);
+    box-shadow: 0 4px 20px rgba($text-dark, 0.1);
+    padding: 0.75rem 0;
+  }
+
+  // Dark theme
+  &--dark {
+    background-color: rgba($dark-bg, 0.95);
+    border-bottom-color: rgba($white, 0.1);
+
+    &.header--scrolled {
+      background-color: rgba($dark-bg, 0.98);
+      box-shadow: 0 4px 20px rgba($dark-bg, 0.3);
+    }
+
+    .header__logo {
+      color: $white;
+    }
+
+    .header__nav-link {
+      color: rgba($white, 0.8);
+
+      &:hover {
+        color: $white;
+      }
+    }
+
+    .header__nav-item--active .header__nav-link {
+      color: $accent-color;
+    }
+
+    .header__theme-toggle {
+      color: $white;
+      background-color: rgba($white, 0.1);
+
+      &:hover {
+        background-color: rgba($white, 0.2);
+      }
+    }
+
+    .header__menu-toggle {
+      color: $white;
+    }
+  }
+
+  &__container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    @include mobile {
+      padding: 0 1rem;
+    }
+  }
+
+  &__logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: $text-dark;
+    text-decoration: none;
+    letter-spacing: -0.02em;
+    @include smooth-transition(color);
+
+    @include mobile {
+      font-size: 1.25rem;
+    }
+  }
+
+  &__nav {
+    @include mobile {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background-color: rgba($white, 0.98);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba($secondary-color, 0.1);
+      transform: translateY(-100%);
+      opacity: 0;
+      visibility: hidden;
+      @include smooth-transition(all, 0.3s);
+    }
+
+    &-list {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+
+      @include mobile {
+        flex-direction: column;
+        gap: 0;
+        padding: 1.5rem 2rem;
+      }
+    }
+
+    &-item {
+      position: relative;
+
+      @include mobile {
+        width: 100%;
+        text-align: center;
+      }
+
+      &--active {
+        .header__nav-link {
+          color: $primary-color;
+          font-weight: 600;
+
+          &::after {
+            transform: scaleX(1);
+          }
+        }
+      }
+    }
+
+    &-link {
+      display: block;
+      color: $text-light;
+      text-decoration: none;
+      font-weight: 500;
+      padding: 0.5rem 0;
+      position: relative;
+      @include smooth-transition(color);
+
+      @include mobile {
+        padding: 1rem 0;
+        border-bottom: 1px solid rgba($secondary-color, 0.1);
+        width: 100%;
+      }
+
+      &:hover {
+        color: $text-dark;
+      }
+
+      // Underline effect para desktop
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: -2px;
+        left: 0;
+        right: 0;
+        height: 2px;
+        background: linear-gradient(90deg, $primary-color, $accent-color);
+        transform: scaleX(0);
+        transform-origin: left;
+        @include smooth-transition(transform);
+
+        @include mobile {
+          display: none;
+        }
+      }
+
+      &:hover::after {
+        transform: scaleX(1);
+      }
+    }
+  }
+
+  &__actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  &__theme-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    border: none;
+    border-radius: 50%;
+    background-color: rgba($secondary-color, 0.1);
+    color: $text-dark;
+    font-size: 1.2rem;
+    cursor: pointer;
+    @include smooth-transition(all);
+
+    &:hover {
+      background-color: rgba($secondary-color, 0.2);
+      transform: scale(1.1);
+    }
+
+    &:focus {
+      outline: 2px solid $accent-color;
+      outline-offset: 2px;
+    }
+  }
+
+  &__menu-toggle {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    border: none;
+    background: none;
+    color: $text-dark;
+    font-size: 1.5rem;
+    cursor: pointer;
+
+    @include mobile {
+      display: flex;
+    }
+
+    &:focus {
+      outline: 2px solid $accent-color;
+      outline-offset: 2px;
+    }
+  }
+
+  // Mobile menu open state
+  &--menu-open {
+    .header__nav {
+      @include mobile {
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+
+    &.header--dark .header__nav {
+      @include mobile {
+        background-color: rgba($dark-bg, 0.98);
+        border-bottom-color: rgba($white, 0.1);
+      }
+    }
+  }
+}
+
+// Animaciones de entrada
+@keyframes slideDown {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.header {
+  animation: slideDown 0.6s ease-out;
+}
+
+// Espaciado para evitar que el contenido se oculte bajo el header fijo
+body {
+  padding-top: 80px; // Ajustar según altura del header
+}

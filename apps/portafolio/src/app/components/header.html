@@ -1,0 +1,45 @@
+<header class="header">
+  <div class="header__container">
+    <!-- Logo/Brand -->
+    <div class="header__logo">PortFolio</div>
+
+    <!-- Navigation -->
+    <nav class="header__nav">
+      <ul class="header__nav-list">
+        <li
+          *ngFor="let item of navigationItems"
+          class="header__nav-item"
+          [class.header__nav-item--active]="item.active"
+        >
+          <a
+            href="#"
+            class="header__nav-link"
+            (click)="navigateTo(item.route); $event.preventDefault()"
+          >
+            {{ item.label }}
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- Theme Toggle Button -->
+    <button
+      type="button"
+      class="header__theme-toggle"
+      aria-label="Cambiar tema"
+      (click)="toggleTheme()"
+    >
+      🌙
+    </button>
+
+    <!-- Mobile Menu Toggle Button -->
+    <button
+      type="button"
+      class="header__menu-toggle"
+      aria-label="Abrir menú"
+      (click)="toggleMenu()"
+    >
+      ☰
+    </button>
+  </div>
+</header>

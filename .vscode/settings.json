@@ -1,0 +1,27 @@
+{
+  // Angular específico
+  "typescript.preferences.importModuleSpecifier": "relative",
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "angular.enable-strict-mode-prompt": false,
+
+  // Autocompletado mejorado
+  "typescript.suggest.autoImports": true,
+  "typescript.suggest.completeJSDocs": true,
+
+  // Formateo automático
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.organizeImports": true,
+    "source.fixAll": true
+  },
+
+  // Jest
+  "jest.autoRun": {
+    "watch": false,
+    "onSave": "test-src-file"
+  },
+
+  // SCSS
+  "scss.validate": true,
+  "scss.lint.emptyRulesets": "warning"
+}

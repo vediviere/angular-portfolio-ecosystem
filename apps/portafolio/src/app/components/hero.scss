@@ -1,0 +1,214 @@
+// Variables SCSS para el tema
+$primary-color: #2563eb; // Azul moderno
+$secondary-color: #64748b; // Gris elegante
+$accent-color: #f59e0b; // Amarillo/naranja para CTAs
+$text-dark: #1e293b; // Texto principal
+$text-light: #64748b; // Texto secundario
+$background-light: #f8fafc; // Fondo claro
+$white: #ffffff;
+
+// Mixins para responsividad
+@mixin mobile {
+  @media (max-width: 768px) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: 769px) and (max-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: 1025px) {
+    @content;
+  }
+}
+
+// Mixin para animaciones
+@mixin smooth-transition($property: all, $duration: 0.3s) {
+  transition: $property $duration ease-in-out;
+}
+
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, $background-light 0%, $white 100%);
+  position: relative;
+  padding: 2rem 1rem;
+
+  // Patrón de fondo sutil
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: radial-gradient(
+        circle at 25% 25%,
+        rgba($primary-color, 0.1) 0%,
+        transparent 50%
+      ),
+      radial-gradient(
+        circle at 75% 75%,
+        rgba($accent-color, 0.1) 0%,
+        transparent 50%
+      );
+    pointer-events: none;
+  }
+
+  &__content {
+    text-align: center;
+    max-width: 800px;
+    position: relative;
+    z-index: 1;
+
+    @include mobile {
+      max-width: 100%;
+      padding: 0 1rem;
+    }
+
+    @include tablet {
+      max-width: 600px;
+    }
+  }
+
+  &__title {
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: $text-dark;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+
+    @include mobile {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    @include tablet {
+      font-size: 3rem;
+    }
+
+    // Efecto de gradiente en el texto
+    background: linear-gradient(135deg, $text-dark 0%, $primary-color 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  &__subtitle {
+    font-size: 1.25rem;
+    color: $text-light;
+    margin-bottom: 2.5rem;
+    line-height: 1.6;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+
+    @include mobile {
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
+      padding: 0 0.5rem;
+    }
+
+    @include tablet {
+      font-size: 1.2rem;
+    }
+  }
+
+  &__cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: $white;
+    background: linear-gradient(135deg, $primary-color 0%, $accent-color 100%);
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    text-decoration: none;
+    position: relative;
+    overflow: hidden;
+    min-width: 200px;
+
+    @include smooth-transition(transform, 0.2s);
+    @include smooth-transition(box-shadow, 0.2s);
+
+    @include mobile {
+      padding: 0.875rem 1.5rem;
+      font-size: 1rem;
+      min-width: 180px;
+    }
+
+    // Efecto hover
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba($primary-color, 0.3);
+    }
+
+    &:active {
+      transform: translateY(0);
+    }
+
+    // Efecto de brillo en hover
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        90deg,
+        transparent,
+        rgba($white, 0.2),
+        transparent
+      );
+      @include smooth-transition(left, 0.5s);
+    }
+
+    &:hover::before {
+      left: 100%;
+    }
+
+    // Focus para accesibilidad
+    &:focus {
+      outline: 2px solid $accent-color;
+      outline-offset: 2px;
+    }
+  }
+}
+
+// Animación de entrada
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Aplicar animación cuando el componente se hace visible
+.hero--visible {
+  .hero__title {
+    animation: fadeInUp 0.8s ease-out;
+  }
+
+  .hero__subtitle {
+    animation: fadeInUp 0.8s ease-out 0.2s both;
+  }
+
+  .hero__cta {
+    animation: fadeInUp 0.8s ease-out 0.4s both;
+  }
+}
