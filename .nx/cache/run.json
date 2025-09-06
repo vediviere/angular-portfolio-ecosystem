@@ -1,0 +1,21 @@
+{
+  "run": {
+    "command": "nx test portafolio --testNamePattern=Header",
+    "startTime": "2025-09-06T21:25:49.230Z",
+    "endTime": "2025-09-06T21:25:55.829Z",
+    "inner": false
+  },
+  "tasks": [
+    {
+      "taskId": "portafolio:test",
+      "target": "test",
+      "projectName": "portafolio",
+      "hash": "10498452397537706421",
+      "startTime": "2025-09-06T21:25:49.285Z",
+      "endTime": "2025-09-06T21:25:55.820Z",
+      "params": "",
+      "cacheStatus": "cache-miss",
+      "status": 0
+    }
+  ]
+}
