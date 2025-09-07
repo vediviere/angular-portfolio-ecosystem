@@ -173,7 +173,7 @@ $mobile-color: #8b5cf6;
     margin-bottom: 2rem;
   }
 
-  &__gallery {
+  &__mobile {
     margin-bottom: 2rem;
   }
 
@@ -220,7 +220,7 @@ $mobile-color: #8b5cf6;
   }
 }
 
-// Demo web styles
+// Demo web styles (mantener los existentes)
 .demo-wrapper {
   position: relative;
   border-radius: 12px;
@@ -311,205 +311,287 @@ $mobile-color: #8b5cf6;
   font-style: italic;
 }
 
-// Mobile gallery styles
-.mobile-gallery {
-  background: linear-gradient(135deg, $mobile-color 0%, #667eea 100%);
-  border-radius: 16px;
+// =============================================
+// PHONE MOCKUP STYLES - NUEVO
+// =============================================
+
+.phone-mockup {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
   padding: 2rem;
-  text-align: center;
-  position: relative;
-  overflow: hidden;
+  background: linear-gradient(
+    135deg,
+    rgba($mobile-color, 0.1),
+    rgba($primary-color, 0.05)
+  );
+  border-radius: 20px;
+  border: 1px solid rgba($mobile-color, 0.2);
 
   @include mobile {
     padding: 1.5rem;
+    gap: 1.5rem;
+  }
+}
+
+.phone-frame {
+  position: relative;
+  width: 280px;
+  height: 570px;
+  background: linear-gradient(145deg, #2a2a2a, #1a1a1a);
+  border-radius: 35px;
+  padding: 12px;
+  box-shadow: 0 0 0 3px #333, 0 20px 40px rgba(0, 0, 0, 0.3),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+
+  @include mobile {
+    width: 240px;
+    height: 490px;
+    border-radius: 30px;
+    padding: 10px;
   }
 
+  // Botón de encendido
   &::before {
     content: '';
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: url('data:image/svg+xml,<svg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><g fill="%23ffffff" fill-opacity="0.1"><rect width="11" height="11" rx="2"/></g></svg>')
-      repeat;
-    pointer-events: none;
+    right: -3px;
+    top: 100px;
+    width: 3px;
+    height: 60px;
+    background: #333;
+    border-radius: 0 2px 2px 0;
   }
 
+  // Botones de volumen
   &::after {
-    content: '← Desliza para ver más →';
+    content: '';
     position: absolute;
-    bottom: 0.5rem;
-    left: 50%;
-    transform: translateX(-50%);
-    color: rgba(255, 255, 255, 0.7);
-    font-size: 0.75rem;
-    pointer-events: none;
-    z-index: 2;
+    left: -3px;
+    top: 120px;
+    width: 3px;
+    height: 35px;
+    background: #333;
+    border-radius: 2px 0 0 2px;
+    box-shadow: 0 50px 0 #333;
+  }
+}
+
+.phone-notch {
+  position: absolute;
+  top: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120px;
+  height: 25px;
+  background: #000;
+  border-radius: 0 0 15px 15px;
+  z-index: 2;
+
+  @include mobile {
+    width: 100px;
+    height: 20px;
+    border-radius: 0 0 12px 12px;
+  }
+
+  // Cámara frontal
+  &::before {
+    content: '';
+    position: absolute;
+    top: 6px;
+    left: 20px;
+    width: 8px;
+    height: 8px;
+    background: #333;
+    border-radius: 50%;
 
     @include mobile {
-      font-size: 0.7rem;
+      width: 6px;
+      height: 6px;
+      top: 5px;
+      left: 16px;
+    }
+  }
+
+  // Speaker
+  &::after {
+    content: '';
+    position: absolute;
+    top: 8px;
+    right: 25px;
+    width: 40px;
+    height: 4px;
+    background: #333;
+    border-radius: 2px;
+
+    @include mobile {
+      width: 32px;
+      height: 3px;
+      top: 7px;
+      right: 20px;
     }
   }
 }
 
-.mobile-frames {
-  display: flex;
-  justify-content: flex-start;
-  gap: 1.5rem;
-  margin-bottom: 2rem; // Más espacio para el hover
+.phone-screen {
+  width: 100%;
+  height: calc(100% - 40px);
+  background: #000;
+  border-radius: 25px;
+  overflow: hidden;
   position: relative;
-  z-index: 1;
-  overflow-x: auto;
-  overflow-y: visible; // Permitir que el hover se vea
-  padding: 1rem 0.5rem; // Más padding vertical
-  scroll-snap-type: x mandatory;
+  margin-top: 20px;
 
-  &::after {
-    content: attr(data-label);
-    position: absolute;
-    bottom: -25px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: rgba(0, 0, 0, 0.8);
-    color: white;
-    padding: 0.25rem 0.5rem;
-    border-radius: 4px;
-    font-size: 0.75rem;
-    opacity: 0;
-    pointer-events: none;
-    @include smooth-transition(opacity);
+  @include mobile {
+    border-radius: 20px;
+    margin-top: 15px;
   }
+}
 
-  &:hover::after {
-    opacity: 1;
-  }
+.phone-screenshot {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  @include smooth-transition(opacity, 0.4s);
+}
 
-  // Scrollbar personalizado
-  &::-webkit-scrollbar {
-    height: 6px;
-  }
+.phone-home-indicator {
+  position: absolute;
+  bottom: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120px;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 2px;
 
-  &::-webkit-scrollbar-track {
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 3px;
+  @include mobile {
+    width: 100px;
+    height: 3px;
+    bottom: 6px;
   }
+}
 
-  &::-webkit-scrollbar-thumb {
-    background: rgba(255, 255, 255, 0.3);
-    border-radius: 3px;
-  }
+.phone-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  width: 100%;
 
   @include mobile {
     gap: 1rem;
-    padding: 0 1rem;
+    flex-direction: column;
   }
 }
 
-.mobile-frame {
-  background: $white;
-  padding: 0.75rem 0.5rem 1.25rem 0.5rem;
-  border-radius: 20px;
-  box-shadow: 0 8px 30px rgba($text-dark, 0.3);
-  @include smooth-transition(transform);
-  flex-shrink: 0;
-  scroll-snap-align: center;
-  position: relative;
-  overflow: visible;
+.phone-control {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  border: 2px solid $mobile-color;
+  background: rgba($mobile-color, 0.1);
+  color: $mobile-color;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  font-weight: bold;
+  cursor: pointer;
+  @include smooth-transition(all);
+
+  @include mobile {
+    width: 45px;
+    height: 45px;
+    font-size: 1.3rem;
+  }
+
+  &:hover:not(:disabled) {
+    background: $mobile-color;
+    color: $white;
+    transform: scale(1.1);
+  }
+
+  &:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+  }
+}
+
+.phone-indicator {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  min-width: 200px;
+
+  @include mobile {
+    min-width: auto;
+    gap: 0.75rem;
+  }
+}
+
+.current-screen {
+  font-weight: 600;
+  color: $text-dark;
+  font-size: 1rem;
+  text-align: center;
+
+  @include mobile {
+    font-size: 0.9rem;
+  }
+}
+
+.screen-dots {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba($mobile-color, 0.3);
+  cursor: pointer;
+  @include smooth-transition(all);
+
+  &--active {
+    background: $mobile-color;
+    transform: scale(1.3);
+  }
 
   &:hover {
-    transform: translateY(-4px);
-  }
-
-  @include mobile {
-    flex-shrink: 0;
-    overflow: visible;
-  }
-
-  .mobile-screenshot {
-    width: 120px;
-    height: auto;
-    max-height: 220px;
-    border-radius: 12px;
-    display: block;
-    object-fit: cover;
-    cursor: pointer;
-    @include smooth-transition(transform, 0.3s);
-
-    @include mobile {
-      width: 100px;
-      max-height: 200px;
-    }
-
-    &::before {
-      content: '';
-      position: absolute;
-      top: 0.75rem;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 30px;
-      height: 4px;
-      background: #1a1a1a;
-      border-radius: 2px;
-    }
-
-    &:hover {
-      transform: scale(1.4);
-      z-index: 10;
-      position: relative;
-      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
-    }
-  }
-
-  &:hover {
-    transform: translateY(-8px) scale(1.05);
-  }
-
-  @include mobile {
-    flex-shrink: 0;
-    scroll-snap-align: center;
-  }
-
-  // Efecto de notch de iPhone
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0.75rem;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 30px;
-    height: 4px;
-    background: #1a1a1a;
-    border-radius: 2px;
-  }
-
-  position: relative;
-}
-
-.mobile-screenshot {
-  width: 140px;
-  height: auto;
-  max-height: 250px;
-  border-radius: 12px;
-  display: block;
-  object-fit: cover;
-
-  @include mobile {
-    width: 120px;
-    max-height: 220px;
+    background: rgba($mobile-color, 0.7);
+    transform: scale(1.2);
   }
 }
 
-.gallery-note {
-  color: rgba($white, 0.9);
+.screen-counter {
   font-size: 0.875rem;
-  margin: 0;
+  color: $text-light;
   font-weight: 500;
-  position: relative;
-  z-index: 1;
 }
 
-// Tech tags
+.app-info {
+  text-align: center;
+  margin-top: 1rem;
+
+  .app-tech {
+    color: $text-light;
+    font-size: 0.9rem;
+    margin: 0;
+
+    strong {
+      color: $mobile-color;
+      font-weight: 600;
+    }
+  }
+}
+
+// Tech tags (mantener existentes)
 .tech-tag {
   padding: 0.5rem 1rem;
   background: linear-gradient(
@@ -565,7 +647,7 @@ $mobile-color: #8b5cf6;
   }
 }
 
-// Store links
+// Store links (mantener existentes)
 .store-link {
   display: inline-flex;
   align-items: center;
@@ -612,7 +694,7 @@ $mobile-color: #8b5cf6;
   border-left: 3px solid $mobile-color;
 }
 
-// Demo button
+// Demo button (mantener existente)
 .demo-button {
   display: inline-flex;
   align-items: center;
@@ -648,14 +730,13 @@ $mobile-color: #8b5cf6;
   }
 }
 
-@keyframes slideInMobile {
-  from {
-    opacity: 0;
-    transform: translateX(-20px) scale(0.9);
+@keyframes phoneFloat {
+  0%,
+  100% {
+    transform: translateY(0);
   }
-  to {
-    opacity: 1;
-    transform: translateX(0) scale(1);
+  50% {
+    transform: translateY(-5px);
   }
 }
 
@@ -676,7 +757,6 @@ $mobile-color: #8b5cf6;
   }
 }
 
-.mobile-frame {
-  animation: slideInMobile 0.6s ease-out;
-  animation-fill-mode: both;
+.phone-frame {
+  animation: phoneFloat 6s ease-in-out infinite;
 }

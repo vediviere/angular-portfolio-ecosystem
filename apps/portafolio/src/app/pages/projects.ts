@@ -36,7 +36,7 @@ export interface Project {
 
         <div class="projects__grid">
           <article
-            *ngFor="let project of projects"
+            *ngFor="let project of projects; let projectIndex = index"
             class="project-card"
             [class.project-card--web]="project.type === 'web'"
             [class.project-card--mobile]="project.type === 'mobile'"
@@ -84,32 +84,76 @@ export interface Project {
               </div>
             </div>
 
-            <!-- Galería para móvil -->
+            <!-- Phone Mockup corregido -->
             <div
               *ngIf="project.type === 'mobile' && project.screenshots"
-              class="project-card__gallery"
+              class="project-card__mobile"
             >
-              <div class="mobile-gallery">
-                <div class="mobile-frames">
-                  <div
-                    *ngFor="
-                      let screenshot of project.screenshots;
-                      let i = index
-                    "
-                    class="mobile-frame"
-                    [attr.data-label]="getScreenshotLabel(i)"
-                    [style.animation-delay.s]="i * 0.2"
-                  >
+              <div class="phone-mockup">
+                <div class="phone-frame">
+                  <div class="phone-notch"></div>
+                  <div class="phone-screen">
                     <img
-                      [src]="screenshot"
-                      [alt]="project.title + ' screenshot ' + (i + 1)"
-                      class="mobile-screenshot"
+                      [src]="getCurrentScreenshot(projectIndex)"
+                      [alt]="getCurrentScreenLabel(projectIndex)"
+                      class="phone-screenshot"
                     />
+                    <div class="phone-home-indicator"></div>
                   </div>
                 </div>
-                <p class="gallery-note">
-                  Aplicación nativa Android desarrollada en React Native
-                </p>
+
+                <div class="phone-controls">
+                  <button
+                    class="phone-control"
+                    (click)="previousScreen(projectIndex)"
+                    [disabled]="getCurrentIndex(projectIndex) === 0"
+                  >
+                    ◀
+                  </button>
+
+                  <div class="phone-indicator">
+                    <div class="current-screen">
+                      {{ getCurrentScreenLabel(projectIndex) }}
+                    </div>
+
+                    <div class="screen-dots">
+                      <span
+                        *ngFor="
+                          let screenshot of project.screenshots;
+                          let i = index
+                        "
+                        class="dot"
+                        [class.dot--active]="
+                          i === getCurrentIndex(projectIndex)
+                        "
+                        (click)="goToScreen(projectIndex, i)"
+                      ></span>
+                    </div>
+
+                    <div class="screen-counter">
+                      {{ getCurrentIndex(projectIndex) + 1 }} /
+                      {{ project.screenshots.length }}
+                    </div>
+                  </div>
+
+                  <button
+                    class="phone-control"
+                    (click)="nextScreen(projectIndex)"
+                    [disabled]="
+                      getCurrentIndex(projectIndex) ===
+                      project.screenshots.length - 1
+                    "
+                  >
+                    ▶
+                  </button>
+                </div>
+
+                <div class="app-info">
+                  <p class="app-tech">
+                    <strong>React Native</strong> + Firebase + Push
+                    Notifications
+                  </p>
+                </div>
               </div>
             </div>
 
@@ -127,22 +171,6 @@ export interface Project {
 
             <!-- Enlaces de tiendas (solo móvil) -->
             <div *ngIf="project.storeLinks" class="project-card__stores">
-              <a
-                *ngIf="project.storeLinks.playStore"
-                [href]="project.storeLinks.playStore"
-                target="_blank"
-                class="store-link store-link--play"
-              >
-                📱 Google Play
-              </a>
-              <a
-                *ngIf="project.storeLinks.appStore"
-                [href]="project.storeLinks.appStore"
-                target="_blank"
-                class="store-link store-link--app"
-              >
-                📱 App Store
-              </a>
               <div
                 *ngIf="
                   !project.storeLinks.playStore && !project.storeLinks.appStore
@@ -171,6 +199,8 @@ export interface Project {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class Projects {
+  private currentScreenshots: { [projectIndex: number]: number } = {};
+
   projects: Project[] = [
     {
       id: 'vacuna-web',
@@ -232,10 +262,7 @@ export class Projects {
         'Widgets de pantalla de inicio',
         'Sincronización con versión web en tiempo real',
       ],
-      storeLinks: {
-        // Si está en Play Store agregar link aquí
-        // playStore: 'https://play.google.com/store/apps/details?id=com.vacunaapp'
-      },
+      storeLinks: {},
     },
     {
       id: 'portfolio-ecosystem',
@@ -272,15 +299,45 @@ export class Projects {
     return labels[type as keyof typeof labels] || type;
   }
 
-  getScreenshotLabel(index: number): string {
+  getCurrentIndex(projectIndex: number): number {
+    return this.currentScreenshots[projectIndex] || 0;
+  }
+
+  getCurrentScreenshot(projectIndex: number): string {
+    const project = this.projects[projectIndex];
+    if (!project.screenshots) return '';
+    const currentIndex = this.getCurrentIndex(projectIndex);
+    return project.screenshots[currentIndex];
+  }
+
+  getCurrentScreenLabel(projectIndex: number): string {
+    const currentIndex = this.getCurrentIndex(projectIndex);
     const labels = [
-      'Dashboard',
-      'Vacunas',
-      'Categorías',
-      'Aplicadas',
-      'Pacientes',
-      'Perfil',
+      'Dashboard Principal',
+      'Lista de Vacunas',
+      'Categorías de Vacunas',
+      'Vacunas Aplicadas',
+      'Gestión de Pacientes',
+      'Perfil de Paciente',
     ];
-    return labels[index] || `Pantalla ${index + 1}`;
+    return labels[currentIndex] || `Pantalla ${currentIndex + 1}`;
+  }
+
+  previousScreen(projectIndex: number): void {
+    const currentIndex = this.getCurrentIndex(projectIndex);
+    if (currentIndex > 0) {
+      this.currentScreenshots[projectIndex] = currentIndex - 1;
+    }
+  }
+
+  nextScreen(projectIndex: number): void {
+    const project = this.projects[projectIndex];
+    const currentIndex = this.getCurrentIndex(projectIndex);
+    if (project.screenshots && currentIndex < project.screenshots.length - 1) {
+      this.currentScreenshots[projectIndex] = currentIndex + 1;
+    }
+  }
+  goToScreen(projectIndex: number, screenIndex: number): void {
+    this.currentScreenshots[projectIndex] = screenIndex;
   }
 }

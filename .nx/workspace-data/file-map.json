@@ -19,75 +19,108 @@
   "fileMap": {
     "nonProjectFiles": [
       {
-        "file": "eslint.config.mjs",
-        "hash": "10770449096712831357"
-      },
-      {
-        "file": "package.json",
-        "hash": "607995101211342893"
-      },
-      {
-        "file": ".github/workflows/ci.yml",
-        "hash": "14207756813763587448"
-      },
-      {
-        "file": "jest.preset.js",
-        "hash": "9430166341120122740"
-      },
-      {
-        "file": "jest.config.ts",
-        "hash": "6870352021923392442"
-      },
-      {
-        "file": "README.md",
-        "hash": "3599116376938497433"
-      },
-      {
-        "file": "package-lock.json",
-        "hash": "6254791525874404019"
-      },
-      {
-        "file": ".prettierrc",
-        "hash": "16267754514737964994"
-      },
-      {
-        "file": ".vscode/launch.json",
-        "hash": "7066363406961557016"
-      },
-      {
-        "file": ".vscode/extensions.json",
-        "hash": "9177403577345754958"
-      },
-      {
-        "file": ".prettierignore",
-        "hash": "5407418692668764289"
-      },
-      {
-        "file": ".gitignore",
-        "hash": "17559216753634855455"
-      },
-      {
-        "file": ".editorconfig",
-        "hash": "5443105041930014821"
+        "file": "error.log",
+        "hash": "13790753209625932028"
       },
       {
         "file": "tsconfig.base.json",
         "hash": "16936441711144470533"
       },
       {
+        "file": ".prettierrc",
+        "hash": "16267754514737964994"
+      },
+      {
+        "file": ".github/workflows/ci.yml",
+        "hash": "14207756813763587448"
+      },
+      {
+        "file": "package-lock.json",
+        "hash": "6254791525874404019"
+      },
+      {
+        "file": ".gitignore",
+        "hash": "13957996073812778436"
+      },
+      {
+        "file": "jest.preset.js",
+        "hash": "9430166341120122740"
+      },
+      {
+        "file": "package.json",
+        "hash": "607995101211342893"
+      },
+      {
+        "file": "jest.config.ts",
+        "hash": "6870352021923392442"
+      },
+      {
+        "file": "eslint.config.mjs",
+        "hash": "10770449096712831357"
+      },
+      {
+        "file": "README.md",
+        "hash": "3599116376938497433"
+      },
+      {
+        "file": ".vscode/extensions.json",
+        "hash": "9177403577345754958"
+      },
+      {
         "file": ".vscode/settings.json",
         "hash": "1735664961232389489"
+      },
+      {
+        "file": ".prettierignore",
+        "hash": "5407418692668764289"
+      },
+      {
+        "file": ".editorconfig",
+        "hash": "5443105041930014821"
       },
       {
         "file": "nx.json",
         "hash": "13910435487849314152"
       },
       {
-        "file": "error.log",
-        "hash": "13790753209625932028"
+        "file": ".vscode/launch.json",
+        "hash": "7066363406961557016"
       }
     ],
     "projectFileMap": {
+      "portafolio-e2e": [
+        {
+          "file": "apps/portafolio-e2e/eslint.config.mjs",
+          "hash": "1172734138943286526",
+          "deps": [
+            "npm:eslint-plugin-playwright"
+          ]
+        },
+        {
+          "file": "apps/portafolio-e2e/playwright.config.ts",
+          "hash": "15109277543648740577",
+          "deps": [
+            "npm:@playwright/test",
+            "npm:@nx/playwright",
+            "npm:@nx/devkit"
+          ]
+        },
+        {
+          "file": "apps/portafolio-e2e/project.json",
+          "hash": "1594850135702546029"
+        },
+        {
+          "file": "apps/portafolio-e2e/src/example.spec.ts",
+          "hash": "16019101014373124625",
+          "deps": [
+            "npm:@playwright/test"
+          ]
+        },
+        {
+          "file": "apps/portafolio-e2e/tsconfig.json",
+          "hash": "15726545290547512047"
+        }
+      ],
       "portafolio": [
         {
           "file": "apps/portafolio/eslint.config.mjs",
@@ -123,6 +156,10 @@
         {
           "file": "apps/portafolio/public/screenshots/mobile-pacientes.jpg",
           "hash": "11176984581775286448"
+        },
+        {
+          "file": "apps/portafolio/public/screenshots/mobile-vacunas.jpg",
+          "hash": "18301494784528012587"
         },
         {
           "file": "apps/portafolio/public/screenshots/mobile-vacunasApli.jpg",
@@ -310,12 +347,19 @@
           ]
         },
         {
+          "file": "apps/portafolio/src/app/pages/project-type.pipe.ts",
+          "hash": "13491892230737755561",
+          "deps": [
+            "npm:@angular/core"
+          ]
+        },
+        {
           "file": "apps/portafolio/src/app/pages/projects.html",
           "hash": "10539649865700167359"
         },
         {
           "file": "apps/portafolio/src/app/pages/projects.scss",
-          "hash": "13260950763082111526"
+          "hash": "5344490353360702171"
         },
         {
           "file": "apps/portafolio/src/app/pages/projects.spec.ts",
@@ -326,51 +370,11 @@
         },
         {
           "file": "apps/portafolio/src/app/pages/projects.ts",
-          "hash": "12401800269362290284",
+          "hash": "1025378842769693882",
           "deps": [
             "npm:@angular/common",
             "npm:@angular/core"
           ]
-        },
-        {
-          "file": "apps/portafolio/src/assets/screenshots/Screenshot_20250906_121758_Expo_Go.jpg",
-          "hash": "9093281813920647668"
-        },
-        {
-          "file": "apps/portafolio/src/assets/screenshots/Screenshot_20250906_121818_Expo_Go.jpg",
-          "hash": "13555286765971081893"
-        },
-        {
-          "file": "apps/portafolio/src/assets/screenshots/Screenshot_20250906_123545_Expo_Go.jpg",
-          "hash": "9771020382816026702"
-        },
-        {
-          "file": "apps/portafolio/src/assets/screenshots/Screenshot_20250906_123626_Expo_Go.jpg",
-          "hash": "16034690481285824987"
-        },
-        {
-          "file": "apps/portafolio/src/assets/screenshots/mobile-dashboard.jpg",
-          "hash": "2236654670987366421"
-        },
-        {
-          "file": "apps/portafolio/src/assets/screenshots/mobile-dashboard.png",
-          "hash": "11782465055851682116"
-        },
-        {
-          "file": "apps/portafolio/src/assets/screenshots/mobile-pacientes.jpg",
-          "hash": "11176984581775286448"
-        },
-        {
-          "file": "apps/portafolio/src/assets/screenshots/mobile-pacientes.png",
-          "hash": "9155977212087378705"
-        },
-        {
-          "file": "apps/portafolio/src/assets/screenshots/mobile-vacunas.jpg",
-          "hash": "18301494784528012587"
-        },
-        {
-          "file": "apps/portafolio/src/assets/screenshots/mobile-vacunas.png",
-          "hash": "75715378555104998"
         },
         {
           "file": "apps/portafolio/src/index.html",
@@ -420,39 +424,6 @@
         {
           "file": "apps/portafolio/tsconfig.spec.json",
           "hash": "5331518322626158299"
-        }
-      ],
-      "portafolio-e2e": [
-        {
-          "file": "apps/portafolio-e2e/eslint.config.mjs",
-          "hash": "1172734138943286526",
-          "deps": [
-            "npm:eslint-plugin-playwright"
-          ]
-        },
-        {
-          "file": "apps/portafolio-e2e/playwright.config.ts",
-          "hash": "15109277543648740577",
-          "deps": [
-            "npm:@playwright/test",
-            "npm:@nx/playwright",
-            "npm:@nx/devkit"
-          ]
-        },
-        {
-          "file": "apps/portafolio-e2e/project.json",
-          "hash": "1594850135702546029"
-        },
-        {
-          "file": "apps/portafolio-e2e/src/example.spec.ts",
-          "hash": "16019101014373124625",
-          "deps": [
-            "npm:@playwright/test"
-          ]
-        },
-        {
-          "file": "apps/portafolio-e2e/tsconfig.json",
-          "hash": "15726545290547512047"
         }
       ]
     }
