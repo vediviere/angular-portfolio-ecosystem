@@ -982,3 +982,282 @@ Time for 'build typescript dependencies' 0.034900000086054206
 [NX v21.4.1 Daemon Server] - 2025-09-11T17:22:53.566Z - [SYNC]: project graph hash is the same, not collecting task sync generators
 [NX v21.4.1 Daemon Server] - 2025-09-11T17:22:53.566Z - [SYNC]: nx.json hash is the same, not collecting global sync generators
 [NX v21.4.1 Daemon Server] - 2025-09-11T17:22:53.566Z - Time taken for 'total execution time for createProjectGraph()' 41.61559999990277ms
+[NX v21.4.1 Daemon Server] - 2025-09-11T17:37:44.558Z - [WATCHER]: Processing file changes in outputs
+[NX v21.4.1 Daemon Server] - 2025-09-11T17:37:44.561Z - [WATCHER]: 0 file(s) created or restored, 2 file(s) modified, 0 file(s) deleted
+[NX v21.4.1 Daemon Server] - 2025-09-11T17:37:45.377Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX v21.4.1 Daemon Server] - 2025-09-11T17:37:45.377Z - [REQUEST]: .github/workflows/firebase-hosting-pull-request.yml,.github/workflows/firebase-hosting-merge.yml
+[NX v21.4.1 Daemon Server] - 2025-09-11T17:37:45.377Z - [REQUEST]: 
+Time for 'nx/core/package-json:createNodes' 0.7727999999187887
+Time for 'nx/core/project-json:createNodes' 1.5862000002525747
+[NX v21.4.1 Daemon Server] - 2025-09-11T17:37:45.387Z - [REQUEST]: Responding to the client. handleHashGlob
+[NX v21.4.1 Daemon Server] - 2025-09-11T17:37:45.388Z - Time taken for 'hash changed files from watcher' 0.5318999998271465ms
+Time for '@nx/playwright/plugin:createNodes' 9.442700000014156
+Time for 'total for sendMessageToDaemon()' 6.616599999833852
+Time for 'deserialize daemon response' 0.020299999974668026
+[NX v21.4.1 Daemon Server] - 2025-09-11T17:37:45.391Z - [REQUEST]: Responding to the client. handleGlob
+[NX v21.4.1 Daemon Server] - 2025-09-11T17:37:45.392Z - Done responding to the client handleHashGlob
+[NX v21.4.1 Daemon Server] - 2025-09-11T17:37:45.392Z - Handled HASH_GLOB. Handling time: 0. Response time: 5.
+Time for 'total for sendMessageToDaemon()' 8.907600000035018
+Time for 'deserialize daemon response' 0.04430000018328428
+[NX v21.4.1 Daemon Server] - 2025-09-11T17:37:45.393Z - Done responding to the client handleGlob
+[NX v21.4.1 Daemon Server] - 2025-09-11T17:37:45.393Z - Handled GLOB. Handling time: 1. Response time: 2.
+[NX v21.4.1 Daemon Server] - 2025-09-11T17:37:45.395Z - [REQUEST]: Responding to the client. handleHashMultiGlob
+[NX v21.4.1 Daemon Server] - 2025-09-11T17:37:45.395Z - Done responding to the client handleHashMultiGlob
+[NX v21.4.1 Daemon Server] - 2025-09-11T17:37:45.395Z - Handled HASH_GLOB. Handling time: 2. Response time: 0.
+Time for 'total for sendMessageToDaemon()' 2.860599999781698
+Time for 'deserialize daemon response' 0.01839999994263053
+Time for 'nx/js/dependencies-and-lockfile:createNodes' 17.556100000161678
+Time for '@nx/eslint/plugin:createNodes' 55.23579999990761
+[NX v21.4.1 Daemon Server] - 2025-09-11T17:37:45.449Z - Time taken for 'build-project-configs' 60.26179999997839ms
+Time for 'build typescript dependencies' 0.0430999998934567
+[NX v21.4.1 Daemon Server] - 2025-09-11T17:37:45.522Z - Wrote project graph cache to C:\Users\vediv\Documents\angular-portfolio-ecosystem\.nx\workspace-data\project-graph.json
+[NX v21.4.1 Daemon Server] - 2025-09-11T17:37:45.522Z - [SYNC]: collect registered sync generators
+[NX v21.4.1 Daemon Server] - 2025-09-11T17:37:45.523Z - [SYNC]: project graph hash is the same, not collecting task sync generators
+[NX v21.4.1 Daemon Server] - 2025-09-11T17:37:45.523Z - [SYNC]: nx.json hash is the same, not collecting global sync generators
+[NX v21.4.1 Daemon Server] - 2025-09-11T17:37:45.523Z - Time taken for 'total execution time for createProjectGraph()' 62.95779999997467ms
+[NX v21.4.1 Daemon Server] - 2025-09-11T17:57:44.479Z - Established a connection. Number of open connections: 3
+[NX v21.4.1 Daemon Server] - 2025-09-11T17:57:44.480Z - Closed a connection. Number of open connections: 2
+[NX v21.4.1 Daemon Server] - 2025-09-11T17:57:44.482Z - Established a connection. Number of open connections: 3
+[NX v21.4.1 Daemon Server] - 2025-09-11T17:57:44.487Z - [REQUEST]: Client Request for Project Graph Received
+[NX v21.4.1 Daemon Server] - 2025-09-11T17:57:44.488Z - Reusing in-memory cached project graph because no files changed.
+[NX v21.4.1 Daemon Server] - 2025-09-11T17:57:44.488Z - [REQUEST]: Responding to the client. project-graph
+[NX v21.4.1 Daemon Server] - 2025-09-11T17:57:44.489Z - Time taken for 'total for creating and serializing project graph' 1.1252999999560416ms
+[NX v21.4.1 Daemon Server] - 2025-09-11T17:57:44.492Z - Done responding to the client project-graph
+[NX v21.4.1 Daemon Server] - 2025-09-11T17:57:44.492Z - Handled REQUEST_PROJECT_GRAPH. Handling time: 1. Response time: 4.
+[NX v21.4.1 Daemon Server] - 2025-09-11T17:57:44.502Z - [REQUEST]: Responding to the client. handleRunPreTasksExecution
+[NX v21.4.1 Daemon Server] - 2025-09-11T17:57:44.503Z - Time taken for 'preTasksExecution' 0.5024999999441206ms
+[NX v21.4.1 Daemon Server] - 2025-09-11T17:57:44.503Z - Done responding to the client handleRunPreTasksExecution
+[NX v21.4.1 Daemon Server] - 2025-09-11T17:57:44.503Z - Handled PRE_TASKS_EXECUTION. Handling time: 0. Response time: 1.
+[NX v21.4.1 Daemon Server] - 2025-09-11T17:57:44.557Z - Reusing in-memory cached project graph because no files changed.
+DEBUG nx::native::tasks::task_hasher: plan length: 1
+DEBUG nx::native::tasks::hashers::hash_workspace_files: Hashing workspace fileset{cache_key="nx.json,.gitignore,.nxignore"}: Adding "13957996073812778436" (".gitignore") to hash
+DEBUG nx::native::tasks::hashers::hash_workspace_files: Hashing workspace fileset{cache_key="nx.json,.gitignore,.nxignore"}: Adding "13910435487849314152" ("nx.json") to hash
+DEBUG nx::native::tasks::hashers::hash_workspace_files: Hashing workspace fileset{cache_key="nx.json,.gitignore,.nxignore"}: Hash Value: "15651450520885138966"
+[NX v21.4.1 Daemon Server] - 2025-09-11T17:57:44.578Z - [REQUEST]: Responding to the client. handleHashTasks
+[NX v21.4.1 Daemon Server] - 2025-09-11T17:57:44.582Z - Done responding to the client handleHashTasks
+[NX v21.4.1 Daemon Server] - 2025-09-11T17:57:44.582Z - Handled HASH_TASKS. Handling time: 22. Response time: 4.
+[NX v21.4.1 Daemon Server] - 2025-09-11T17:57:45.438Z - [REQUEST]: Responding to the client. handleGetEstimatedTaskTimings
+[NX v21.4.1 Daemon Server] - 2025-09-11T17:57:45.439Z - Done responding to the client handleGetEstimatedTaskTimings
+[NX v21.4.1 Daemon Server] - 2025-09-11T17:57:45.439Z - Handled GET_ESTIMATED_TASK_TIMINGS. Handling time: 0. Response time: 1.
+[NX v21.4.1 Daemon Server] - 2025-09-11T17:57:47.221Z - Established a connection. Number of open connections: 4
+[NX v21.4.1 Daemon Server] - 2025-09-11T17:57:47.224Z - Closed a connection. Number of open connections: 3
+[NX v21.4.1 Daemon Server] - 2025-09-11T17:57:47.224Z - Established a connection. Number of open connections: 4
+[NX v21.4.1 Daemon Server] - 2025-09-11T17:57:47.227Z - [REQUEST]: Client Request for Project Graph Received
+[NX v21.4.1 Daemon Server] - 2025-09-11T17:57:47.227Z - Reusing in-memory cached project graph because no files changed.
+[NX v21.4.1 Daemon Server] - 2025-09-11T17:57:47.227Z - [REQUEST]: Responding to the client. project-graph
+[NX v21.4.1 Daemon Server] - 2025-09-11T17:57:47.229Z - Time taken for 'total for creating and serializing project graph' 0.4690000000409782ms
+[NX v21.4.1 Daemon Server] - 2025-09-11T17:57:47.232Z - Done responding to the client project-graph
+[NX v21.4.1 Daemon Server] - 2025-09-11T17:57:47.232Z - Handled REQUEST_PROJECT_GRAPH. Handling time: 0. Response time: 5.
+[NX v21.4.1 Daemon Server] - 2025-09-11T17:58:08.242Z - Closed a connection. Number of open connections: 3
+[NX v21.4.1 Daemon Server] - 2025-09-11T17:58:08.269Z - [REQUEST]: Responding to the client. handleRecordTaskRuns
+[NX v21.4.1 Daemon Server] - 2025-09-11T17:58:08.270Z - Done responding to the client handleRecordTaskRuns
+[NX v21.4.1 Daemon Server] - 2025-09-11T17:58:08.270Z - Handled RECORD_TASK_RUNS. Handling time: 0. Response time: 1.
+[NX v21.4.1 Daemon Server] - 2025-09-11T17:58:08.271Z - [REQUEST]: Responding to the client. handleGetFlakyTasks
+[NX v21.4.1 Daemon Server] - 2025-09-11T17:58:08.271Z - Done responding to the client handleGetFlakyTasks
+[NX v21.4.1 Daemon Server] - 2025-09-11T17:58:08.271Z - Handled GET_FLAKY_TASKS. Handling time: 0. Response time: 0.
+[NX v21.4.1 Daemon Server] - 2025-09-11T17:58:09.083Z - [REQUEST]: Responding to the client. PROCESS_IN_BACKGROUND
+[NX v21.4.1 Daemon Server] - 2025-09-11T17:58:09.084Z - Uploading file artifacts
+[NX v21.4.1 Daemon Server] - 2025-09-11T17:58:09.085Z - Done uploading file artifacts
+[NX v21.4.1 Daemon Server] - 2025-09-11T17:58:09.085Z - Sending EndRun request
+[Nx Cloud Debug] Attempting to acquire filesystem lock with path:  C:\Users\vediv\AppData\Local\Temp\client-instance-id.lock
+[Nx Cloud Debug] Failed to create folder lock at path: C:\Users\vediv\AppData\Local\Temp\client-instance-id.lock
+[Nx Cloud] Unable to detect a VCS context from the environment.
+[NX v21.4.1 Daemon Server] - 2025-09-11T17:58:09.091Z - Done responding to the client PROCESS_IN_BACKGROUND
+[NX v21.4.1 Daemon Server] - 2025-09-11T17:58:09.091Z - Handled PROCESS_IN_BACKGROUND. Handling time: 713. Response time: 8.
+[NX v21.4.1 Daemon Server] - 2025-09-11T17:58:09.098Z - [REQUEST]: Responding to the client. handleRunPostTasksExecution
+
+ NX   RunEnd. Completed tasks
+
+
+[
+  "portafolio:serve:development"
+]
+
+[NX v21.4.1 Daemon Server] - 2025-09-11T17:58:09.124Z - Time taken for 'postTasksExecution' 0.8433999996632338ms
+[NX v21.4.1 Daemon Server] - 2025-09-11T17:58:09.124Z - Done responding to the client handleRunPostTasksExecution
+[NX v21.4.1 Daemon Server] - 2025-09-11T17:58:09.124Z - Handled POST_TASKS_EXECUTION. Handling time: 1. Response time: 26.
+[NX v21.4.1 Daemon Server] - 2025-09-11T17:58:09.134Z - Closed a connection. Number of open connections: 2
+
+ NX   Connection to Nx Cloud failed with status code 401
+
+This workspace is more than three days old and is not connected. Workspaces must be connected within 3 days of creation. Claim your workspace at https://cloud.nx.app.
+
+[NX v21.4.1 Daemon Server] - 2025-09-11T17:58:09.400Z - Error when sending EndRun
+Error: This workspace is more than three days old and is not connected. Workspaces must be connected within 3 days of creation. Claim your workspace at https://cloud.nx.app
+    at Timeout._onTimeout (C:\Users\vediv\Documents\angular-portfolio-ecosystem\.nx\cache\cloud\2509.09.8\lib\daemon\process-run-end.js:1:912708)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+[NX v21.4.1 Daemon Server] - 2025-09-11T17:58:15.644Z - Established a connection. Number of open connections: 3
+[NX v21.4.1 Daemon Server] - 2025-09-11T17:58:15.646Z - Closed a connection. Number of open connections: 2
+[NX v21.4.1 Daemon Server] - 2025-09-11T17:58:15.647Z - Established a connection. Number of open connections: 3
+[NX v21.4.1 Daemon Server] - 2025-09-11T17:58:15.651Z - [REQUEST]: Client Request for Project Graph Received
+[NX v21.4.1 Daemon Server] - 2025-09-11T17:58:15.652Z - Reusing in-memory cached project graph because no files changed.
+[NX v21.4.1 Daemon Server] - 2025-09-11T17:58:15.652Z - [REQUEST]: Responding to the client. project-graph
+[NX v21.4.1 Daemon Server] - 2025-09-11T17:58:15.653Z - Time taken for 'total for creating and serializing project graph' 0.826100000180304ms
+[NX v21.4.1 Daemon Server] - 2025-09-11T17:58:15.656Z - Done responding to the client project-graph
+[NX v21.4.1 Daemon Server] - 2025-09-11T17:58:15.656Z - Handled REQUEST_PROJECT_GRAPH. Handling time: 1. Response time: 4.
+[NX v21.4.1 Daemon Server] - 2025-09-11T17:58:15.668Z - [REQUEST]: Responding to the client. handleRunPreTasksExecution
+[NX v21.4.1 Daemon Server] - 2025-09-11T17:58:15.668Z - Time taken for 'preTasksExecution' 0.35899999970570207ms
+[NX v21.4.1 Daemon Server] - 2025-09-11T17:58:15.668Z - Done responding to the client handleRunPreTasksExecution
+[NX v21.4.1 Daemon Server] - 2025-09-11T17:58:15.668Z - Handled PRE_TASKS_EXECUTION. Handling time: 1. Response time: 0.
+[NX v21.4.1 Daemon Server] - 2025-09-11T17:58:15.717Z - Reusing in-memory cached project graph because no files changed.
+DEBUG nx::native::tasks::task_hasher: plan length: 1
+[NX v21.4.1 Daemon Server] - 2025-09-11T17:58:15.731Z - [REQUEST]: Responding to the client. handleHashTasks
+[NX v21.4.1 Daemon Server] - 2025-09-11T17:58:15.732Z - Done responding to the client handleHashTasks
+[NX v21.4.1 Daemon Server] - 2025-09-11T17:58:15.732Z - Handled HASH_TASKS. Handling time: 14. Response time: 1.
+[NX v21.4.1 Daemon Server] - 2025-09-11T17:58:16.197Z - [REQUEST]: Responding to the client. handleGetEstimatedTaskTimings
+[NX v21.4.1 Daemon Server] - 2025-09-11T17:58:16.197Z - Done responding to the client handleGetEstimatedTaskTimings
+[NX v21.4.1 Daemon Server] - 2025-09-11T17:58:16.197Z - Handled GET_ESTIMATED_TASK_TIMINGS. Handling time: 1. Response time: 0.
+[NX v21.4.1 Daemon Server] - 2025-09-11T17:58:17.850Z - Established a connection. Number of open connections: 4
+[NX v21.4.1 Daemon Server] - 2025-09-11T17:58:17.850Z - Closed a connection. Number of open connections: 3
+[NX v21.4.1 Daemon Server] - 2025-09-11T17:58:17.851Z - Established a connection. Number of open connections: 4
+[NX v21.4.1 Daemon Server] - 2025-09-11T17:58:17.854Z - [REQUEST]: Client Request for Project Graph Received
+[NX v21.4.1 Daemon Server] - 2025-09-11T17:58:17.854Z - Reusing in-memory cached project graph because no files changed.
+[NX v21.4.1 Daemon Server] - 2025-09-11T17:58:17.854Z - [REQUEST]: Responding to the client. project-graph
+[NX v21.4.1 Daemon Server] - 2025-09-11T17:58:17.855Z - Time taken for 'total for creating and serializing project graph' 0.5257000001147389ms
+[NX v21.4.1 Daemon Server] - 2025-09-11T17:58:17.857Z - Done responding to the client project-graph
+[NX v21.4.1 Daemon Server] - 2025-09-11T17:58:17.857Z - Handled REQUEST_PROJECT_GRAPH. Handling time: 0. Response time: 3.
+[NX v21.4.1 Daemon Server] - 2025-09-11T17:58:59.889Z - [WATCHER]: Processing file changes in outputs
+[NX v21.4.1 Daemon Server] - 2025-09-11T18:00:05.308Z - Closed a connection. Number of open connections: 3
+[NX v21.4.1 Daemon Server] - 2025-09-11T18:00:05.313Z - Closed a connection. Number of open connections: 2
+[NX v21.4.1 Daemon Server] - 2025-09-11T18:00:09.731Z - Established a connection. Number of open connections: 3
+[NX v21.4.1 Daemon Server] - 2025-09-11T18:00:09.731Z - Closed a connection. Number of open connections: 2
+[NX v21.4.1 Daemon Server] - 2025-09-11T18:00:09.732Z - Established a connection. Number of open connections: 3
+[NX v21.4.1 Daemon Server] - 2025-09-11T18:00:09.736Z - [REQUEST]: Client Request for Project Graph Received
+[NX v21.4.1 Daemon Server] - 2025-09-11T18:00:09.737Z - Reusing in-memory cached project graph because no files changed.
+[NX v21.4.1 Daemon Server] - 2025-09-11T18:00:09.737Z - [REQUEST]: Responding to the client. project-graph
+[NX v21.4.1 Daemon Server] - 2025-09-11T18:00:09.738Z - Time taken for 'total for creating and serializing project graph' 0.8870999999344349ms
+[NX v21.4.1 Daemon Server] - 2025-09-11T18:00:09.741Z - Done responding to the client project-graph
+[NX v21.4.1 Daemon Server] - 2025-09-11T18:00:09.741Z - Handled REQUEST_PROJECT_GRAPH. Handling time: 1. Response time: 4.
+[NX v21.4.1 Daemon Server] - 2025-09-11T18:00:09.750Z - [REQUEST]: Responding to the client. handleRunPreTasksExecution
+[NX v21.4.1 Daemon Server] - 2025-09-11T18:00:09.750Z - Time taken for 'preTasksExecution' 0.35169999999925494ms
+[NX v21.4.1 Daemon Server] - 2025-09-11T18:00:09.750Z - Done responding to the client handleRunPreTasksExecution
+[NX v21.4.1 Daemon Server] - 2025-09-11T18:00:09.750Z - Handled PRE_TASKS_EXECUTION. Handling time: 0. Response time: 0.
+[NX v21.4.1 Daemon Server] - 2025-09-11T18:00:09.784Z - Reusing in-memory cached project graph because no files changed.
+DEBUG nx::native::tasks::task_hasher: plan length: 1
+[NX v21.4.1 Daemon Server] - 2025-09-11T18:00:09.795Z - [REQUEST]: Responding to the client. handleHashTasks
+[NX v21.4.1 Daemon Server] - 2025-09-11T18:00:09.796Z - Done responding to the client handleHashTasks
+[NX v21.4.1 Daemon Server] - 2025-09-11T18:00:09.796Z - Handled HASH_TASKS. Handling time: 12. Response time: 1.
+[NX v21.4.1 Daemon Server] - 2025-09-11T18:00:10.142Z - [REQUEST]: Responding to the client. handleGetEstimatedTaskTimings
+[NX v21.4.1 Daemon Server] - 2025-09-11T18:00:10.142Z - Done responding to the client handleGetEstimatedTaskTimings
+[NX v21.4.1 Daemon Server] - 2025-09-11T18:00:10.142Z - Handled GET_ESTIMATED_TASK_TIMINGS. Handling time: 1. Response time: 0.
+[NX v21.4.1 Daemon Server] - 2025-09-11T18:00:11.269Z - Established a connection. Number of open connections: 4
+[NX v21.4.1 Daemon Server] - 2025-09-11T18:00:11.269Z - Closed a connection. Number of open connections: 3
+[NX v21.4.1 Daemon Server] - 2025-09-11T18:00:11.270Z - Established a connection. Number of open connections: 4
+[NX v21.4.1 Daemon Server] - 2025-09-11T18:00:11.272Z - [REQUEST]: Client Request for Project Graph Received
+[NX v21.4.1 Daemon Server] - 2025-09-11T18:00:11.272Z - Reusing in-memory cached project graph because no files changed.
+[NX v21.4.1 Daemon Server] - 2025-09-11T18:00:11.273Z - [REQUEST]: Responding to the client. project-graph
+[NX v21.4.1 Daemon Server] - 2025-09-11T18:00:11.274Z - Time taken for 'total for creating and serializing project graph' 0.4989999998360872ms
+[NX v21.4.1 Daemon Server] - 2025-09-11T18:00:11.275Z - Done responding to the client project-graph
+[NX v21.4.1 Daemon Server] - 2025-09-11T18:00:11.275Z - Handled REQUEST_PROJECT_GRAPH. Handling time: 1. Response time: 2.
+[NX v21.4.1 Daemon Server] - 2025-09-11T18:00:19.371Z - Closed a connection. Number of open connections: 3
+[NX v21.4.1 Daemon Server] - 2025-09-11T18:00:19.408Z - [REQUEST]: Responding to the client. handleRecordTaskRuns
+[NX v21.4.1 Daemon Server] - 2025-09-11T18:00:19.410Z - Done responding to the client handleRecordTaskRuns
+[NX v21.4.1 Daemon Server] - 2025-09-11T18:00:19.410Z - Handled RECORD_TASK_RUNS. Handling time: 0. Response time: 2.
+[NX v21.4.1 Daemon Server] - 2025-09-11T18:00:19.413Z - [REQUEST]: Responding to the client. handleGetFlakyTasks
+[NX v21.4.1 Daemon Server] - 2025-09-11T18:00:19.413Z - Done responding to the client handleGetFlakyTasks
+[NX v21.4.1 Daemon Server] - 2025-09-11T18:00:19.414Z - Handled GET_FLAKY_TASKS. Handling time: 1. Response time: 1.
+[NX v21.4.1 Daemon Server] - 2025-09-11T18:00:20.111Z - [REQUEST]: Responding to the client. PROCESS_IN_BACKGROUND
+[NX v21.4.1 Daemon Server] - 2025-09-11T18:00:20.111Z - Uploading file artifacts
+[NX v21.4.1 Daemon Server] - 2025-09-11T18:00:20.111Z - Done uploading file artifacts
+[NX v21.4.1 Daemon Server] - 2025-09-11T18:00:20.111Z - Sending EndRun request
+[Nx Cloud Debug] Attempting to acquire filesystem lock with path:  C:\Users\vediv\AppData\Local\Temp\client-instance-id.lock
+[Nx Cloud Debug] Failed to create folder lock at path: C:\Users\vediv\AppData\Local\Temp\client-instance-id.lock
+[Nx Cloud] Unable to detect a VCS context from the environment.
+[NX v21.4.1 Daemon Server] - 2025-09-11T18:00:20.115Z - Done responding to the client PROCESS_IN_BACKGROUND
+[NX v21.4.1 Daemon Server] - 2025-09-11T18:00:20.116Z - Handled PROCESS_IN_BACKGROUND. Handling time: 593. Response time: 4.
+
+ NX   RunEnd. Completed tasks
+
+
+[
+  "portafolio:serve:development"
+]
+
+[NX v21.4.1 Daemon Server] - 2025-09-11T18:00:20.147Z - [REQUEST]: Responding to the client. handleRunPostTasksExecution
+[NX v21.4.1 Daemon Server] - 2025-09-11T18:00:20.147Z - Time taken for 'postTasksExecution' 1.151999999769032ms
+[NX v21.4.1 Daemon Server] - 2025-09-11T18:00:20.148Z - Done responding to the client handleRunPostTasksExecution
+[NX v21.4.1 Daemon Server] - 2025-09-11T18:00:20.148Z - Handled POST_TASKS_EXECUTION. Handling time: 1. Response time: 1.
+[NX v21.4.1 Daemon Server] - 2025-09-11T18:00:20.201Z - Closed a connection. Number of open connections: 2
+
+ NX   Connection to Nx Cloud failed with status code 401
+
+This workspace is more than three days old and is not connected. Workspaces must be connected within 3 days of creation. Claim your workspace at https://cloud.nx.app.
+
+[NX v21.4.1 Daemon Server] - 2025-09-11T18:00:20.448Z - Error when sending EndRun
+Error: This workspace is more than three days old and is not connected. Workspaces must be connected within 3 days of creation. Claim your workspace at https://cloud.nx.app
+    at Timeout._onTimeout (C:\Users\vediv\Documents\angular-portfolio-ecosystem\.nx\cache\cloud\2509.09.8\lib\daemon\process-run-end.js:1:912708)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+[NX v21.4.1 Daemon Server] - 2025-09-11T18:00:42.815Z - Established a connection. Number of open connections: 3
+[NX v21.4.1 Daemon Server] - 2025-09-11T18:00:42.815Z - Closed a connection. Number of open connections: 2
+[NX v21.4.1 Daemon Server] - 2025-09-11T18:00:42.816Z - Established a connection. Number of open connections: 3
+[NX v21.4.1 Daemon Server] - 2025-09-11T18:00:42.823Z - [REQUEST]: Client Request for Project Graph Received
+[NX v21.4.1 Daemon Server] - 2025-09-11T18:00:42.824Z - Reusing in-memory cached project graph because no files changed.
+[NX v21.4.1 Daemon Server] - 2025-09-11T18:00:42.824Z - [REQUEST]: Responding to the client. project-graph
+[NX v21.4.1 Daemon Server] - 2025-09-11T18:00:42.826Z - Time taken for 'total for creating and serializing project graph' 1.1872000000439584ms
+[NX v21.4.1 Daemon Server] - 2025-09-11T18:00:42.829Z - Done responding to the client project-graph
+[NX v21.4.1 Daemon Server] - 2025-09-11T18:00:42.829Z - Handled REQUEST_PROJECT_GRAPH. Handling time: 1. Response time: 5.
+[NX v21.4.1 Daemon Server] - 2025-09-11T18:00:42.840Z - [REQUEST]: Responding to the client. handleRunPreTasksExecution
+[NX v21.4.1 Daemon Server] - 2025-09-11T18:00:42.840Z - Time taken for 'preTasksExecution' 0.5728000001981854ms
+[NX v21.4.1 Daemon Server] - 2025-09-11T18:00:42.840Z - Done responding to the client handleRunPreTasksExecution
+[NX v21.4.1 Daemon Server] - 2025-09-11T18:00:42.840Z - Handled PRE_TASKS_EXECUTION. Handling time: 1. Response time: 0.
+[NX v21.4.1 Daemon Server] - 2025-09-11T18:00:42.886Z - Reusing in-memory cached project graph because no files changed.
+DEBUG nx::native::tasks::task_hasher: plan length: 1
+[NX v21.4.1 Daemon Server] - 2025-09-11T18:00:42.898Z - [REQUEST]: Responding to the client. handleHashTasks
+[NX v21.4.1 Daemon Server] - 2025-09-11T18:00:42.898Z - Done responding to the client handleHashTasks
+[NX v21.4.1 Daemon Server] - 2025-09-11T18:00:42.898Z - Handled HASH_TASKS. Handling time: 13. Response time: 0.
+[NX v21.4.1 Daemon Server] - 2025-09-11T18:00:43.328Z - [REQUEST]: Responding to the client. handleGetEstimatedTaskTimings
+[NX v21.4.1 Daemon Server] - 2025-09-11T18:00:43.328Z - Done responding to the client handleGetEstimatedTaskTimings
+[NX v21.4.1 Daemon Server] - 2025-09-11T18:00:43.328Z - Handled GET_ESTIMATED_TASK_TIMINGS. Handling time: 1. Response time: 0.
+[NX v21.4.1 Daemon Server] - 2025-09-11T18:00:44.732Z - Established a connection. Number of open connections: 4
+[NX v21.4.1 Daemon Server] - 2025-09-11T18:00:44.735Z - Closed a connection. Number of open connections: 3
+[NX v21.4.1 Daemon Server] - 2025-09-11T18:00:44.736Z - Established a connection. Number of open connections: 4
+[NX v21.4.1 Daemon Server] - 2025-09-11T18:00:44.739Z - [REQUEST]: Client Request for Project Graph Received
+[NX v21.4.1 Daemon Server] - 2025-09-11T18:00:44.739Z - Reusing in-memory cached project graph because no files changed.
+[NX v21.4.1 Daemon Server] - 2025-09-11T18:00:44.739Z - [REQUEST]: Responding to the client. project-graph
+[NX v21.4.1 Daemon Server] - 2025-09-11T18:00:44.741Z - Time taken for 'total for creating and serializing project graph' 0.883400000166148ms
+[NX v21.4.1 Daemon Server] - 2025-09-11T18:00:44.743Z - Done responding to the client project-graph
+[NX v21.4.1 Daemon Server] - 2025-09-11T18:00:44.743Z - Handled REQUEST_PROJECT_GRAPH. Handling time: 1. Response time: 4.
+[NX v21.4.1 Daemon Server] - 2025-09-11T18:00:49.534Z - [WATCHER]: Processing file changes in outputs
+[NX v21.4.1 Daemon Server] - 2025-09-11T18:12:28.922Z - [WATCHER]: Processing file changes in outputs
+[NX v21.4.1 Daemon Server] - 2025-09-11T18:12:28.924Z - [WATCHER]: apps/portafolio/src/app/app.html was modified
+[NX v21.4.1 Daemon Server] - 2025-09-11T18:12:29.030Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX v21.4.1 Daemon Server] - 2025-09-11T18:12:29.030Z - [REQUEST]: apps/portafolio/src/app/app.html
+[NX v21.4.1 Daemon Server] - 2025-09-11T18:12:29.030Z - [REQUEST]: 
+[NX v21.4.1 Daemon Server] - 2025-09-11T18:12:29.037Z - Time taken for 'hash changed files from watcher' 0.3574999999254942ms
+Time for 'nx/core/package-json:createNodes' 1.2745000002905726
+Time for 'nx/core/project-json:createNodes' 1.2669999999925494
+[NX v21.4.1 Daemon Server] - 2025-09-11T18:12:29.045Z - [REQUEST]: Responding to the client. handleGlob
+Time for 'total for sendMessageToDaemon()' 2.393900000490248
+Time for 'deserialize daemon response' 0.029000000096857548
+[NX v21.4.1 Daemon Server] - 2025-09-11T18:12:29.047Z - [REQUEST]: Responding to the client. handleHashGlob
+[NX v21.4.1 Daemon Server] - 2025-09-11T18:12:29.047Z - Done responding to the client handleGlob
+[NX v21.4.1 Daemon Server] - 2025-09-11T18:12:29.047Z - Handled GLOB. Handling time: 0. Response time: 2.
+Time for '@nx/playwright/plugin:createNodes' 10.822900000028312
+Time for 'total for sendMessageToDaemon()' 4.066800000146031
+Time for 'deserialize daemon response' 0.02160000056028366
+[NX v21.4.1 Daemon Server] - 2025-09-11T18:12:29.054Z - [REQUEST]: Responding to the client. handleHashMultiGlob
+[NX v21.4.1 Daemon Server] - 2025-09-11T18:12:29.054Z - Done responding to the client handleHashGlob
+[NX v21.4.1 Daemon Server] - 2025-09-11T18:12:29.054Z - Handled HASH_GLOB. Handling time: 1. Response time: 7.
+[NX v21.4.1 Daemon Server] - 2025-09-11T18:12:29.055Z - Done responding to the client handleHashMultiGlob
+[NX v21.4.1 Daemon Server] - 2025-09-11T18:12:29.056Z - Handled HASH_GLOB. Handling time: 5. Response time: 2.
+Time for 'total for sendMessageToDaemon()' 7.927099999971688
+Time for 'deserialize daemon response' 0.02000000048428774
+Time for 'nx/js/dependencies-and-lockfile:createNodes' 18.405799999833107
+Time for '@nx/eslint/plugin:createNodes' 80.43180000036955
+[NX v21.4.1 Daemon Server] - 2025-09-11T18:12:29.131Z - Time taken for 'build-project-configs' 91.32030000071973ms
+Time for 'build typescript dependencies' 7.353699999861419
+[NX v21.4.1 Daemon Server] - 2025-09-11T18:12:29.215Z - Wrote project graph cache to C:\Users\vediv\Documents\angular-portfolio-ecosystem\.nx\workspace-data\project-graph.json
+[NX v21.4.1 Daemon Server] - 2025-09-11T18:12:29.215Z - [SYNC]: collect registered sync generators
+[NX v21.4.1 Daemon Server] - 2025-09-11T18:12:29.217Z - [SYNC]: project graph hash is the same, not collecting task sync generators
+[NX v21.4.1 Daemon Server] - 2025-09-11T18:12:29.220Z - [SYNC]: nx.json hash is the same, not collecting global sync generators
+[NX v21.4.1 Daemon Server] - 2025-09-11T18:12:29.221Z - Time taken for 'total execution time for createProjectGraph()' 64.61239999998361ms
+[NX v21.4.1 Daemon Server] - 2025-09-11T18:12:29.606Z - [WATCHER]: Processing file changes in outputs
+[NX v21.4.1 Daemon Server] - 2025-09-11T18:15:57.763Z - [WATCHER]: Processing file changes in outputs
+[NX v21.4.1 Daemon Server] - 2025-09-11T18:15:57.769Z - [WATCHER]: .gitignore was modified
+[NX v21.4.1 Daemon Server] - 2025-09-11T18:15:57.781Z - Closed a connection. Number of open connections: 3
+[NX v21.4.1 Daemon Server] - 2025-09-11T18:15:57.781Z - Closed a connection. Number of open connections: 2
+[NX v21.4.1 Daemon Server] - 2025-09-11T18:15:57.781Z - Closed a connection. Number of open connections: 1
+[NX v21.4.1 Daemon Server] - 2025-09-11T18:15:57.781Z - Closed a connection. Number of open connections: 0
+[NX v21.4.1 Daemon Server] - 2025-09-11T18:15:57.785Z - [WATCHER]: Stopping the watcher for C:\Users\vediv\Documents\angular-portfolio-ecosystem (sources)
+[NX v21.4.1 Daemon Server] - 2025-09-11T18:15:57.787Z - [WATCHER]: Stopping the watcher for C:\Users\vediv\Documents\angular-portfolio-ecosystem (outputs)
+[NX v21.4.1 Daemon Server] - 2025-09-11T18:15:57.817Z - Server stopped because: "Stopping the daemon the set of ignored files changed (native)"

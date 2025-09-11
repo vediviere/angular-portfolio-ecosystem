@@ -1,21 +1,9 @@
 {
   "run": {
-    "command": "nx build portafolio --configuration=production",
-    "startTime": "2025-09-11T17:00:02.937Z",
-    "endTime": "2025-09-11T17:00:13.688Z",
+    "command": "nx serve portafolio",
+    "startTime": "2025-09-11T18:00:10.089Z",
+    "endTime": "2025-09-11T18:00:19.400Z",
     "inner": false
   },
-  "tasks": [
-    {
-      "taskId": "portafolio:build:production",
-      "target": "build",
-      "projectName": "portafolio",
-      "hash": "8684162613170788233",
-      "startTime": "2025-09-11T17:00:03.002Z",
-      "endTime": "2025-09-11T17:00:13.564Z",
-      "params": "",
-      "cacheStatus": "cache-miss",
-      "status": 0
-    }
-  ]
+  "tasks": []
 }
