@@ -60,25 +60,6 @@ $verde-botella-oscuro: #1e3a2e;
   z-index: 1;
 }
 
-// Overlay de humo atmosférico
-.smoke-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: radial-gradient(
-      circle at 30% 20%,
-      rgba($gris-humo-cigarro, 0.4) 0%,
-      transparent 50%
-    ),
-    radial-gradient(
-      circle at 70% 80%,
-      rgba($gris-ceniza, 0.3) 0%,
-      transparent 50%
-    );
-}
-
 // Patrón Art Deco sutil
 .art-deco-pattern {
   position: absolute;
@@ -133,6 +114,745 @@ $verde-botella-oscuro: #1e3a2e;
 
   &--bottom {
     bottom: 0;
+  }
+}
+
+// =============================================================================
+// HUMO ORGÁNICO CSS - SISTEMA CAÓTICO
+// =============================================================================
+
+.organic-smoke-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 3;
+  opacity: 0;
+  animation: organicSmokeReveal 2s ease-out 2.2s forwards;
+  pointer-events: none;
+}
+
+// Elementos de humo individuales con formas orgánicas
+.smoke-blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(8px);
+  background: radial-gradient(
+    circle at 30% 30%,
+    rgba($gris-humo-cigarro, 1.8) 0%,
+    rgba($gris-carbon, 1.6) 25%,
+    rgba($negro-esmoquin, 1.4) 50%,
+    rgba($gris-ceniza, 0.2) 75%,
+    transparent 100%
+  );
+
+  // Cada blob tiene propiedades únicas
+  &--1 {
+    width: 180px;
+    height: 220px;
+    bottom: -50px;
+    left: 8%;
+    border-radius: 45% 55% 60% 40% / 55% 45% 65% 35%;
+    animation: smokeRise1 8s ease-out 0.5s forwards,
+      smokeDrift1 12s ease-in-out 8.5s infinite;
+  }
+
+  &--2 {
+    width: 240px;
+    height: 180px;
+    bottom: -30px;
+    left: 25%;
+    border-radius: 65% 35% 45% 55% / 40% 60% 55% 45%;
+    animation: smokeRise2 9s ease-out 1.2s forwards,
+      smokeDrift2 15s ease-in-out 10.2s infinite;
+  }
+
+  &--3 {
+    width: 160px;
+    height: 300px;
+    bottom: -80px;
+    left: 45%;
+    border-radius: 50% 50% 70% 30% / 60% 40% 50% 50%;
+    animation: smokeRise3 7s ease-out 0.8s forwards,
+      smokeDrift3 11s ease-in-out 7.8s infinite;
+  }
+
+  &--4 {
+    width: 200px;
+    height: 250px;
+    bottom: -40px;
+    left: 62%;
+    border-radius: 40% 60% 55% 45% / 45% 55% 40% 60%;
+    animation: smokeRise4 10s ease-out 1.8s forwards,
+      smokeDrift4 14s ease-in-out 11.8s infinite;
+  }
+
+  &--5 {
+    width: 150px;
+    height: 190px;
+    bottom: -20px;
+    left: 78%;
+    border-radius: 55% 45% 50% 50% / 35% 65% 45% 55%;
+    animation: smokeRise5 6s ease-out 2.3s forwards,
+      smokeDrift5 13s ease-in-out 8.3s infinite;
+  }
+
+  &--6 {
+    width: 190px;
+    height: 160px;
+    bottom: -60px;
+    left: 15%;
+    border-radius: 70% 30% 40% 60% / 50% 50% 60% 40%;
+    animation: smokeRise6 8.5s ease-out 3.1s forwards,
+      smokeDrift6 16s ease-in-out 11.6s infinite;
+  }
+
+  &--7 {
+    width: 220px;
+    height: 280px;
+    bottom: -90px;
+    left: 38%;
+    border-radius: 35% 65% 55% 45% / 55% 45% 35% 65%;
+    animation: smokeRise7 9.5s ease-out 2.7s forwards,
+      smokeDrift7 12s ease-in-out 12.2s infinite;
+  }
+
+  &--8 {
+    width: 170px;
+    height: 210px;
+    bottom: -30px;
+    left: 58%;
+    border-radius: 60% 40% 45% 55% / 40% 60% 50% 50%;
+    animation: smokeRise8 7.5s ease-out 3.8s forwards,
+      smokeDrift8 14s ease-in-out 11.3s infinite;
+  }
+
+  &--9 {
+    width: 140px;
+    height: 240px;
+    bottom: -70px;
+    left: 72%;
+    border-radius: 45% 55% 65% 35% / 60% 40% 45% 55%;
+    animation: smokeRise9 8.8s ease-out 1.5s forwards,
+      smokeDrift9 13s ease-in-out 10.3s infinite;
+  }
+
+  &--10 {
+    width: 260px;
+    height: 190px;
+    bottom: -40px;
+    left: 5%;
+    border-radius: 50% 50% 50% 50% / 45% 55% 60% 40%;
+    animation: smokeRise10 11s ease-out 0.9s forwards,
+      smokeDrift10 15s ease-in-out 11.9s infinite;
+  }
+
+  &--11 {
+    width: 180px;
+    height: 320px;
+    bottom: -100px;
+    left: 32%;
+    border-radius: 65% 35% 40% 60% / 35% 65% 55% 45%;
+    animation: smokeRise11 6.5s ease-out 4.2s forwards,
+      smokeDrift11 11s ease-in-out 10.7s infinite;
+  }
+
+  &--12 {
+    width: 210px;
+    height: 170px;
+    bottom: -25px;
+    left: 52%;
+    border-radius: 40% 60% 50% 50% / 55% 45% 40% 60%;
+    animation: smokeRise12 9.2s ease-out 3.5s forwards,
+      smokeDrift12 14s ease-in-out 12.7s infinite;
+  }
+
+  &--13 {
+    width: 130px;
+    height: 260px;
+    bottom: -80px;
+    left: 68%;
+    border-radius: 55% 45% 60% 40% / 45% 55% 35% 65%;
+    animation: smokeRise13 7.8s ease-out 2.1s forwards,
+      smokeDrift13 12s ease-in-out 9.9s infinite;
+  }
+
+  &--14 {
+    width: 250px;
+    height: 200px;
+    bottom: -50px;
+    left: 12%;
+    border-radius: 50% 50% 45% 55% / 60% 40% 50% 50%;
+    animation: smokeRise14 10.5s ease-out 1.6s forwards,
+      smokeDrift14 16s ease-in-out 12.1s infinite;
+  }
+
+  &--15 {
+    width: 160px;
+    height: 290px;
+    bottom: -95px;
+    left: 42%;
+    border-radius: 70% 30% 55% 45% / 40% 60% 45% 55%;
+    animation: smokeRise15 8.3s ease-out 4.8s forwards,
+      smokeDrift15 13s ease-in-out 13.1s infinite;
+  }
+
+  &--16 {
+    width: 200px;
+    height: 180px;
+    bottom: -35px;
+    left: 65%;
+    border-radius: 35% 65% 50% 50% / 55% 45% 60% 40%;
+    animation: smokeRise16 9.8s ease-out 3.2s forwards,
+      smokeDrift16 15s ease-in-out 13s infinite;
+  }
+
+  &--17 {
+    width: 170px;
+    height: 230px;
+    bottom: -60px;
+    left: 82%;
+    border-radius: 60% 40% 40% 60% / 35% 65% 50% 50%;
+    animation: smokeRise17 7.2s ease-out 5.1s forwards,
+      smokeDrift17 12s ease-in-out 12.3s infinite;
+  }
+
+  &--18 {
+    width: 190px;
+    height: 270px;
+    bottom: -85px;
+    left: 18%;
+    border-radius: 45% 55% 65% 35% / 50% 50% 40% 60%;
+    animation: smokeRise18 8.7s ease-out 4.5s forwards,
+      smokeDrift18 14s ease-in-out 13.2s infinite;
+  }
+
+  &--19 {
+    width: 230px;
+    height: 160px;
+    bottom: -20px;
+    left: 48%;
+    border-radius: 50% 50% 55% 45% / 65% 35% 45% 55%;
+    animation: smokeRise19 11.2s ease-out 2.9s forwards,
+      smokeDrift19 16s ease-in-out 14.1s infinite;
+  }
+
+  &--20 {
+    width: 140px;
+    height: 250px;
+    bottom: -75px;
+    left: 75%;
+    border-radius: 65% 35% 45% 55% / 40% 60% 55% 45%;
+    animation: smokeRise20 6.8s ease-out 5.5s forwards,
+      smokeDrift20 11s ease-in-out 12.3s infinite;
+  }
+}
+
+// =============================================================================
+// ANIMACIONES DE HUMO ORGÁNICO
+// =============================================================================
+
+@keyframes organicSmokeReveal {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+// Animaciones de subida (diferentes para cada blob)
+@keyframes smokeRise1 {
+  0% {
+    transform: translateY(0) scale(0.8) rotate(0deg);
+    opacity: 0.9;
+  }
+  100% {
+    transform: translateY(-80vh) scale(1.8) rotate(45deg);
+    opacity: 0.1;
+  }
+}
+
+@keyframes smokeRise2 {
+  0% {
+    transform: translateY(0) scale(0.6) rotate(0deg);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(-75vh) scale(2.2) rotate(-30deg);
+    opacity: 0.05;
+  }
+}
+
+@keyframes smokeRise3 {
+  0% {
+    transform: translateY(0) scale(0.9) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-90vh) scale(1.5) rotate(60deg);
+    opacity: 0;
+  }
+}
+
+@keyframes smokeRise4 {
+  0% {
+    transform: translateY(0) scale(0.7) rotate(0deg);
+    opacity: 0.7;
+  }
+  100% {
+    transform: translateY(-85vh) scale(2) rotate(-50deg);
+    opacity: 0.08;
+  }
+}
+
+@keyframes smokeRise5 {
+  0% {
+    transform: translateY(0) scale(1) rotate(0deg);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(-70vh) scale(1.6) rotate(35deg);
+    opacity: 0.12;
+  }
+}
+
+@keyframes smokeRise6 {
+  0% {
+    transform: translateY(0) scale(0.5) rotate(0deg);
+    opacity: 0.9;
+  }
+  100% {
+    transform: translateY(-95vh) scale(2.3) rotate(-40deg);
+    opacity: 0.02;
+  }
+}
+
+@keyframes smokeRise7 {
+  0% {
+    transform: translateY(0) scale(0.8) rotate(0deg);
+    opacity: 0.6;
+  }
+  100% {
+    transform: translateY(-78vh) scale(1.9) rotate(55deg);
+    opacity: 0.15;
+  }
+}
+
+@keyframes smokeRise8 {
+  0% {
+    transform: translateY(0) scale(1.1) rotate(0deg);
+    opacity: 0.85;
+  }
+  100% {
+    transform: translateY(-88vh) scale(1.4) rotate(-25deg);
+    opacity: 0.06;
+  }
+}
+
+@keyframes smokeRise9 {
+  0% {
+    transform: translateY(0) scale(0.6) rotate(0deg);
+    opacity: 0.95;
+  }
+  100% {
+    transform: translateY(-82vh) scale(2.1) rotate(70deg);
+    opacity: 0.09;
+  }
+}
+
+@keyframes smokeRise10 {
+  0% {
+    transform: translateY(0) scale(0.9) rotate(0deg);
+    opacity: 0.7;
+  }
+  100% {
+    transform: translateY(-92vh) scale(1.7) rotate(-60deg);
+    opacity: 0.04;
+  }
+}
+
+@keyframes smokeRise11 {
+  0% {
+    transform: translateY(0) scale(0.7) rotate(0deg);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(-86vh) scale(2) rotate(40deg);
+    opacity: 0.11;
+  }
+}
+
+@keyframes smokeRise12 {
+  0% {
+    transform: translateY(0) scale(1) rotate(0deg);
+    opacity: 0.9;
+  }
+  100% {
+    transform: translateY(-76vh) scale(1.6) rotate(-45deg);
+    opacity: 0.07;
+  }
+}
+
+@keyframes smokeRise13 {
+  0% {
+    transform: translateY(0) scale(0.8) rotate(0deg);
+    opacity: 0.85;
+  }
+  100% {
+    transform: translateY(-84vh) scale(1.8) rotate(50deg);
+    opacity: 0.13;
+  }
+}
+
+@keyframes smokeRise14 {
+  0% {
+    transform: translateY(0) scale(0.5) rotate(0deg);
+    opacity: 0.75;
+  }
+  100% {
+    transform: translateY(-89vh) scale(2.4) rotate(-35deg);
+    opacity: 0.03;
+  }
+}
+
+@keyframes smokeRise15 {
+  0% {
+    transform: translateY(0) scale(0.9) rotate(0deg);
+    opacity: 0.9;
+  }
+  100% {
+    transform: translateY(-77vh) scale(1.5) rotate(65deg);
+    opacity: 0.08;
+  }
+}
+
+@keyframes smokeRise16 {
+  0% {
+    transform: translateY(0) scale(1.1) rotate(0deg);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(-91vh) scale(1.9) rotate(-55deg);
+    opacity: 0.05;
+  }
+}
+
+@keyframes smokeRise17 {
+  0% {
+    transform: translateY(0) scale(0.6) rotate(0deg);
+    opacity: 0.95;
+  }
+  100% {
+    transform: translateY(-73vh) scale(2.2) rotate(75deg);
+    opacity: 0.14;
+  }
+}
+
+@keyframes smokeRise18 {
+  0% {
+    transform: translateY(0) scale(0.8) rotate(0deg);
+    opacity: 0.7;
+  }
+  100% {
+    transform: translateY(-87vh) scale(1.7) rotate(-20deg);
+    opacity: 0.06;
+  }
+}
+
+@keyframes smokeRise19 {
+  0% {
+    transform: translateY(0) scale(0.7) rotate(0deg);
+    opacity: 0.85;
+  }
+  100% {
+    transform: translateY(-93vh) scale(2.1) rotate(80deg);
+    opacity: 0.02;
+  }
+}
+
+@keyframes smokeRise20 {
+  0% {
+    transform: translateY(0) scale(1) rotate(0deg);
+    opacity: 0.9;
+  }
+  100% {
+    transform: translateY(-79vh) scale(1.6) rotate(-65deg);
+    opacity: 0.1;
+  }
+}
+
+// Animaciones de deriva (movimiento lateral constante)
+@keyframes smokeDrift1 {
+  0%,
+  100% {
+    transform: translateX(0) rotate(0deg);
+  }
+  25% {
+    transform: translateX(-30px) rotate(15deg);
+  }
+  50% {
+    transform: translateX(20px) rotate(-10deg);
+  }
+  75% {
+    transform: translateX(-15px) rotate(8deg);
+  }
+}
+
+@keyframes smokeDrift2 {
+  0%,
+  100% {
+    transform: translateX(0) rotate(0deg);
+  }
+  33% {
+    transform: translateX(25px) rotate(-20deg);
+  }
+  66% {
+    transform: translateX(-35px) rotate(12deg);
+  }
+}
+
+@keyframes smokeDrift3 {
+  0%,
+  100% {
+    transform: translateX(0) rotate(0deg);
+  }
+  20% {
+    transform: translateX(-40px) rotate(25deg);
+  }
+  40% {
+    transform: translateX(15px) rotate(-15deg);
+  }
+  60% {
+    transform: translateX(-20px) rotate(18deg);
+  }
+  80% {
+    transform: translateX(30px) rotate(-8deg);
+  }
+}
+
+@keyframes smokeDrift4 {
+  0%,
+  100% {
+    transform: translateX(0) rotate(0deg);
+  }
+  50% {
+    transform: translateX(-25px) rotate(-30deg);
+  }
+}
+
+@keyframes smokeDrift5 {
+  0%,
+  100% {
+    transform: translateX(0) rotate(0deg);
+  }
+  25% {
+    transform: translateX(35px) rotate(22deg);
+  }
+  75% {
+    transform: translateX(-28px) rotate(-18deg);
+  }
+}
+
+@keyframes smokeDrift6 {
+  0%,
+  100% {
+    transform: translateX(0) rotate(0deg);
+  }
+  40% {
+    transform: translateX(-45px) rotate(35deg);
+  }
+  80% {
+    transform: translateX(32px) rotate(-25deg);
+  }
+}
+
+@keyframes smokeDrift7 {
+  0%,
+  100% {
+    transform: translateX(0) rotate(0deg);
+  }
+  30% {
+    transform: translateX(18px) rotate(-12deg);
+  }
+  70% {
+    transform: translateX(-22px) rotate(28deg);
+  }
+}
+
+@keyframes smokeDrift8 {
+  0%,
+  100% {
+    transform: translateX(0) rotate(0deg);
+  }
+  25% {
+    transform: translateX(-38px) rotate(16deg);
+  }
+  50% {
+    transform: translateX(26px) rotate(-22deg);
+  }
+  75% {
+    transform: translateX(-12px) rotate(14deg);
+  }
+}
+
+@keyframes smokeDrift9 {
+  0%,
+  100% {
+    transform: translateX(0) rotate(0deg);
+  }
+  60% {
+    transform: translateX(42px) rotate(-32deg);
+  }
+}
+
+@keyframes smokeDrift10 {
+  0%,
+  100% {
+    transform: translateX(0) rotate(0deg);
+  }
+  33% {
+    transform: translateX(-33px) rotate(24deg);
+  }
+  66% {
+    transform: translateX(28px) rotate(-19deg);
+  }
+}
+
+@keyframes smokeDrift11 {
+  0%,
+  100% {
+    transform: translateX(0) rotate(0deg);
+  }
+  20% {
+    transform: translateX(36px) rotate(-26deg);
+  }
+  40% {
+    transform: translateX(-24px) rotate(18deg);
+  }
+  60% {
+    transform: translateX(19px) rotate(-14deg);
+  }
+  80% {
+    transform: translateX(-31px) rotate(21deg);
+  }
+}
+
+@keyframes smokeDrift12 {
+  0%,
+  100% {
+    transform: translateX(0) rotate(0deg);
+  }
+  50% {
+    transform: translateX(-29px) rotate(27deg);
+  }
+}
+
+@keyframes smokeDrift13 {
+  0%,
+  100% {
+    transform: translateX(0) rotate(0deg);
+  }
+  25% {
+    transform: translateX(41px) rotate(-23deg);
+  }
+  75% {
+    transform: translateX(-35px) rotate(17deg);
+  }
+}
+
+@keyframes smokeDrift14 {
+  0%,
+  100% {
+    transform: translateX(0) rotate(0deg);
+  }
+  40% {
+    transform: translateX(-27px) rotate(31deg);
+  }
+  80% {
+    transform: translateX(34px) rotate(-16deg);
+  }
+}
+
+@keyframes smokeDrift15 {
+  0%,
+  100% {
+    transform: translateX(0) rotate(0deg);
+  }
+  30% {
+    transform: translateX(23px) rotate(-29deg);
+  }
+  70% {
+    transform: translateX(-39px) rotate(20deg);
+  }
+}
+
+@keyframes smokeDrift16 {
+  0%,
+  100% {
+    transform: translateX(0) rotate(0deg);
+  }
+  25% {
+    transform: translateX(-32px) rotate(15deg);
+  }
+  50% {
+    transform: translateX(37px) rotate(-24deg);
+  }
+  75% {
+    transform: translateX(-21px) rotate(19deg);
+  }
+}
+
+@keyframes smokeDrift17 {
+  0%,
+  100% {
+    transform: translateX(0) rotate(0deg);
+  }
+  60% {
+    transform: translateX(44px) rotate(-33deg);
+  }
+}
+
+@keyframes smokeDrift18 {
+  0%,
+  100% {
+    transform: translateX(0) rotate(0deg);
+  }
+  33% {
+    transform: translateX(-26px) rotate(28deg);
+  }
+  66% {
+    transform: translateX(31px) rotate(-21deg);
+  }
+}
+
+@keyframes smokeDrift19 {
+  0%,
+  100% {
+    transform: translateX(0) rotate(0deg);
+  }
+  20% {
+    transform: translateX(38px) rotate(-17deg);
+  }
+  40% {
+    transform: translateX(-33px) rotate(25deg);
+  }
+  60% {
+    transform: translateX(25px) rotate(-13deg);
+  }
+  80% {
+    transform: translateX(-29px) rotate(22deg);
+  }
+}
+
+@keyframes smokeDrift20 {
+  0%,
+  100% {
+    transform: translateX(0) rotate(0deg);
+  }
+  50% {
+    transform: translateX(-40px) rotate(30deg);
   }
 }
 
@@ -1012,7 +1732,7 @@ $verde-botella-oscuro: #1e3a2e;
     width: 12px;
     height: 12px;
     background: #2b1810;
-    border-radius: 50%;
+    radius: 50%;
     transform: translate(-50%, -50%);
     box-shadow: inset 0 2px 4px rgba(#8b4513, 0.6), 0 1px 3px rgba(#000, 0.5);
   }
@@ -1096,7 +1816,7 @@ $verde-botella-oscuro: #1e3a2e;
 }
 
 // =====================================================================
-// ANIMACIONES
+// ANIMACIONES ORIGINALES
 // =====================================================================
 
 // Rotación del carrusel de tecnologías
@@ -1325,5 +2045,22 @@ $verde-botella-oscuro: #1e3a2e;
 
   .name-last {
     font-size: 2.5rem;
+  }
+
+  // Responsive para humo orgánico
+  .smoke-blob {
+    filter: blur(6px); // Menos blur en móvil
+
+    // Ocultar algunos blobs en móvil para performance
+    &--6,
+    &--8,
+    &--10,
+    &--12,
+    &--14,
+    &--16,
+    &--18,
+    &--20 {
+      display: none;
+    }
   }
 }

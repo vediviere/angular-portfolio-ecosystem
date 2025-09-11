@@ -1,1 +1,0 @@
-import{Ba as o,Sa as a,Ta as n,_a as i}from"./chunk-YSNDT2CJ.js";var p=class e{static \u0275fac=function(t){return new(t||e)};static \u0275cmp=o({type:e,selectors:[["app-about"]],decls:2,vars:0,template:function(t,c){t&1&&(a(0,"p"),i(1,"about works!"),n())},encapsulation:2,changeDetection:0})};export{p as About};

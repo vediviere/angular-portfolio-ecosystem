@@ -9,7 +9,6 @@ import { Component } from '@angular/core';
     <div class="door-overlay">
       <!-- Puerta Izquierda -->
       <div class="door-panel door-panel--left">
-        <!-- Dentro de .door-panel--left y .door-panel--right -->
         <div class="corner-ornament--top-left"></div>
         <div class="corner-ornament--top-right"></div>
         <div class="corner-ornament--bottom-left"></div>
@@ -29,14 +28,9 @@ import { Component } from '@angular/core';
 
       <!-- Puerta Derecha -->
       <div class="door-panel door-panel--right">
-        <!-- Paneles de cristal -->
         <div class="glass-panel glass-panel--top"></div>
         <div class="glass-panel glass-panel--bottom"></div>
-
-        <!-- Manija elegante -->
         <div class="french-door-handle french-door-handle--right"></div>
-
-        <!-- Bisagras -->
         <div class="french-door-hinge french-door-hinge--top"></div>
         <div class="french-door-hinge french-door-hinge--bottom"></div>
       </div>
@@ -50,11 +44,35 @@ import { Component } from '@angular/core';
 
     <section class="hero">
       <div class="hero__background">
-        <div class="smoke-overlay"></div>
         <div class="art-deco-pattern"></div>
         <div class="metal-frame metal-frame--top"></div>
         <div class="metal-frame metal-frame--bottom"></div>
         <div class="vertical-lines"></div>
+
+        <!-- HUMO ORGÁNICO CSS -->
+        <div class="organic-smoke-container">
+          <!-- Múltiples capas de humo -->
+          <div class="smoke-blob smoke-blob--1"></div>
+          <div class="smoke-blob smoke-blob--2"></div>
+          <div class="smoke-blob smoke-blob--3"></div>
+          <div class="smoke-blob smoke-blob--4"></div>
+          <div class="smoke-blob smoke-blob--5"></div>
+          <div class="smoke-blob smoke-blob--6"></div>
+          <div class="smoke-blob smoke-blob--7"></div>
+          <div class="smoke-blob smoke-blob--8"></div>
+          <div class="smoke-blob smoke-blob--9"></div>
+          <div class="smoke-blob smoke-blob--10"></div>
+          <div class="smoke-blob smoke-blob--11"></div>
+          <div class="smoke-blob smoke-blob--12"></div>
+          <div class="smoke-blob smoke-blob--13"></div>
+          <div class="smoke-blob smoke-blob--14"></div>
+          <div class="smoke-blob smoke-blob--15"></div>
+          <div class="smoke-blob smoke-blob--16"></div>
+          <div class="smoke-blob smoke-blob--17"></div>
+          <div class="smoke-blob smoke-blob--18"></div>
+          <div class="smoke-blob smoke-blob--19"></div>
+          <div class="smoke-blob smoke-blob--20"></div>
+        </div>
       </div>
 
       <div class="hero__container">
@@ -62,7 +80,7 @@ import { Component } from '@angular/core';
           <div class="hero__main">
             <div class="speakeasy-header">
               <div class="establishment-info">
-                <span class="establishment-name">PORTAFOLIO</span>
+                <span class="establishment-name">PORTFOLIO</span>
                 <span class="establishment-year">EST. 2024</span>
               </div>
               <div class="ornament-divider">
