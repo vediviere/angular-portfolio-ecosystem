@@ -949,3 +949,36 @@ Time for 'build typescript dependencies' 0.04079999995883554
 [NX v21.4.1 Daemon Server] - 2025-09-11T17:17:20.633Z - [SYNC]: project graph hash is the same, not collecting task sync generators
 [NX v21.4.1 Daemon Server] - 2025-09-11T17:17:20.633Z - [SYNC]: nx.json hash is the same, not collecting global sync generators
 [NX v21.4.1 Daemon Server] - 2025-09-11T17:17:20.633Z - Time taken for 'total execution time for createProjectGraph()' 51.47709999990184ms
+[NX v21.4.1 Daemon Server] - 2025-09-11T17:22:53.002Z - [WATCHER]: 0 file(s) created or restored, 2 file(s) modified, 0 file(s) deleted
+[NX v21.4.1 Daemon Server] - 2025-09-11T17:22:53.003Z - [WATCHER]: Processing file changes in outputs
+[NX v21.4.1 Daemon Server] - 2025-09-11T17:22:53.404Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX v21.4.1 Daemon Server] - 2025-09-11T17:22:53.404Z - [REQUEST]: .github/workflows/firebase-hosting-merge.yml,.github/workflows/firebase-hosting-pull-request.yml
+[NX v21.4.1 Daemon Server] - 2025-09-11T17:22:53.404Z - [REQUEST]: 
+Time for 'nx/core/package-json:createNodes' 0.7894999999552965
+Time for 'nx/core/project-json:createNodes' 1.147300000069663
+[NX v21.4.1 Daemon Server] - 2025-09-11T17:22:53.416Z - [REQUEST]: Responding to the client. handleHashGlob
+[NX v21.4.1 Daemon Server] - 2025-09-11T17:22:53.416Z - Time taken for 'hash changed files from watcher' 0.4912999998778105ms
+Time for '@nx/playwright/plugin:createNodes' 12.720599999884143
+Time for 'total for sendMessageToDaemon()' 7.926900000078604
+Time for 'deserialize daemon response' 0.0327999999281019
+[NX v21.4.1 Daemon Server] - 2025-09-11T17:22:53.421Z - [REQUEST]: Responding to the client. handleGlob
+[NX v21.4.1 Daemon Server] - 2025-09-11T17:22:53.422Z - Done responding to the client handleHashGlob
+[NX v21.4.1 Daemon Server] - 2025-09-11T17:22:53.422Z - Handled HASH_GLOB. Handling time: 3. Response time: 6.
+Time for 'total for sendMessageToDaemon()' 11.15570000000298
+Time for 'deserialize daemon response' 0.042299999855458736
+[NX v21.4.1 Daemon Server] - 2025-09-11T17:22:53.423Z - Done responding to the client handleGlob
+[NX v21.4.1 Daemon Server] - 2025-09-11T17:22:53.423Z - Handled GLOB. Handling time: 1. Response time: 2.
+[NX v21.4.1 Daemon Server] - 2025-09-11T17:22:53.426Z - [REQUEST]: Responding to the client. handleHashMultiGlob
+[NX v21.4.1 Daemon Server] - 2025-09-11T17:22:53.427Z - Done responding to the client handleHashMultiGlob
+[NX v21.4.1 Daemon Server] - 2025-09-11T17:22:53.428Z - Handled HASH_GLOB. Handling time: 2. Response time: 2.
+Time for 'total for sendMessageToDaemon()' 4.185500000137836
+Time for 'deserialize daemon response' 0.06670000008307397
+Time for 'nx/js/dependencies-and-lockfile:createNodes' 24.07660000002943
+Time for '@nx/eslint/plugin:createNodes' 85.84479999984615
+[NX v21.4.1 Daemon Server] - 2025-09-11T17:22:53.508Z - Time taken for 'build-project-configs' 93.83620000001974ms
+Time for 'build typescript dependencies' 0.034900000086054206
+[NX v21.4.1 Daemon Server] - 2025-09-11T17:22:53.564Z - Wrote project graph cache to C:\Users\vediv\Documents\angular-portfolio-ecosystem\.nx\workspace-data\project-graph.json
+[NX v21.4.1 Daemon Server] - 2025-09-11T17:22:53.565Z - [SYNC]: collect registered sync generators
+[NX v21.4.1 Daemon Server] - 2025-09-11T17:22:53.566Z - [SYNC]: project graph hash is the same, not collecting task sync generators
+[NX v21.4.1 Daemon Server] - 2025-09-11T17:22:53.566Z - [SYNC]: nx.json hash is the same, not collecting global sync generators
+[NX v21.4.1 Daemon Server] - 2025-09-11T17:22:53.566Z - Time taken for 'total execution time for createProjectGraph()' 41.61559999990277ms

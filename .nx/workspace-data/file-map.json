@@ -19,6 +19,18 @@
   "fileMap": {
     "nonProjectFiles": [
       {
+        "file": "jest.config.ts",
+        "hash": "6870352021923392442"
+      },
+      {
+        "file": "error.log",
+        "hash": "13790753209625932028"
+      },
+      {
+        "file": "README.md",
+        "hash": "3599116376938497433"
+      },
+      {
         "file": "firebase.json",
         "hash": "13949382246043276236"
       },
@@ -27,72 +39,16 @@
         "hash": "13910435487849314152"
       },
       {
-        "file": "README.md",
-        "hash": "3599116376938497433"
-      },
-      {
-        "file": "eslint.config.mjs",
-        "hash": "10770449096712831357"
-      },
-      {
-        "file": "tsconfig.base.json",
-        "hash": "16936441711144470533"
-      },
-      {
-        "file": ".vscode/settings.json",
-        "hash": "6203846486212046276"
-      },
-      {
-        "file": ".gitignore",
-        "hash": "13957996073812778436"
-      },
-      {
-        "file": "jest.preset.js",
-        "hash": "9430166341120122740"
-      },
-      {
-        "file": ".vscode/extensions.json",
-        "hash": "9177403577345754958"
-      },
-      {
-        "file": "package.json",
-        "hash": "607995101211342893"
-      },
-      {
-        "file": ".github/workflows/ci.yml",
-        "hash": "14207756813763587448"
-      },
-      {
         "file": ".firebaserc",
         "hash": "11846785394890261660"
       },
       {
-        "file": "error.log",
-        "hash": "13790753209625932028"
-      },
-      {
-        "file": ".editorconfig",
-        "hash": "5443105041930014821"
-      },
-      {
-        "file": "jest.config.ts",
-        "hash": "6870352021923392442"
-      },
-      {
-        "file": ".github/workflows/firebase-hosting-merge.yml",
-        "hash": "6537857927057090745"
-      },
-      {
-        "file": ".prettierignore",
-        "hash": "5407418692668764289"
-      },
-      {
-        "file": ".vscode/launch.json",
-        "hash": "7066363406961557016"
-      },
-      {
         "file": ".github/workflows/firebase-hosting-pull-request.yml",
-        "hash": "17121440731918955594"
+        "hash": "17688244973411322545"
+      },
+      {
+        "file": "tsconfig.base.json",
+        "hash": "16936441711144470533"
       },
       {
         "file": ".prettierrc",
@@ -103,8 +59,52 @@
         "hash": "10557373728036008644"
       },
       {
+        "file": "jest.preset.js",
+        "hash": "9430166341120122740"
+      },
+      {
+        "file": "package.json",
+        "hash": "607995101211342893"
+      },
+      {
+        "file": ".github/workflows/ci.yml",
+        "hash": "14207756813763587448"
+      },
+      {
+        "file": ".vscode/launch.json",
+        "hash": "7066363406961557016"
+      },
+      {
         "file": "package-lock.json",
         "hash": "6254791525874404019"
+      },
+      {
+        "file": ".gitignore",
+        "hash": "13957996073812778436"
+      },
+      {
+        "file": ".vscode/extensions.json",
+        "hash": "9177403577345754958"
+      },
+      {
+        "file": "eslint.config.mjs",
+        "hash": "10770449096712831357"
+      },
+      {
+        "file": ".editorconfig",
+        "hash": "5443105041930014821"
+      },
+      {
+        "file": ".github/workflows/firebase-hosting-merge.yml",
+        "hash": "2482217489294183921"
+      },
+      {
+        "file": ".prettierignore",
+        "hash": "5407418692668764289"
+      },
+      {
+        "file": ".vscode/settings.json",
+        "hash": "6203846486212046276"
       }
     ],
     "projectFileMap": {
