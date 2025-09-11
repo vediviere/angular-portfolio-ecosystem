@@ -25,6 +25,9 @@ jobs:
 
       - name: Build project
         run: npx nx build portafolio --configuration=production
+        env:
+          NX_CLOUD_ACCESS_TOKEN: ''
+          NX_SKIP_NX_CACHE: true
 
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
