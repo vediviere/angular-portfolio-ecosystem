@@ -62,7 +62,7 @@ import { Component } from '@angular/core';
           <div class="hero__main">
             <div class="speakeasy-header">
               <div class="establishment-info">
-                <span class="establishment-name">PORTFOLIO</span>
+                <span class="establishment-name">PORTAFOLIO</span>
                 <span class="establishment-year">EST. 2024</span>
               </div>
               <div class="ornament-divider">
