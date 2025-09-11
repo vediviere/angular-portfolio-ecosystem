@@ -760,3 +760,122 @@ $mobile-color: #8b5cf6;
 .phone-frame {
   animation: phoneFloat 6s ease-in-out infinite;
 }
+
+// ESTILOS PARA SCROLL VERTICAL EN PHONE MOCKUP
+// Agregar estos estilos al final de tu projects.scss
+
+.phone-mockup {
+  .phone-frame {
+    .phone-screen {
+      position: relative;
+      overflow: hidden; // Mantener el frame limpio
+
+      .phone-screen-container {
+        height: 100%;
+        width: 100%;
+        overflow-y: auto; // Habilitar scroll vertical
+        overflow-x: hidden; // Sin scroll horizontal
+
+        // Scroll personalizado más delgado
+        &::-webkit-scrollbar {
+          width: 3px;
+        }
+
+        &::-webkit-scrollbar-track {
+          background: rgba(45, 45, 45, 0.8);
+          border-radius: 2px;
+        }
+
+        &::-webkit-scrollbar-thumb {
+          background: rgba(45, 45, 45, 1); }
+          border-radius: 2px;
+
+          &:hover {
+            background: rgba(45, 45, 45, 0.8) rgba(0, 0, 0, 0.1);
+        }
+      }
+
+      // Para Firefox
+      scrollbar-width: thin;
+      scrollbar-color: rgba(212, 175, 55, 0.7) rgba(0, 0, 0, 0.1);
+
+      .phone-screenshot {
+        width: 100%;
+        height: auto; // Altura automática para imágenes largas
+        min-height: 100%; // Mínimo el alto del contenedor
+        display: block;
+        object-fit: cover;
+        object-position: top; // Comenzar desde arriba
+      }
+
+      .phone-home-indicator {
+        position: absolute;
+        bottom: 8px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 10; // Siempre visible encima del scroll
+        pointer-events: none; // No interfiere con el scroll
+      }
+    }
+  }
+
+  // Indicador visual de scroll disponible
+  &::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: -30px;
+    width: 20px;
+    height: 40px;
+    background: linear-gradient(
+      to bottom,
+      transparent,
+      rgba(74, 144, 226, 0.3),
+      transparent
+    );
+    border-radius: 10px;
+    opacity: 0.7;
+    animation: scrollHint 2s ease-in-out infinite;
+  }
+}
+
+// Animación sutil para indicar scroll disponible
+@keyframes scrollHint {
+  0%,
+  100% {
+    transform: translateY(-5px);
+    opacity: 0.7;
+  }
+  50% {
+    transform: translateY(5px);
+    opacity: 1;
+  }
+}
+
+// Mejoras de responsive para scroll
+@media (max-width: 768px) {
+  .phone-mockup {
+    .phone-screen-container {
+      // Scroll más sensible en móvil
+      -webkit-overflow-scrolling: touch;
+
+      &::-webkit-scrollbar {
+        width: 2px; // Más delgado en móvil
+      }
+    }
+
+    // Ocultar indicador de scroll en móvil
+    &::after {
+      display: none;
+    }
+  }
+}
+
+// Clase helper para screenshots extra largas
+.phone-screenshot--long {
+  min-height: 150%; // Para screenshots muy largas
+}
+
+.phone-screenshot--extra-long {
+  min-height: 200%; // Para screenshots extremadamente largas
+}

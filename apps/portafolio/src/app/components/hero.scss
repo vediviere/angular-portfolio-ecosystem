@@ -1,165 +1,389 @@
-// Variables SCSS para el tema
-$primary-color: #2563eb; // Azul moderno
-$secondary-color: #64748b; // Gris elegante
-$accent-color: #f59e0b; // Amarillo/naranja para CTAs
-$text-dark: #1e293b; // Texto principal
-$text-light: #64748b; // Texto secundario
-$background-light: #f8fafc; // Fondo claro
-$white: #ffffff;
+// =====================================================================
+// VARIABLES DE COLOR - PALETA PROHIBITION ERA (ESTILO AL CAPONE)
+// =====================================================================
 
-// Mixins para responsividad
-@mixin mobile {
-  @media (max-width: 768px) {
-    @content;
-  }
-}
+// Negros y Grises
+$negro-esmoquin: #0d0d0d;
+$gris-carbon: #1a1a1a;
+$gris-humo-cigarro: #2d2d2d;
+$gris-ceniza: #404040;
 
-@mixin tablet {
-  @media (min-width: 769px) and (max-width: 1024px) {
-    @content;
-  }
-}
+// Oros y Metales Envejecidos
+$oro-envejecido: #c9a96e;
+$laton-oxidado: #b8860b;
+$cobre-viejo: #8b4513;
+$bronce-oscuro: #665d1e;
 
-@mixin desktop {
-  @media (min-width: 1025px) {
-    @content;
-  }
-}
+// Maderas Oscuras Barnizadas
+$caoba-casi-negro: #2b1810;
+$nogal-profundo: #3c1810;
+$ebano-pulido: #1c1c1c;
 
-// Mixin para animaciones
-@mixin smooth-transition($property: all, $duration: 0.3s) {
-  transition: $property $duration ease-in-out;
-}
+// Colores de Acento
+$rojo-sangre-seco: #5c1a1a;
+$crema-pergamino: #f5f4e8;
+$verde-botella-oscuro: #1e3a2e;
+
+// =====================================================================
+// CONTENEDOR PRINCIPAL DEL HERO
+// =====================================================================
 
 .hero {
+  position: relative;
   min-height: 100vh;
+  background: radial-gradient(
+    ellipse at center,
+    $gris-carbon 0%,
+    $negro-esmoquin 70%,
+    #000000 100%
+  );
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+// Ocultar frame superior (si existe)
+.metal-frame--top {
+  display: none;
+}
+
+// =====================================================================
+// ELEMENTOS DE FONDO Y DECORATIVOS
+// =====================================================================
+
+.hero__background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+// Overlay de humo atmosférico
+.smoke-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
+      circle at 30% 20%,
+      rgba($gris-humo-cigarro, 0.4) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 70% 80%,
+      rgba($gris-ceniza, 0.3) 0%,
+      transparent 50%
+    );
+}
+
+// Patrón Art Deco sutil
+.art-deco-pattern {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 40px,
+    rgba($oro-envejecido, 0.03) 40px,
+    rgba($oro-envejecido, 0.03) 80px
+  );
+}
+
+// Líneas verticales tipo speakeasy
+.vertical-lines {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: repeating-linear-gradient(
+    90deg,
+    transparent,
+    transparent 50px,
+    rgba($laton-oxidado, 0.1) 50px,
+    rgba($laton-oxidado, 0.1) 51px
+  );
+}
+
+// Marcos metálicos decorativos
+.metal-frame {
+  position: absolute;
+  width: 100%;
+  height: 6px;
+  background: linear-gradient(
+    90deg,
+    $bronce-oscuro 0%,
+    $oro-envejecido 25%,
+    $laton-oxidado 50%,
+    $cobre-viejo 75%,
+    $bronce-oscuro 100%
+  );
+  box-shadow: inset 0 2px 4px rgba($negro-esmoquin, 0.8),
+    0 0 20px rgba($oro-envejecido, 0.3);
+
+  &--top {
+    top: 0;
+  }
+
+  &--bottom {
+    bottom: 0;
+  }
+}
+
+// =====================================================================
+// LAYOUT Y ESTRUCTURA PRINCIPAL
+// =====================================================================
+
+.hero__container {
+  position: relative;
+  z-index: 2;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 3rem 2rem;
+  width: 100%;
+}
+
+.hero__content {
+  display: grid;
+  grid-template-columns: 1.4fr 0.6fr;
+  gap: 5rem;
+  align-items: start;
+  opacity: 0;
+  transform: scale(0.95);
+  animation: revealPortfolioContent 1s ease-out 1.5s forwards;
+}
+
+// =====================================================================
+// HEADER ESTILO SPEAKEASY (ESTABLISHMENT INFO)
+// =====================================================================
+
+.speakeasy-header {
+  margin-bottom: 3rem;
+}
+
+.establishment-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.establishment-name {
+  font-family: 'Times New Roman', serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: $oro-envejecido;
+  letter-spacing: 8px;
+  text-shadow: 2px 2px 4px rgba($negro-esmoquin, 0.8);
+}
+
+.establishment-year {
+  font-family: 'Times New Roman', serif;
+  font-size: 1rem;
+  color: $laton-oxidado;
+  letter-spacing: 3px;
+}
+
+// Divisor ornamental
+.ornament-divider {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, $background-light 0%, $white 100%);
+}
+
+.ornament-line {
+  flex: 1;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, $oro-envejecido, transparent);
+}
+
+.ornament-diamond {
+  width: 12px;
+  height: 12px;
+  background: $oro-envejecido;
+  transform: rotate(45deg);
+  margin: 0 1rem;
+  box-shadow: 0 0 10px rgba($oro-envejecido, 0.5);
+}
+
+// =====================================================================
+// TIPOGRAFÍA PRINCIPAL - NOMBRE Y TÍTULOS
+// =====================================================================
+
+.hero__name {
+  font-family: 'Times New Roman', serif;
+  margin-bottom: 2rem;
+  line-height: 0.9;
+  text-align: center;
+}
+
+.name-title {
+  display: block;
+  font-size: 2rem;
+  font-weight: 400;
+  color: $laton-oxidado;
+  letter-spacing: 4px;
+  margin-bottom: 0.5rem;
+  opacity: 0.8;
+}
+
+.name-first {
+  display: block;
+  font-size: 6rem;
+  font-weight: 900;
+  color: $crema-pergamino;
+  text-shadow: 3px 3px 0px $oro-envejecido,
+    6px 6px 10px rgba($negro-esmoquin, 0.8);
+  letter-spacing: -3px;
+}
+
+.name-last {
+  display: block;
+  font-size: 4rem;
+  font-weight: 400;
+  color: $oro-envejecido;
+  letter-spacing: 6px;
+  text-shadow: 2px 2px 8px rgba($negro-esmoquin, 0.9);
+}
+
+// Título principal con ornamentos
+.hero__title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2.5rem;
+}
+
+.title-ornament {
+  width: 80px;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    $cobre-viejo,
+    $oro-envejecido,
+    $cobre-viejo,
+    transparent
+  );
+
+  &--left {
+    margin-right: 2rem;
+  }
+
+  &--right {
+    margin-left: 2rem;
+  }
+}
+
+.title-text {
+  font-family: 'Georgia', serif;
+  font-size: 1.8rem;
+  font-weight: 300;
+  color: $laton-oxidado;
+  letter-spacing: 4px;
+  text-shadow: 1px 1px 3px rgba($negro-esmoquin, 0.8);
+}
+
+// Subtítulo descriptivo
+.hero__subtitle {
+  font-family: 'Georgia', serif;
+  font-size: 1.3rem;
+  line-height: 1.8;
+  color: $gris-ceniza;
+  text-align: center;
+  margin-bottom: 3rem;
+  padding: 0 2rem;
+  border-left: 3px solid $cobre-viejo;
+  border-right: 3px solid $cobre-viejo;
+}
+
+// =====================================================================
+// SECCIÓN DE CREDENCIALES Y ESTADÍSTICAS
+// =====================================================================
+
+.credentials-section {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  margin-bottom: 4rem;
+  padding: 2rem;
+  background: rgba($caoba-casi-negro, 0.3);
+  border: 1px solid $bronce-oscuro;
+  box-shadow: inset 0 0 20px rgba($negro-esmoquin, 0.5),
+    0 4px 20px rgba($oro-envejecido, 0.1);
+}
+
+.credential-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.credential-icon {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  filter: sepia(1) hue-rotate(20deg) brightness(1.2);
+}
+
+.credential-text {
+  font-family: 'Arial', sans-serif;
+  font-size: 0.9rem;
+  color: $oro-envejecido;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+// =====================================================================
+// BOTONES Y ACCIONES PRINCIPALES
+// =====================================================================
+
+.hero__actions {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.btn {
   position: relative;
-  padding: 2rem 1rem;
+  padding: 1.2rem 3rem;
+  border: none;
+  font-family: 'Times New Roman', serif;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  overflow: hidden;
 
-  // Patrón de fondo sutil
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-image: radial-gradient(
-        circle at 25% 25%,
-        rgba($primary-color, 0.1) 0%,
-        transparent 50%
-      ),
-      radial-gradient(
-        circle at 75% 75%,
-        rgba($accent-color, 0.1) 0%,
-        transparent 50%
-      );
-    pointer-events: none;
-  }
+  // Botón dorado principal
+  &--gold {
+    background: linear-gradient(
+      135deg,
+      $oro-envejecido 0%,
+      $laton-oxidado 50%,
+      $cobre-viejo 100%
+    );
+    color: $negro-esmoquin;
+    box-shadow: 0 6px 20px rgba($oro-envejecido, 0.4),
+      inset 0 1px 0 rgba($crema-pergamino, 0.3);
 
-  &__content {
-    text-align: center;
-    max-width: 800px;
-    position: relative;
-    z-index: 1;
-
-    @include mobile {
-      max-width: 100%;
-      padding: 0 1rem;
-    }
-
-    @include tablet {
-      max-width: 600px;
-    }
-  }
-
-  &__title {
-    font-size: 3.5rem;
-    font-weight: 700;
-    color: $text-dark;
-    margin-bottom: 1.5rem;
-    line-height: 1.2;
-    letter-spacing: -0.02em;
-
-    @include mobile {
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
-    }
-
-    @include tablet {
-      font-size: 3rem;
-    }
-
-    // Efecto de gradiente en el texto
-    background: linear-gradient(135deg, $text-dark 0%, $primary-color 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-
-  &__subtitle {
-    font-size: 1.25rem;
-    color: $text-light;
-    margin-bottom: 2.5rem;
-    line-height: 1.6;
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
-
-    @include mobile {
-      font-size: 1.1rem;
-      margin-bottom: 2rem;
-      padding: 0 0.5rem;
-    }
-
-    @include tablet {
-      font-size: 1.2rem;
-    }
-  }
-
-  &__cta {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 1rem 2rem;
-    font-size: 1.1rem;
-    font-weight: 600;
-    color: $white;
-    background: linear-gradient(135deg, $primary-color 0%, $accent-color 100%);
-    border: none;
-    border-radius: 50px;
-    cursor: pointer;
-    text-decoration: none;
-    position: relative;
-    overflow: hidden;
-    min-width: 200px;
-
-    @include smooth-transition(transform, 0.2s);
-    @include smooth-transition(box-shadow, 0.2s);
-
-    @include mobile {
-      padding: 0.875rem 1.5rem;
-      font-size: 1rem;
-      min-width: 180px;
-    }
-
-    // Efecto hover
     &:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 10px 25px rgba($primary-color, 0.3);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba($oro-envejecido, 0.6),
+        inset 0 1px 0 rgba($crema-pergamino, 0.5);
     }
 
-    &:active {
-      transform: translateY(0);
-    }
-
-    // Efecto de brillo en hover
-    &::before {
-      content: '';
+    // Efecto de brillo deslizante
+    .btn-ornament {
       position: absolute;
       top: 0;
       left: -100%;
@@ -168,47 +392,938 @@ $white: #ffffff;
       background: linear-gradient(
         90deg,
         transparent,
-        rgba($white, 0.2),
+        rgba($crema-pergamino, 0.3),
         transparent
       );
-      @include smooth-transition(left, 0.5s);
+      transition: left 0.6s ease;
     }
 
-    &:hover::before {
+    &:hover .btn-ornament {
       left: 100%;
     }
+  }
 
-    // Focus para accesibilidad
-    &:focus {
-      outline: 2px solid $accent-color;
-      outline-offset: 2px;
+  // Botón con borde
+  &--outline {
+    background: transparent;
+    color: $oro-envejecido;
+    border: 2px solid $oro-envejecido;
+    box-shadow: 0 0 20px rgba($oro-envejecido, 0.2),
+      inset 0 0 20px rgba($oro-envejecido, 0.1);
+
+    &:hover {
+      background: rgba($oro-envejecido, 0.1);
+      color: $crema-pergamino;
+      transform: translateY(-3px);
+      box-shadow: 0 6px 25px rgba($oro-envejecido, 0.4),
+        inset 0 0 30px rgba($oro-envejecido, 0.2);
     }
   }
 }
 
-// Animación de entrada
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
+.btn-text {
+  position: relative;
+  z-index: 2;
+}
+
+// =====================================================================
+// SIDEBAR - SHOWCASE DE TECNOLOGÍAS
+// =====================================================================
+
+.technology-showcase {
+  background: linear-gradient(
+    145deg,
+    rgba($caoba-casi-negro, 0.8) 0%,
+    rgba($nogal-profundo, 0.6) 100%
+  );
+  border: 1px solid $bronce-oscuro;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 10px 30px rgba($negro-esmoquin, 0.7),
+    inset 0 1px 0 rgba($oro-envejecido, 0.2);
+}
+
+.showcase-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.showcase-title {
+  font-family: 'Times New Roman', serif;
+  font-size: 1.3rem;
+  color: $oro-envejecido;
+  letter-spacing: 3px;
+  margin-bottom: 1rem;
+  text-shadow: 1px 1px 3px rgba($negro-esmoquin, 0.8);
+}
+
+.showcase-border {
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    $cobre-viejo,
+    $oro-envejecido,
+    $cobre-viejo,
+    transparent
+  );
+}
+
+// Carrusel 3D de tecnologías
+.tech-carousel {
+  height: 280px;
+  perspective: 1000px;
+  overflow: hidden;
+  margin-bottom: 2rem;
+}
+
+.carousel-track {
+  position: relative;
+  height: 100%;
+  transform-style: preserve-3d;
+  animation: rotateCarousel 18s linear infinite;
+}
+
+.tech-carousel .tech-card {
+  position: absolute;
+  width: 100%;
+  height: 80px;
+  top: 50%;
+  left: 0;
+  transform-origin: center center;
+
+  &:nth-child(1) {
+    transform: translateY(-50%) rotateX(0deg) translateZ(140px);
   }
-  to {
-    opacity: 1;
-    transform: translateY(0);
+  &:nth-child(2) {
+    transform: translateY(-50%) rotateX(60deg) translateZ(140px);
+  }
+  &:nth-child(3) {
+    transform: translateY(-50%) rotateX(120deg) translateZ(140px);
+  }
+  &:nth-child(4) {
+    transform: translateY(-50%) rotateX(180deg) translateZ(140px);
+  }
+  &:nth-child(5) {
+    transform: translateY(-50%) rotateX(240deg) translateZ(140px);
+  }
+  &:nth-child(6) {
+    transform: translateY(-50%) rotateX(300deg) translateZ(140px);
   }
 }
 
-// Aplicar animación cuando el componente se hace visible
-.hero--visible {
-  .hero__title {
-    animation: fadeInUp 0.8s ease-out;
+.tech-card {
+  display: flex;
+  align-items: center;
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+  background: rgba($negro-esmoquin, 0.5);
+  border-left: 4px solid $bronce-oscuro;
+  transition: all 0.3s ease;
+  backface-visibility: hidden;
+
+  &--primary {
+    border-left-color: $oro-envejecido;
+    background: rgba($caoba-casi-negro, 0.7);
   }
 
-  .hero__subtitle {
-    animation: fadeInUp 0.8s ease-out 0.2s both;
+  &:hover {
+    border-left-color: $oro-envejecido;
+    background: rgba($caoba-casi-negro, 0.9);
+    transform: translateX(5px) scale(1.02);
+    box-shadow: 0 8px 25px rgba($oro-envejecido, 0.3);
+  }
+}
+
+.tech-emblem {
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, $gris-humo-cigarro, $gris-carbon);
+  border: 2px solid $bronce-oscuro;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 1.5rem;
+}
+
+.tech-symbol {
+  font-family: 'Times New Roman', serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: $oro-envejecido;
+}
+
+.tech-details {
+  flex: 1;
+}
+
+.tech-name {
+  font-family: 'Times New Roman', serif;
+  font-size: 1.1rem;
+  color: $crema-pergamino;
+  margin-bottom: 0.3rem;
+  letter-spacing: 1px;
+}
+
+.tech-desc {
+  font-family: 'Arial', sans-serif;
+  font-size: 0.9rem;
+  color: $gris-ceniza;
+  font-style: italic;
+}
+
+// Sello de reputación
+.reputation-seal {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.seal-inner {
+  width: 80px;
+  height: 80px;
+  border: 3px solid $oro-envejecido;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(
+    circle,
+    rgba($oro-envejecido, 0.1) 0%,
+    transparent 70%
+  );
+  box-shadow: 0 0 20px rgba($oro-envejecido, 0.3);
+}
+
+.seal-text {
+  font-family: 'Times New Roman', serif;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: $oro-envejecido;
+  letter-spacing: 1px;
+}
+
+.seal-subtext {
+  font-family: 'Arial', sans-serif;
+  font-size: 0.6rem;
+  color: $laton-oxidado;
+  letter-spacing: 1px;
+}
+
+// =====================================================================
+// SECCIÓN DE CITA INSPIRACIONAL
+// =====================================================================
+
+.quote-section {
+  background: rgba($negro-esmoquin, 0.8);
+  border: 1px solid $bronce-oscuro;
+  padding: 2rem;
+  position: relative;
+  box-shadow: 0 8px 25px rgba($negro-esmoquin, 0.6),
+    inset 0 1px 0 rgba($oro-envejecido, 0.1);
+}
+
+.quote-marks {
+  position: absolute;
+  top: -10px;
+  left: 20px;
+  font-size: 4rem;
+  color: $oro-envejecido;
+  font-family: 'Times New Roman', serif;
+  opacity: 0.5;
+}
+
+.quote-text {
+  font-family: 'Georgia', serif;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: $crema-pergamino;
+  font-style: italic;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.quote-attribution {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.attribution-line {
+  width: 40px;
+  height: 1px;
+  background: $cobre-viejo;
+  margin-right: 1rem;
+}
+
+.attribution-text {
+  font-family: 'Times New Roman', serif;
+  font-size: 0.9rem;
+  color: $laton-oxidado;
+  letter-spacing: 2px;
+}
+
+// =====================================================================
+// PUERTAS FRANCESAS REALISTAS - ESTILO CASA ELEGANTE "EL PADRINO"
+// =====================================================================
+
+.door-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 9999;
+  pointer-events: none;
+  perspective: 1800px;
+  perspective-origin: center center;
+  background: linear-gradient(
+    135deg,
+    rgba(#1a0f08, 0.9) 0%,
+    rgba(#2b1810, 0.7) 50%,
+    rgba(#1a0f08, 0.9) 100%
+  );
+  animation: hideOverlay 0.5s ease-out 4s forwards;
+}
+
+// Paneles de puertas francesas
+.door-panel {
+  position: absolute;
+  top: 0;
+  width: 50%;
+  height: 100%;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+
+  // Marco de madera principal
+  background: linear-gradient(
+    135deg,
+    #2b1810 0%,
+    #3c1810 25%,
+    #4a2c1a 50%,
+    #3c1810 75%,
+    #2b1810 100%
+  );
+
+  border: 6px solid #3c1810;
+  box-shadow: inset 0 0 30px rgba(#1a0f08, 0.8), 0 0 50px rgba(#000, 0.9);
+
+  // Vetas de madera en el marco
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: repeating-linear-gradient(
+        88deg,
+        transparent 0px,
+        rgba(#5c2e1a, 0.3) 1px,
+        rgba(#6d3423, 0.4) 2px,
+        transparent 3px,
+        transparent 8px
+      ),
+      radial-gradient(
+        ellipse 15px 8px at 20% 15%,
+        rgba(#1a0f08, 0.6) 0%,
+        transparent 60%
+      ),
+      radial-gradient(
+        ellipse 12px 6px at 80% 85%,
+        rgba(#1a0f08, 0.4) 0%,
+        transparent 50%
+      );
+    opacity: 0.7;
+    pointer-events: none;
   }
 
-  .hero__cta {
-    animation: fadeInUp 0.8s ease-out 0.4s both;
+  // Barniz brillante del marco
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      45deg,
+      transparent 0%,
+      rgba(#d4af37, 0.03) 20%,
+      rgba(#f5f4e8, 0.08) 50%,
+      rgba(#d4af37, 0.03) 80%,
+      transparent 100%
+    );
+    opacity: 0.6;
+    pointer-events: none;
+  }
+}
+
+// Puerta izquierda - se abre hacia la derecha
+.door-panel--left {
+  left: 0;
+  transform-origin: left center;
+  animation: openFrenchDoorLeft 2s cubic-bezier(0.25, 0.1, 0.25, 1) 0.2s
+    forwards;
+}
+
+.door-panel--right {
+  right: 0;
+  transform-origin: right center;
+  animation: openFrenchDoorRight 2s cubic-bezier(0.25, 0.1, 0.25, 1) 0.2s
+    forwards;
+}
+
+// Ornamentos decorativos en las esquinas
+.door-panel {
+  .corner-ornament--top-left,
+  .corner-ornament--top-right,
+  .corner-ornament--bottom-left,
+  .corner-ornament--bottom-right {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background: radial-gradient(
+      circle,
+      #6d3423 0%,
+      #5c2e1a 30%,
+      #3c1810 60%,
+      #2b1810 100%
+    );
+    border-radius: 50%;
+    box-shadow: inset 0 4px 12px rgba(#1a0f08, 0.9),
+      inset 0 -2px 6px rgba(#8b4513, 0.4), 0 3px 10px rgba(#000, 0.6);
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 20px;
+      height: 20px;
+      background: radial-gradient(
+        circle,
+        rgba(#8b4513, 0.8) 0%,
+        rgba(#6d3423, 0.6) 40%,
+        transparent 70%
+      );
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 8px;
+      height: 8px;
+      background: #1a0f08;
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      box-shadow: inset 0 1px 3px rgba(#8b4513, 0.5);
+    }
+  }
+
+  .corner-ornament--top-left {
+    top: 50px;
+    left: 50px;
+  }
+
+  .corner-ornament--top-right {
+    top: 50px;
+    right: 50px;
+  }
+
+  .corner-ornament--bottom-left {
+    bottom: 50px;
+    left: 50px;
+  }
+
+  .corner-ornament--bottom-right {
+    bottom: 50px;
+    right: 50px;
+  }
+}
+
+// =====================================================================
+// PANELES DE CRISTAL DE LAS PUERTAS FRANCESAS
+// =====================================================================
+
+.glass-panel {
+  position: absolute;
+  background: linear-gradient(
+    135deg,
+    rgba(#f5f4e8, 0.1) 0%,
+    rgba(#d4af37, 0.05) 25%,
+    rgba(#f5f4e8, 0.15) 50%,
+    rgba(#d4af37, 0.05) 75%,
+    rgba(#f5f4e8, 0.1) 100%
+  );
+  border: 2px solid #5c2e1a;
+  backdrop-filter: blur(1px);
+  box-shadow: inset 0 0 20px rgba(#f5f4e8, 0.1), 0 0 10px rgba(#d4af37, 0.2);
+
+  // Reflejos en el cristal
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      45deg,
+      transparent 0%,
+      rgba(#f5f4e8, 0.2) 30%,
+      transparent 40%,
+      rgba(#f5f4e8, 0.1) 70%,
+      transparent 100%
+    );
+    opacity: 0.6;
+    pointer-events: none;
+  }
+
+  // Ligera distorsión del cristal
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: repeating-linear-gradient(
+      45deg,
+      transparent 0px,
+      rgba(#f5f4e8, 0.02) 1px,
+      transparent 2px,
+      transparent 20px
+    );
+    opacity: 0.3;
+    pointer-events: none;
+  }
+}
+
+// Panel superior
+.glass-panel--top {
+  top: 40px;
+  left: 40px;
+  right: 40px;
+  height: 35%;
+}
+
+// Panel inferior
+.glass-panel--bottom {
+  bottom: 40px;
+  left: 40px;
+  right: 40px;
+  height: 35%;
+}
+
+// =====================================================================
+// MANIJAS ELEGANTES DE PUERTAS FRANCESAS
+// =====================================================================
+
+.french-door-handle {
+  position: absolute;
+  top: 50%;
+  width: 30px;
+  height: 120px;
+  background: linear-gradient(
+    135deg,
+    #d4af37 0%,
+    #c9a96e 20%,
+    #b8860b 50%,
+    #8b4513 80%,
+    #665d1e 100%
+  );
+  border-radius: 15px;
+  transform: translateY(-50%);
+  box-shadow: 0 8px 25px rgba(#000, 0.8), inset 0 3px 10px rgba(#f5f4e8, 0.5),
+    inset 0 -3px 10px rgba(#2b1810, 0.7);
+
+  // Parte central de la manija
+  &::before {
+    content: '';
+    position: absolute;
+    top: 30px;
+    left: 50%;
+    width: 18px;
+    height: 60px;
+    background: linear-gradient(180deg, #d4af37 0%, #c9a96e 50%, #b8860b 100%);
+    border-radius: 9px;
+    transform: translateX(-50%);
+    box-shadow: inset 0 2px 6px rgba(#f5f4e8, 0.4),
+      inset 0 -2px 6px rgba(#2b1810, 0.6);
+  }
+
+  // Detalles decorativos
+  &::after {
+    content: '';
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    width: 8px;
+    height: 8px;
+    background: #8b4513;
+    border-radius: 50%;
+    transform: translateX(-50%);
+    box-shadow: 0 80px 0 #8b4513, inset 0 1px 2px rgba(#2b1810, 0.8),
+      0 2px 4px rgba(#000, 0.5), 0 82px 4px rgba(#000, 0.5);
+  }
+}
+
+// Manija izquierda - lado derecho de puerta izquierda
+.french-door-handle--left {
+  right: 30px;
+  animation: handleRotateLeft 2s cubic-bezier(0.25, 0.1, 0.25, 1) 0.2s forwards;
+}
+
+.french-door-handle--right {
+  left: 30px;
+  animation: handleRotateRight 2s cubic-bezier(0.25, 0.1, 0.25, 1) 0.2s forwards;
+}
+
+// =====================================================================
+// BISAGRAS ELEGANTES
+// =====================================================================
+
+.french-door-hinge {
+  position: absolute;
+  width: 20px;
+  height: 50px;
+  background: linear-gradient(
+    135deg,
+    #b8860b 0%,
+    #8b4513 30%,
+    #665d1e 70%,
+    #5c2e1a 100%
+  );
+  border-radius: 5px;
+  box-shadow: inset 0 2px 5px rgba(#d4af37, 0.4),
+    inset 0 -2px 5px rgba(#2b1810, 0.8), 0 3px 12px rgba(#000, 0.7);
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 12px;
+    height: 12px;
+    background: #2b1810;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: inset 0 2px 4px rgba(#8b4513, 0.6), 0 1px 3px rgba(#000, 0.5);
+  }
+}
+
+.french-door-hinge--top {
+  top: 100px;
+}
+
+.french-door-hinge--bottom {
+  bottom: 100px;
+}
+
+// Bisagras izquierdas
+.door-panel--left .french-door-hinge {
+  left: -10px;
+  animation: hingeLeft 2s cubic-bezier(0.25, 0.1, 0.25, 1) 0.2s forwards;
+}
+
+.door-panel--right .french-door-hinge {
+  right: -10px;
+  animation: hingeRight 2s cubic-bezier(0.25, 0.1, 0.25, 1) 0.2s forwards;
+}
+
+// =====================================================================
+// ILUMINACIÓN CÁLIDA Y ATMOSPHERE HOGAREÑA
+// =====================================================================
+
+// Luz cálida que se filtra por los cristales
+.warm-light {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(#f5f4e8, 0.1) 0%,
+    rgba(#d4af37, 0.15) 30%,
+    rgba(#c9a96e, 0.1) 50%,
+    transparent 70%
+  );
+  z-index: 10001;
+  opacity: 0;
+  animation: warmLightReveal 2.5s ease-out 1.5s forwards;
+  pointer-events: none;
+}
+
+// Rayos de luz que entran por los cristales
+.light-ray {
+  position: fixed;
+  top: 0;
+  width: 2px;
+  height: 100vh;
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    rgba(#f5f4e8, 0.4) 20%,
+    rgba(#d4af37, 0.6) 50%,
+    rgba(#f5f4e8, 0.4) 80%,
+    transparent 100%
+  );
+  z-index: 10000;
+  opacity: 0;
+  filter: blur(1px);
+}
+
+.light-ray--1 {
+  left: 30%;
+  animation: lightRayAppear 1.5s ease-out 2s forwards;
+}
+
+.light-ray--2 {
+  left: 50%;
+  animation: lightRayAppear 1.5s ease-out 2.2s forwards;
+}
+
+.light-ray--3 {
+  left: 70%;
+  animation: lightRayAppear 1.5s ease-out 2.4s forwards;
+}
+
+// =====================================================================
+// ANIMACIONES
+// =====================================================================
+
+// Rotación del carrusel de tecnologías
+@keyframes rotateCarousel {
+  0% {
+    transform: rotateX(0deg);
+  }
+  100% {
+    transform: rotateX(-360deg);
+  }
+}
+
+// Animaciones suaves de apertura hacia adentro
+@keyframes openFrenchDoorLeft {
+  0% {
+    transform: perspective(1800px) rotateY(0deg);
+    filter: brightness(0.7);
+  }
+  20% {
+    transform: perspective(1800px) rotateY(15deg);
+    filter: brightness(0.8);
+  }
+  50% {
+    transform: perspective(1800px) rotateY(45deg);
+    filter: brightness(0.9);
+  }
+  80% {
+    transform: perspective(1800px) rotateY(75deg);
+    filter: brightness(1);
+  }
+  100% {
+    transform: perspective(1800px) rotateY(85deg);
+    filter: brightness(1.1);
+    opacity: 0;
+  }
+}
+
+@keyframes openFrenchDoorRight {
+  0% {
+    transform: perspective(1800px) rotateY(0deg);
+    filter: brightness(0.7);
+  }
+  20% {
+    transform: perspective(1800px) rotateY(-15deg);
+    filter: brightness(0.8);
+  }
+  50% {
+    transform: perspective(1800px) rotateY(-45deg);
+    filter: brightness(0.9);
+  }
+  80% {
+    transform: perspective(1800px) rotateY(-75deg);
+    filter: brightness(1);
+  }
+  100% {
+    transform: perspective(1800px) rotateY(-85deg);
+    filter: brightness(1.1);
+    opacity: 0;
+  }
+}
+
+@keyframes handleRotateLeft {
+  0% {
+    transform: translateY(-50%) perspective(1800px) rotateY(0deg) rotateZ(0deg);
+  }
+  15% {
+    transform: translateY(-50%) perspective(1800px) rotateY(8deg)
+      rotateZ(-15deg);
+  }
+  30% {
+    transform: translateY(-50%) perspective(1800px) rotateY(20deg)
+      rotateZ(-8deg);
+  }
+  100% {
+    transform: translateY(-50%) perspective(1800px) rotateY(85deg) rotateZ(0deg);
+    opacity: 0;
+  }
+}
+
+@keyframes handleRotateRight {
+  0% {
+    transform: translateY(-50%) perspective(1800px) rotateY(0deg) rotateZ(0deg);
+  }
+  15% {
+    transform: translateY(-50%) perspective(1800px) rotateY(-8deg)
+      rotateZ(15deg);
+  }
+  30% {
+    transform: translateY(-50%) perspective(1800px) rotateY(-20deg)
+      rotateZ(8deg);
+  }
+  100% {
+    transform: translateY(-50%) perspective(1800px) rotateY(-85deg)
+      rotateZ(0deg);
+    opacity: 0;
+  }
+}
+
+@keyframes hingeLeft {
+  0% {
+    transform: rotateY(0deg);
+  }
+  100% {
+    transform: rotateY(85deg);
+    opacity: 0;
+  }
+}
+
+@keyframes hingeRight {
+  0% {
+    transform: rotateY(0deg);
+  }
+  100% {
+    transform: rotateY(-85deg);
+    opacity: 0;
+  }
+}
+
+@keyframes hideOverlay {
+  0% {
+    opacity: 1;
+    visibility: visible;
+  }
+  100% {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+@keyframes warmLightReveal {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.1);
+  }
+  100% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+}
+
+@keyframes lightRayAppear {
+  0% {
+    opacity: 0;
+    transform: scaleX(0);
+  }
+  50% {
+    opacity: 1;
+    transform: scaleX(2);
+  }
+  100% {
+    opacity: 0.6;
+    transform: scaleX(1);
+  }
+}
+
+@keyframes revealPortfolioContent {
+  0% {
+    opacity: 0;
+    transform: scale(0.95);
+    filter: brightness(0.4) blur(5px);
+  }
+  30% {
+    opacity: 0.3;
+    transform: scale(0.97);
+    filter: brightness(0.7) blur(3px);
+  }
+  70% {
+    opacity: 0.8;
+    transform: scale(0.99);
+    filter: brightness(0.9) blur(1px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+    filter: brightness(1) blur(0px);
+  }
+}
+
+// =====================================================================
+// RESPONSIVE DESIGN
+// =====================================================================
+
+@media (max-width: 768px) {
+  .door-panel--left,
+  .door-panel--right {
+    animation-duration: 2.5s;
+  }
+
+  .hero__content {
+    animation-delay: 3s;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .french-door-handle {
+    width: 25px;
+    height: 100px;
+
+    &--left {
+      right: 25px;
+    }
+
+    &--right {
+      left: 25px;
+    }
+  }
+
+  .french-door-hinge {
+    width: 18px;
+    height: 45px;
+  }
+
+  .glass-panel--top,
+  .glass-panel--bottom {
+    left: 30px;
+    right: 30px;
+  }
+
+  .name-first {
+    font-size: 4rem;
+  }
+
+  .name-last {
+    font-size: 2.5rem;
   }
 }

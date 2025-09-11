@@ -84,20 +84,30 @@ export interface Project {
               </div>
             </div>
 
-            <!-- Phone Mockup corregido -->
+            <!-- Phone Mockup con Scroll Funcional -->
             <div
               *ngIf="project.type === 'mobile' && project.screenshots"
               class="project-card__mobile"
             >
-              <div class="phone-mockup">
+              <div
+                class="phone-mockup"
+                [class.has-scroll]="isLongScreenshot(projectIndex)"
+              >
                 <div class="phone-frame">
                   <div class="phone-notch"></div>
                   <div class="phone-screen">
-                    <img
-                      [src]="getCurrentScreenshot(projectIndex)"
-                      [alt]="getCurrentScreenLabel(projectIndex)"
-                      class="phone-screenshot"
-                    />
+                    <div
+                      class="phone-screen-container"
+                      [id]="'phone-container-' + projectIndex"
+                    >
+                      <img
+                        [src]="getCurrentScreenshot(projectIndex)"
+                        [alt]="getCurrentScreenLabel(projectIndex)"
+                        class="phone-screenshot"
+                        [ngClass]="getScreenshotClass(projectIndex)"
+                        (load)="onImageLoad($event, projectIndex)"
+                      />
+                    </div>
                     <div class="phone-home-indicator"></div>
                   </div>
                 </div>
@@ -150,8 +160,7 @@ export interface Project {
 
                 <div class="app-info">
                   <p class="app-tech">
-                    <strong>React Native</strong> + Firebase + Push
-                    Notifications
+                    <strong>{{ getAppTechLabel(project.id) }}</strong>
                   </p>
                 </div>
               </div>
@@ -200,6 +209,7 @@ export interface Project {
 })
 export class Projects {
   private currentScreenshots: { [projectIndex: number]: number } = {};
+  private imageHeights: { [key: string]: number } = {}; // Almacenar alturas de imágenes
 
   projects: Project[] = [
     {
@@ -216,11 +226,7 @@ export class Projects {
         'Responsive Design',
       ],
       type: 'web',
-      demoUrl: 'https://vacuna-app-3510b.web.app/login',
-      credentials: {
-        user: 'vediviere@gmail.com',
-        pass: 'marco123',
-      },
+      demoUrl: 'https://vacuna-app-3510b.web.app?demo=true',
       features: [
         'Registro personalizado de vacunas por usuario',
         'Autenticación segura con Firebase Auth',
@@ -265,6 +271,74 @@ export class Projects {
       storeLinks: {},
     },
     {
+      id: 'joyeria-oro-mobile',
+      title: 'VJoyeriapp - Ventas de Oro',
+      description:
+        'Aplicación móvil e-commerce especializada en joyería de oro con catálogo interactivo, carrito de compras, zoom de alta calidad en productos y sistema de favoritos.',
+      tech: [
+        'Flutter',
+        'Dart',
+        'Firebase',
+        'Stripe Payment',
+        'Image Optimization',
+        'Push Notifications',
+      ],
+      type: 'mobile',
+      screenshots: [
+        'screenshots/oro (1).jpg',
+        'screenshots/oro (2).jpg',
+        'screenshots/oro (3).jpg',
+        'screenshots/oro (4).jpg',
+        'screenshots/oro (5).jpg',
+        'screenshots/oro (6).jpg',
+        'screenshots/oro (7).jpg',
+        'screenshots/oro (8).jpg',
+        'screenshots/oro (9).jpg',
+        'screenshots/oro (10).jpg',
+        'screenshots/oro (11).jpg',
+      ],
+      features: [
+        'Catálogo de productos con filtros avanzados (precio, quilates, tipo)',
+        'Zoom de alta calidad para inspeccionar detalles de las joyas',
+        'Sistema de favoritos y listas de deseos',
+        'Carrito de compras con cálculo de envío en tiempo real',
+        'Integración con Stripe para pagos seguros',
+        'Notificaciones de ofertas y nuevos productos',
+        'Galería de imágenes 360° para anillos y aretes',
+        'Sistema de reseñas y calificaciones de productos',
+        'Calculadora de tallas para anillos',
+        'Chat en vivo con asesores de venta',
+      ],
+      storeLinks: {},
+    },
+    {
+      id: 'sistema-usuarios',
+      title: 'Sistema de Registro de Usuarios',
+      description:
+        'Aplicación web para registro y gestión de nuevos usuarios con React y Firebase. Sistema enfocado únicamente en el proceso de alta de usuarios con validaciones completas.',
+      tech: [
+        'React',
+        'Firebase Authentication',
+        'Firestore',
+        'JavaScript',
+        'Firebase Hosting',
+        'Validación de Formularios',
+      ],
+      type: 'web',
+      demoUrl: 'https://sistemaregistrosusuarios.web.app',
+      features: [
+        'Formulario de registro con validaciones en tiempo real',
+        'Verificación de email automática',
+        'Validación de contraseñas seguras',
+        'Almacenamiento de perfiles en Firestore',
+        'Prevención de registros duplicados',
+        'Interface responsiva optimizada',
+        'Feedback visual de estado del registro',
+        'Deploy en Firebase Hosting',
+      ],
+      isDemoMode: true,
+    },
+    {
       id: 'portfolio-ecosystem',
       title: 'Portfolio DevOps Ecosystem',
       description:
@@ -293,10 +367,20 @@ export class Projects {
   getTypeLabel(type: string): string {
     const labels = {
       web: 'Aplicación Web',
-      mobile: 'App Android',
+      mobile: 'App Mobile',
       fullstack: 'Full Stack',
     };
     return labels[type as keyof typeof labels] || type;
+  }
+
+  getAppTechLabel(projectId: string): string {
+    const techLabels = {
+      'vacuna-mobile': 'React Native + Firebase + Push Notifications',
+      'joyeria-oro-mobile': 'Flutter + Dart + Stripe + Firebase',
+    };
+    return (
+      techLabels[projectId as keyof typeof techLabels] || 'Mobile Development'
+    );
   }
 
   getCurrentIndex(projectIndex: number): number {
@@ -311,16 +395,36 @@ export class Projects {
   }
 
   getCurrentScreenLabel(projectIndex: number): string {
+    const project = this.projects[projectIndex];
     const currentIndex = this.getCurrentIndex(projectIndex);
-    const labels = [
-      'Dashboard Principal',
-      'Lista de Vacunas',
-      'Categorías de Vacunas',
-      'Vacunas Aplicadas',
-      'Gestión de Pacientes',
-      'Perfil de Paciente',
-    ];
-    return labels[currentIndex] || `Pantalla ${currentIndex + 1}`;
+
+    // Labels específicos por proyecto
+    const screenLabels = {
+      'vacuna-mobile': [
+        'Dashboard Principal',
+        'Lista de Vacunas',
+        'Categorías de Vacunas',
+        'Vacunas Aplicadas',
+        'Gestión de Pacientes',
+        'Perfil de Paciente',
+      ],
+      'joyeria-oro-mobile': [
+        'Pantalla Principal',
+        'Catálogo Anillos',
+        'Detalle Producto',
+        'Carrito Compras',
+        'Lista Favoritos',
+        'Perfil Usuario',
+        'Categorías Oro',
+        'Búsqueda Avanzada',
+        'Historial Compras',
+        'Configuraciones',
+        'Ofertas Especiales',
+      ],
+    };
+
+    const labels = screenLabels[project.id as keyof typeof screenLabels];
+    return labels ? labels[currentIndex] : `Pantalla ${currentIndex + 1}`;
   }
 
   previousScreen(projectIndex: number): void {
@@ -337,7 +441,79 @@ export class Projects {
       this.currentScreenshots[projectIndex] = currentIndex + 1;
     }
   }
+
   goToScreen(projectIndex: number, screenIndex: number): void {
     this.currentScreenshots[projectIndex] = screenIndex;
+
+    // Scroll automático al top cuando cambia la imagen
+    setTimeout(() => {
+      this.scrollToTop(projectIndex);
+    }, 100);
+  }
+
+  // Método para hacer scroll al inicio de la imagen
+  private scrollToTop(projectIndex: number): void {
+    const container = document.getElementById(
+      `phone-container-${projectIndex}`
+    ) as HTMLElement;
+
+    if (container) {
+      container.scrollTo({
+        top: 0,
+        behavior: 'smooth',
+      });
+    }
+  }
+
+  // Detectar si la imagen es larga para aplicar clases especiales
+  getScreenshotClass(projectIndex: number): string {
+    // Por defecto, todas las imágenes mobile necesitan clase long para scroll
+    return 'phone-screenshot--long';
+  }
+
+  // Detectar si el screenshot actual necesita scroll
+  isLongScreenshot(projectIndex: number): boolean {
+    // Todas las imágenes mobile tendrán controles de scroll disponibles
+    return true;
+  }
+
+  // Manejar carga de imagen para detectar altura
+  onImageLoad(event: Event, projectIndex: number): void {
+    const img = event.target as HTMLImageElement;
+    const project = this.projects[projectIndex];
+    const currentIndex = this.getCurrentIndex(projectIndex);
+    const imageKey = `${project.id}-${currentIndex}`;
+
+    // Almacenar la altura real de la imagen
+    this.imageHeights[imageKey] = img.naturalHeight;
+
+    console.log(`Imagen cargada: ${imageKey}, altura: ${img.naturalHeight}px`); // Debug
+  }
+
+  // Métodos para scroll manual
+  scrollDown(projectIndex: number): void {
+    const container = document.getElementById(
+      `phone-container-${projectIndex}`
+    ) as HTMLElement;
+
+    if (container) {
+      container.scrollBy({
+        top: 200, // Scroll fijo de 200px
+        behavior: 'smooth',
+      });
+    }
+  }
+
+  scrollUp(projectIndex: number): void {
+    const container = document.getElementById(
+      `phone-container-${projectIndex}`
+    ) as HTMLElement;
+
+    if (container) {
+      container.scrollBy({
+        top: -200, // Scroll fijo de 200px hacia arriba
+        behavior: 'smooth',
+      });
+    }
   }
 }

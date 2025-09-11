@@ -17,76 +17,6 @@
     }
   ],
   "fileMap": {
-    "nonProjectFiles": [
-      {
-        "file": "error.log",
-        "hash": "13790753209625932028"
-      },
-      {
-        "file": "tsconfig.base.json",
-        "hash": "16936441711144470533"
-      },
-      {
-        "file": ".prettierrc",
-        "hash": "16267754514737964994"
-      },
-      {
-        "file": ".github/workflows/ci.yml",
-        "hash": "14207756813763587448"
-      },
-      {
-        "file": "package-lock.json",
-        "hash": "6254791525874404019"
-      },
-      {
-        "file": ".gitignore",
-        "hash": "13957996073812778436"
-      },
-      {
-        "file": "jest.preset.js",
-        "hash": "9430166341120122740"
-      },
-      {
-        "file": "package.json",
-        "hash": "607995101211342893"
-      },
-      {
-        "file": "jest.config.ts",
-        "hash": "6870352021923392442"
-      },
-      {
-        "file": "eslint.config.mjs",
-        "hash": "10770449096712831357"
-      },
-      {
-        "file": "README.md",
-        "hash": "3599116376938497433"
-      },
-      {
-        "file": ".vscode/extensions.json",
-        "hash": "9177403577345754958"
-      },
-      {
-        "file": ".vscode/settings.json",
-        "hash": "1735664961232389489"
-      },
-      {
-        "file": ".prettierignore",
-        "hash": "5407418692668764289"
-      },
-      {
-        "file": ".editorconfig",
-        "hash": "5443105041930014821"
-      },
-      {
-        "file": "nx.json",
-        "hash": "13910435487849314152"
-      },
-      {
-        "file": ".vscode/launch.json",
-        "hash": "7066363406961557016"
-      }
-    ],
     "projectFileMap": {
       "portafolio-e2e": [
         {
@@ -170,6 +100,50 @@
           "hash": "9093281813920647668"
         },
         {
+          "file": "apps/portafolio/public/screenshots/oro (1).jpg",
+          "hash": "15327676065766640853"
+        },
+        {
+          "file": "apps/portafolio/public/screenshots/oro (10).jpg",
+          "hash": "7390385632290074428"
+        },
+        {
+          "file": "apps/portafolio/public/screenshots/oro (11).jpg",
+          "hash": "1869876860866250584"
+        },
+        {
+          "file": "apps/portafolio/public/screenshots/oro (2).jpg",
+          "hash": "6277951945161471724"
+        },
+        {
+          "file": "apps/portafolio/public/screenshots/oro (3).jpg",
+          "hash": "17960394817733749947"
+        },
+        {
+          "file": "apps/portafolio/public/screenshots/oro (4).jpg",
+          "hash": "2838701280297196551"
+        },
+        {
+          "file": "apps/portafolio/public/screenshots/oro (5).jpg",
+          "hash": "1436216009476190416"
+        },
+        {
+          "file": "apps/portafolio/public/screenshots/oro (6).jpg",
+          "hash": "8202691385037929956"
+        },
+        {
+          "file": "apps/portafolio/public/screenshots/oro (7).jpg",
+          "hash": "12561828045149333232"
+        },
+        {
+          "file": "apps/portafolio/public/screenshots/oro (8).jpg",
+          "hash": "12171180362685286729"
+        },
+        {
+          "file": "apps/portafolio/public/screenshots/oro (9).jpg",
+          "hash": "15163198622921847433"
+        },
+        {
           "file": "apps/portafolio/src/app/app.config.server.ts",
           "hash": "16664769899172877666",
           "deps": [
@@ -188,7 +162,7 @@
         },
         {
           "file": "apps/portafolio/src/app/app.html",
-          "hash": "352723125048842035"
+          "hash": "13079062335140699668"
         },
         {
           "file": "apps/portafolio/src/app/app.routes.server.ts",
@@ -255,7 +229,7 @@
         },
         {
           "file": "apps/portafolio/src/app/components/hero.scss",
-          "hash": "1061630627889061256"
+          "hash": "17361307001698399741"
         },
         {
           "file": "apps/portafolio/src/app/components/hero.spec.ts",
@@ -267,8 +241,9 @@
         },
         {
           "file": "apps/portafolio/src/app/components/hero.ts",
-          "hash": "6536176253299424054",
+          "hash": "5096719299324858086",
           "deps": [
+            "npm:@angular/common",
             "npm:@angular/core"
           ]
         },
@@ -359,7 +334,7 @@
         },
         {
           "file": "apps/portafolio/src/app/pages/projects.scss",
-          "hash": "5344490353360702171"
+          "hash": "11792913809211999996"
         },
         {
           "file": "apps/portafolio/src/app/pages/projects.spec.ts",
@@ -370,7 +345,7 @@
         },
         {
           "file": "apps/portafolio/src/app/pages/projects.ts",
-          "hash": "1025378842769693882",
+          "hash": "10009952215027006435",
           "deps": [
             "npm:@angular/common",
             "npm:@angular/core"
@@ -404,7 +379,7 @@
         },
         {
           "file": "apps/portafolio/src/styles.scss",
-          "hash": "1352998839059260778"
+          "hash": "3394566870943644578"
         },
         {
           "file": "apps/portafolio/src/test-setup.ts",
@@ -426,6 +401,76 @@
           "hash": "5331518322626158299"
         }
       ]
-    }
+    },
+    "nonProjectFiles": [
+      {
+        "file": ".editorconfig",
+        "hash": "5443105041930014821"
+      },
+      {
+        "file": ".github/workflows/ci.yml",
+        "hash": "14207756813763587448"
+      },
+      {
+        "file": ".gitignore",
+        "hash": "13957996073812778436"
+      },
+      {
+        "file": ".prettierignore",
+        "hash": "5407418692668764289"
+      },
+      {
+        "file": ".prettierrc",
+        "hash": "16267754514737964994"
+      },
+      {
+        "file": ".vscode/extensions.json",
+        "hash": "9177403577345754958"
+      },
+      {
+        "file": ".vscode/launch.json",
+        "hash": "7066363406961557016"
+      },
+      {
+        "file": ".vscode/settings.json",
+        "hash": "6203846486212046276"
+      },
+      {
+        "file": "README.md",
+        "hash": "3599116376938497433"
+      },
+      {
+        "file": "error.log",
+        "hash": "13790753209625932028"
+      },
+      {
+        "file": "eslint.config.mjs",
+        "hash": "10770449096712831357"
+      },
+      {
+        "file": "jest.config.ts",
+        "hash": "6870352021923392442"
+      },
+      {
+        "file": "jest.preset.js",
+        "hash": "9430166341120122740"
+      },
+      {
+        "file": "nx.json",
+        "hash": "13910435487849314152"
+      },
+      {
+        "file": "package-lock.json",
+        "hash": "6254791525874404019"
+      },
+      {
+        "file": "package.json",
+        "hash": "607995101211342893"
+      },
+      {
+        "file": "tsconfig.base.json",
+        "hash": "16936441711144470533"
+      }
+    ]
   }
 }
