@@ -1,5 +1,5 @@
 {
-  "4638101227464383944": {
+  "9552270788818702719": {
     "apps/portafolio": {
       "targets": {
         "lint": {
@@ -83,8 +83,8 @@
       }
     }
   },
-  "2779899647700801125": {},
-  "9309820172000458683": {
+  "13979892273544314881": {},
+  "16207659897259591828": {
     "apps/portafolio": {
       "targets": {
         "lint": {
@@ -126,7 +126,7 @@
       }
     }
   },
-  "9308505987563083116": {},
+  "5434751447231563656": {},
   "15355241887813929352": {
     "apps/portafolio": {
       "targets": {
@@ -170,7 +170,7 @@
     }
   },
   "12031908122432651113": {},
-  "15233551424592913380": {
+  "15148803421053089042": {
     "apps/portafolio": {
       "targets": {
         "lint": {
@@ -212,8 +212,8 @@
       }
     }
   },
-  "12817512153965763177": {},
-  "16168964838401903544": {
+  "2662612898638598081": {},
+  "17971748598617077396": {
     "apps/portafolio": {
       "targets": {
         "lint": {
@@ -255,91 +255,5 @@
       }
     }
   },
-  "18124552320445105135": {},
-  "9027881983750864409": {
-    "apps/portafolio": {
-      "targets": {
-        "lint": {
-          "command": "eslint .",
-          "cache": true,
-          "options": {
-            "cwd": "apps/portafolio"
-          },
-          "inputs": [
-            "default",
-            "^default",
-            "{workspaceRoot}/eslint.config.mjs",
-            "{workspaceRoot}/apps/portafolio/eslint.config.mjs",
-            "{workspaceRoot}/tools/eslint-rules/**/*",
-            {
-              "externalDependencies": [
-                "eslint"
-              ]
-            }
-          ],
-          "outputs": [
-            "{options.outputFile}"
-          ],
-          "metadata": {
-            "technologies": [
-              "eslint"
-            ],
-            "description": "Runs ESLint on project",
-            "help": {
-              "command": "npx eslint --help",
-              "example": {
-                "options": {
-                  "max-warnings": 0
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  },
-  "16198866043969179261": {},
-  "3504206147859627808": {
-    "apps/portafolio": {
-      "targets": {
-        "lint": {
-          "command": "eslint .",
-          "cache": true,
-          "options": {
-            "cwd": "apps/portafolio"
-          },
-          "inputs": [
-            "default",
-            "^default",
-            "{workspaceRoot}/eslint.config.mjs",
-            "{workspaceRoot}/apps/portafolio/eslint.config.mjs",
-            "{workspaceRoot}/tools/eslint-rules/**/*",
-            {
-              "externalDependencies": [
-                "eslint"
-              ]
-            }
-          ],
-          "outputs": [
-            "{options.outputFile}"
-          ],
-          "metadata": {
-            "technologies": [
-              "eslint"
-            ],
-            "description": "Runs ESLint on project",
-            "help": {
-              "command": "npx eslint --help",
-              "example": {
-                "options": {
-                  "max-warnings": 0
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  },
-  "1293575455350521632": {}
+  "13900908154402471395": {}
 }

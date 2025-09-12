@@ -28,10 +28,65 @@ export interface Project {
     <section class="projects">
       <div class="projects__container">
         <header class="projects__header">
-          <h1 class="projects__title">Mis Proyectos</h1>
-          <p class="projects__subtitle">
-            Sistemas reales en producción con usuarios activos
-          </p>
+          <div class="projects__header-content">
+            <h1 class="projects__title">Portfolio</h1>
+            <div class="projects__subtitle">
+              Sistemas reales en producción con usuarios activos
+            </div>
+          </div>
+
+          <!-- ROLODEX 3D -->
+          <div class="rolodex-container">
+            <div
+              class="rolodex-cylinder"
+              [style.transform]="
+                'rotateX(' + getCurrentRolodexRotation() + 'deg)'
+              "
+            >
+              <div
+                *ngFor="let project of projects; let i = index"
+                class="rolodex-card"
+                [style.transform]="
+                  'rotateX(' + i * 72 + 'deg) translateZ(160px)'
+                "
+              >
+                <div class="rolodex-card-content">
+                  <div
+                    class="project-icon"
+                    [ngClass]="'project-icon--' + project.type"
+                  ></div>
+                  <h3 class="project-name">{{ project.title }}</h3>
+                  <span class="project-type">{{
+                    getTypeLabel(project.type)
+                  }}</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- CONTROLES DE NAVEGACIÓN -->
+            <div class="rolodex-controls">
+              <button
+                class="rolodex-lever rolodex-lever--prev"
+                (click)="rotateRolodexPrevious()"
+              >
+                <div class="lever-handle"></div>
+              </button>
+
+              <div class="rolodex-info">
+                <div class="current-project">{{ getCurrentProjectName() }}</div>
+                <div class="project-counter">
+                  {{ currentRolodexIndex + 1 }} / {{ projects.length }}
+                </div>
+              </div>
+
+              <button
+                class="rolodex-lever rolodex-lever--next"
+                (click)="rotateRolodexNext()"
+              >
+                <div class="lever-handle"></div>
+              </button>
+            </div>
+          </div>
         </header>
 
         <div class="projects__grid">
@@ -210,6 +265,7 @@ export interface Project {
 export class Projects {
   private currentScreenshots: { [projectIndex: number]: number } = {};
   private imageHeights: { [key: string]: number } = {}; // Almacenar alturas de imágenes
+  currentRolodexIndex = 0; // Control del Rolodex
 
   projects: Project[] = [
     {
@@ -363,6 +419,34 @@ export class Projects {
       ],
     },
   ];
+
+  // =============================================
+  // MÉTODOS DEL ROLODEX 3D
+  // =============================================
+
+  rotateRolodexNext(): void {
+    this.currentRolodexIndex =
+      (this.currentRolodexIndex + 1) % this.projects.length;
+  }
+
+  rotateRolodexPrevious(): void {
+    this.currentRolodexIndex =
+      this.currentRolodexIndex === 0
+        ? this.projects.length - 1
+        : this.currentRolodexIndex - 1;
+  }
+
+  getCurrentRolodexRotation(): number {
+    return this.currentRolodexIndex * 72; // 72° por cada proyecto (360°/5)
+  }
+
+  getCurrentProjectName(): string {
+    return this.projects[this.currentRolodexIndex]?.title || '';
+  }
+
+  // =============================================
+  // MÉTODOS EXISTENTES - MANTENIDOS
+  // =============================================
 
   getTypeLabel(type: string): string {
     const labels = {
