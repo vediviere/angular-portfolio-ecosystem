@@ -116,6 +116,7 @@ import { Component } from '@angular/core';
                 <div class="card-container">
                   <div class="card-current" [class.flipping]="isFlipping">
                     <div class="card-content">
+                      <div class="vintage-stamp"></div>
                       <div class="card-header">
                         {{ projects[currentProject].name }}
                       </div>
