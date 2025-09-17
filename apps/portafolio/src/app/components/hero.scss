@@ -1186,12 +1186,20 @@ $verde-botella-oscuro: #1e3a2e;
   text-align: center;
   position: relative;
   overflow: hidden;
+  border-image: linear-gradient(
+      45deg,
+      #d4c4a8 0%,
+      #c8b8a0 25%,
+      #d4c4a8 50%,
+      #c0b090 75%,
+      #d4c4a8 100%
+    )
+    1;
 
   @media (max-width: 768px) {
     padding: 0.8rem;
   }
 
-  // Agujeros de perforación en la parte superior
   &::before {
     content: '';
     position: absolute;
@@ -1207,18 +1215,6 @@ $verde-botella-oscuro: #1e3a2e;
     z-index: 1;
   }
 
-  // Bordes gastados
-  border-image: linear-gradient(
-      45deg,
-      #d4c4a8 0%,
-      #c8b8a0 25%,
-      #d4c4a8 50%,
-      #c0b090 75%,
-      #d4c4a8 100%
-    )
-    1;
-
-  // Texturas complejas de papel envejecido
   &::after {
     content: '';
     position: absolute;
@@ -1226,9 +1222,7 @@ $verde-botella-oscuro: #1e3a2e;
     left: 0;
     right: 0;
     bottom: 0;
-    background-image:
-      // Manchas de café sutiles
-      radial-gradient(
+    background-image: radial-gradient(
         ellipse 15px 8px at 25% 15%,
         rgba(180, 140, 100, 0.08) 0%,
         transparent 70%
@@ -1243,41 +1237,36 @@ $verde-botella-oscuro: #1e3a2e;
         rgba(200, 160, 120, 0.05) 0%,
         transparent 50%
       ),
-      // Líneas de doblez y pliegues
       linear-gradient(
-          92deg,
-          transparent 0%,
-          rgba(210, 190, 170, 0.1) 1px,
-          transparent 2px
-        ),
+        92deg,
+        transparent 0%,
+        rgba(210, 190, 170, 0.1) 1px,
+        transparent 2px
+      ),
       linear-gradient(
         88deg,
         transparent 0%,
         rgba(200, 180, 160, 0.08) 1px,
         transparent 2px
       ),
-      // Líneas horizontales tipo papel rayado
       repeating-linear-gradient(
-          0deg,
-          transparent 0px,
-          rgba(210, 190, 170, 0.06) 1px,
-          transparent 2px,
-          transparent 22px
-        ),
-      // Textura de fibra de papel
+        0deg,
+        transparent 0px,
+        rgba(210, 190, 170, 0.06) 1px,
+        transparent 2px,
+        transparent 22px
+      ),
       url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23d4c4a8' fill-opacity='0.03'%3E%3Ccircle cx='5' cy='5' r='1'/%3E%3Ccircle cx='25' cy='15' r='1'/%3E%3Ccircle cx='35' cy='25' r='1'/%3E%3Ccircle cx='15' cy='35' r='1'/%3E%3C/g%3E%3C/svg%3E"),
-      // Desgaste en los bordes
       radial-gradient(
-          ellipse 100px 20px at 0% 50%,
-          rgba(220, 200, 180, 0.1) 0%,
-          transparent 70%
-        ),
+        ellipse 100px 20px at 0% 50%,
+        rgba(220, 200, 180, 0.1) 0%,
+        transparent 70%
+      ),
       radial-gradient(
         ellipse 100px 20px at 100% 50%,
         rgba(220, 200, 180, 0.1) 0%,
         transparent 70%
       );
-
     border-radius: 6px;
     opacity: 0.8;
     pointer-events: none;
