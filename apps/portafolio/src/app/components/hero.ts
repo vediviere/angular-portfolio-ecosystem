@@ -114,7 +114,7 @@ import { Component } from '@angular/core';
               <div class="rolodex-simple">
                 <!-- Solo una tarjeta visible con animación de flip -->
                 <div class="card-container">
-                  <div class="card-current" [class.flipping]="isFlipping">
+                  <div class="card-current" [class.flipping]="isFlipping" (click)="goToProject(currentProject)">
                     <div class="card-content">
                       <div class="vintage-stamp"></div>
                       <div class="card-header">
@@ -263,10 +263,18 @@ export class Hero {
   currentProject = 0;
 
   projects = [
-    { name: 'VacunaApp Web', type: 'web' },
+    {
+      name: 'VacunaApp Web',
+      type: 'web',
+      url: 'https://vacuna-app-3510b.web.app/?demo=true',
+    },
     { name: 'VacunaApp Mobile', type: 'mobile' },
     { name: 'Joyería Gold', type: 'mobile' },
-    { name: 'Sistema Usuarios', type: 'web' },
+    {
+      name: 'Sistema de Usuarios',
+      type: 'web',
+      url: 'https://sistemaregistrosusuarios.web.app/',
+    },
     { name: 'Portfolio DevOps', type: 'fullstack' },
   ];
 
@@ -284,10 +292,14 @@ export class Hero {
 
   goToProject(index: number): void {
     this.currentProject = index;
-    // Scroll a la sección de proyectos
-    const projectsSection = document.querySelector('.projects');
-    if (projectsSection) {
-      projectsSection.scrollIntoView({ behavior: 'smooth' });
+    const project = this.projects[index];
+
+    if (project.url) {
+      // Si tiene URL, abrir en nueva pestaña
+      window.open(project.url, '_blank');
+    } else {
+      // Si no tiene URL, mostrar mensaje o no hacer nada
+      console.log(`Proyecto ${project.name} - URL no disponible`);
     }
   }
 
