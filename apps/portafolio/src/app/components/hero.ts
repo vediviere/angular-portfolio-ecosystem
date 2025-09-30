@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
   templateUrl: './hero.html',
   styleUrl: './hero.scss',
 })
-export class Hero{
+export class Hero {
   // Propiedades del Mini Rolodex
   currentProject = 0;
 
@@ -27,6 +27,10 @@ export class Hero{
     { name: 'Portfolio DevOps', type: 'fullstack' },
   ];
 
+  // Audio y animación
+  isShootingAnimation = false;
+  isFlipping = false;
+
   // Métodos del Mini Rolodex
   nextProject(): void {
     this.currentProject = (this.currentProject + 1) % this.projects.length;
@@ -43,11 +47,32 @@ export class Hero{
     this.currentProject = index;
     const project = this.projects[index];
 
-    if (project.url) {
-      window.open(project.url, '_blank');
-    } else {
-      console.log(`${project.name} - Demo no disponible`);
+    // Reproducir sonido
+    try {
+      const audio = new Audio('sounds/card-flip.mp3');
+      audio.volume = 0.5;
+      audio.load();
+      audio.play().catch((error) => {
+        console.error('Error reproduciendo audio:', error);
+      });
+    } catch (error) {
+      console.error('Error creando audio:', error);
     }
+
+    // Activar animación de disparo
+    this.isShootingAnimation = true;
+    setTimeout(() => {
+      this.isShootingAnimation = false;
+    }, 300);
+
+    // Abrir URL después de la animación
+    setTimeout(() => {
+      if (project.url) {
+        window.open(project.url, '_blank');
+      } else {
+        console.log(`${project.name} - Demo no disponible`);
+      }
+    }, 300);
   }
 
   // Métodos originales del Hero
@@ -74,12 +99,6 @@ export class Hero{
     return types[type as keyof typeof types] || type.toUpperCase();
   }
 
-  isFlipping = false;
-
-  /* Auto-rotate properties
-  private autoRotateInterval: any;
-  isPaused = false;*/
-
   flipToPrevious(): void {
     this.isFlipping = true;
     setTimeout(() => {
@@ -95,35 +114,4 @@ export class Hero{
       this.isFlipping = false;
     }, 200);
   }
-
-  /*
-  ngOnInit(): void {
-    this.startAutoRotate();
-  }
-
-  ngOnDestroy(): void {
-    this.stopAutoRotate();
-  }
-
-  startAutoRotate(): void {
-    this.autoRotateInterval = setInterval(() => {
-      if (!this.isPaused) {
-        this.flipToNext();
-      }
-    }, 4000);
-  }
-
-  stopAutoRotate(): void {
-    if (this.autoRotateInterval) {
-      clearInterval(this.autoRotateInterval);
-    }
-  }
-
-  pauseAutoRotate(): void {
-    this.isPaused = true;
-  }
-
-  resumeAutoRotate(): void {
-    this.isPaused = false;
-  }*/
 }

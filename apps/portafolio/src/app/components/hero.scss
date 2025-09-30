@@ -782,8 +782,15 @@
       );
     }
   }
+
+  &.shooting {
+    animation: cardShoot 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55) !important;
+    box-shadow: 0 25px 70px rgba(201, 169, 110, 1) !important;
+    z-index: 999 !important;
+  }
+
   // Hover effect premium
-  &:hover {
+  &:hover:not(.shooting):not(.flipping) {
     transform: perspective(400px) rotateX(-2deg) scale(1.02);
     box-shadow: 0 15px 40px rgba(201, 169, 110, 0.4);
 
@@ -1161,7 +1168,9 @@
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  transform: translateX(-2rem); // Ajusta este valor para mover más o menos cerca
+  transform: translateX(
+    -2rem
+  ); // Ajusta este valor para mover más o menos cerca
 }
 
 .flip-btn {

@@ -133,6 +133,7 @@
               <div
                 class="card-current"
                 [class.flipping]="isFlipping"
+                [class.shooting]="isShootingAnimation"
                 (click)="goToProject(currentProject)"
               >
                 <div class="card-content">
@@ -280,4 +281,8 @@
       </div>
     </div>
   </div>
+  <!-- Sonido del rolodex -->
+  <audio #cardClickSound>
+    <source src="sounds/card-flip.mp3" type="audio/mpeg" />
+  </audio>
 </section>
