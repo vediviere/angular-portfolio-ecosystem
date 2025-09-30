@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
   templateUrl: './hero.html',
   styleUrl: './hero.scss',
 })
-export class Hero {
+export class Hero{
   // Propiedades del Mini Rolodex
   currentProject = 0;
 
@@ -39,7 +39,6 @@ export class Hero {
         : this.currentProject - 1;
   }
 
-  
   goToProject(index: number): void {
     this.currentProject = index;
     const project = this.projects[index];
@@ -77,6 +76,10 @@ export class Hero {
 
   isFlipping = false;
 
+  /* Auto-rotate properties
+  private autoRotateInterval: any;
+  isPaused = false;*/
+
   flipToPrevious(): void {
     this.isFlipping = true;
     setTimeout(() => {
@@ -92,4 +95,35 @@ export class Hero {
       this.isFlipping = false;
     }, 200);
   }
+
+  /*
+  ngOnInit(): void {
+    this.startAutoRotate();
+  }
+
+  ngOnDestroy(): void {
+    this.stopAutoRotate();
+  }
+
+  startAutoRotate(): void {
+    this.autoRotateInterval = setInterval(() => {
+      if (!this.isPaused) {
+        this.flipToNext();
+      }
+    }, 4000);
+  }
+
+  stopAutoRotate(): void {
+    if (this.autoRotateInterval) {
+      clearInterval(this.autoRotateInterval);
+    }
+  }
+
+  pauseAutoRotate(): void {
+    this.isPaused = true;
+  }
+
+  resumeAutoRotate(): void {
+    this.isPaused = false;
+  }*/
 }

@@ -326,10 +326,6 @@
   }
 }
 
-
-
-
-
 // =====================================================================
 // LAYOUT Y ESTRUCTURA PRINCIPAL
 // =====================================================================
@@ -523,28 +519,176 @@
   }
 }
 
+// Estructura metálica del Rolodex (versión compacta)
+.authentic-rolodex.with-metal-structure {
+  position: relative;
+  padding-top: 2rem; // Reducido de 4rem
+  padding-bottom: 1rem; // Agregado para la base
+}
+
+.rolodex-metal-base {
+  position: absolute;
+  top: 1.8rem;
+  left: 2rem; // Centrado exacto (240px width / 2 = 120px)
+  width: 240px; // Ancho fijo
+  height: 180px;
+  z-index: 0;
+  pointer-events: none;
+}
+
+// Base metálica principal (más pequeña)
+.base-plate {
+  top: 11rem;
+  position: absolute;
+  bottom: 0;
+  left: 1.5rem; // Alineado con el marco
+  right: 1.5rem; // Alineado con el marco
+  height: 1.5rem; // Más delgado
+  background: linear-gradient(
+    135deg,
+    $bronce-oscuro 0%,
+    $cobre-viejo 25%,
+    $oro-envejecido 50%,
+    $cobre-viejo 75%,
+    $bronce-oscuro 100%
+  );
+  border-radius: 4px;
+  box-shadow: 0 3px 10px rgba($negro-esmoquin, 0.7),
+    inset 0 2px 4px rgba($crema-pergamino, 0.2),
+    inset 0 -2px 4px rgba($negro-esmoquin, 0.5);
+}
+
+// Remaches en la base
+.base-rivets {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  transform: translateY(-50%);
+}
+
+.rivet {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: radial-gradient(
+    circle,
+    $oro-envejecido 0%,
+    $cobre-viejo 60%,
+    $bronce-oscuro 100%
+  );
+  border-radius: 50%;
+  box-shadow: inset 0 1px 2px rgba($crema-pergamino, 0.3),
+    inset 0 -1px 2px rgba($negro-esmoquin, 0.7),
+    0 1px 3px rgba($negro-esmoquin, 0.5);
+
+  &.rivet-1 {
+    left: 15%;
+  }
+  &.rivet-2 {
+    left: 35%;
+  }
+  &.rivet-3 {
+    right: 35%;
+  }
+  &.rivet-4 {
+    right: 15%;
+  }
+}
+
+// Marco del Rolodex (ajustado)
+.rolodex-frame {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+}
+
+// Lados del marco (pegados a los lados de las tarjetas)
+.frame-side {
+  position: absolute;
+  top: 0;
+  width: 0.6rem; // Más delgado
+  height: 90%; // Cubrir toda la altura del marco
+  background: linear-gradient(
+    180deg,
+    $oro-envejecido 0%,
+    $cobre-viejo 30%,
+    $bronce-oscuro 70%,
+    $cobre-viejo 100%
+  );
+  box-shadow: 0 2px 6px rgba($negro-esmoquin, 0.6),
+    inset 2px 0 3px rgba($crema-pergamino, 0.2),
+    inset -2px 0 3px rgba($negro-esmoquin, 0.4);
+
+  &.frame-left {
+    top: 2rem;
+    left: 10px; // Alineado con el marco superior
+    border-radius: 4px 0 0 4px;
+  }
+
+  &.frame-right {
+    top: 2rem;
+    right: 10px; // Alineado con el marco superior
+    border-radius: 0 4px 4px 0;
+  }
+}
+
+// Marco superior (más pequeño)
+.frame-top {
+  position: absolute;
+  top: 1rem; // Más pegado arriba
+  left: 10px; // Margen interno para alineación
+  right: 10px; // Margen interno para alineación
+  height: 0.8rem; // Más delgado
+  background: linear-gradient(
+    135deg,
+    $oro-envejecido 0%,
+    $laton-oxidado 25%,
+    $cobre-viejo 50%,
+    $laton-oxidado 75%,
+    $oro-envejecido 100%
+  );
+  border-radius: 4px 4px 2px 2px;
+  box-shadow: 0 2px 8px rgba($negro-esmoquin, 0.7),
+    inset 0 1px 3px rgba($crema-pergamino, 0.3),
+    inset 0 -1px 2px rgba($negro-esmoquin, 0.5);
+}
+
+// Ornamento central superior (más pequeño)
+.top-ornament {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 2rem; // Reducido de 3rem
+  height: 0.5rem; // Reducido de 0.8rem
+  background: radial-gradient(
+    ellipse,
+    $oro-envejecido 0%,
+    $cobre-viejo 60%,
+    $bronce-oscuro 100%
+  );
+  border-radius: 50%;
+  box-shadow: inset 0 1px 1px rgba($crema-pergamino, 0.4),
+    inset 0 -1px 1px rgba($negro-esmoquin, 0.6);
+}
+
 .rolodex-title {
   font-family: 'Times New Roman', serif;
   font-size: 1rem;
   color: $oro-envejecido;
-  text-align: center;
+  transform: translate(-18rem, -1rem); // X, Y en un solo transform
   letter-spacing: 2px;
   margin-bottom: 2rem;
   text-shadow: 1px 1px 2px rgba($negro-esmoquin, 0.8);
 }
 
-.rolodex-simple {
-  display: flex;
-  align-items: center;
-  gap: 2rem;
-
-  @media (max-width: 768px) {
-    gap: 1rem;
-  }
-}
-
 // Contenedor de la tarjeta con efecto de profundidad
 .card-container {
+  top: -1.5rem;
+  right: 1.5rem;
   position: relative;
   width: 200px;
   height: 130px;
@@ -622,7 +766,10 @@
   }
 
   &.flipping {
-    transform: perspective(200px) rotateY(12deg) rotateX(-2deg) scale(0.98);
+    transform: translateX(10px);
+    opacity: 0.7;
+    filter: blur(1px);
+    transition: all 0.3s ease;
 
     // Sombra más intensa durante la animación
     &::before {
@@ -633,6 +780,17 @@
         rgba(0, 0, 0, 0.2) 40%,
         transparent 70%
       );
+    }
+  }
+  // Hover effect premium
+  &:hover {
+    transform: perspective(400px) rotateX(-2deg) scale(1.02);
+    box-shadow: 0 15px 40px rgba(201, 169, 110, 0.4);
+
+    .card-content {
+      border-color: $oro-envejecido;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3), 0 4px 12px rgba(0, 0, 0, 0.2),
+        inset 0 0 10px rgba(201, 169, 110, 0.2);
     }
   }
 }
@@ -844,6 +1002,7 @@
 // Tarjetas de sombra para efecto de profundidad
 // Tarjetas de sombra con profundidad realista
 .card-shadow {
+  display: none; // Ocultas por defecto
   position: absolute;
   width: 100%;
   height: 100%;
@@ -986,11 +1145,23 @@
   background-clip: text;
 }
 
-// Controles de navegación
+.rolodex-simple {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  justify-content: center;
+  transform: translateX(-14rem);
+
+  @media (max-width: 768px) {
+    gap: 1rem;
+  }
+}
+
 .rolodex-controls {
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  transform: translateX(-2rem); // Ajusta este valor para mover más o menos cerca
 }
 
 .flip-btn {
@@ -1013,13 +1184,46 @@
   }
 
   &:hover {
-    transform: scale(1.1);
-    box-shadow: 0 6px 15px rgba($oro-envejecido, 0.5),
-      inset 0 1px 4px rgba($crema-pergamino, 0.4);
+    transform: scale(1.15) rotateZ(5deg);
+    background: linear-gradient(135deg, $crema-pergamino, $oro-envejecido);
+    box-shadow: 0 8px 20px rgba($oro-envejecido, 0.6),
+      inset 0 2px 6px rgba($crema-pergamino, 0.5);
   }
 
   &:active {
     transform: scale(0.95);
+  }
+}
+
+// Indicador de auto-rotate
+.auto-rotate-indicator {
+  position: absolute;
+  bottom: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.7rem;
+  color: $oro-envejecido;
+  opacity: 0.6;
+  transition: all 0.3s ease;
+
+  &.paused {
+    opacity: 0.3;
+  }
+}
+
+.indicator-dot {
+  width: 6px;
+  height: 6px;
+  background: $oro-envejecido;
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+
+  .auto-rotate-indicator.paused & {
+    animation-play-state: paused;
+    background: $gris-ceniza;
   }
 }
 
@@ -1776,8 +1980,6 @@
   left: 70%;
   animation: lightRayAppear 1.5s ease-out 2.4s forwards;
 }
-
-
 
 // =====================================================================
 // RESPONSIVE DESIGN
