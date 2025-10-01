@@ -138,6 +138,8 @@
               >
                 <div class="card-content">
                   <div class="vintage-stamp"></div>
+                  <div class="bullet-hole" [class.show]="showBulletHole && currentProject === projects.indexOf(projects[currentProject])"></div>
+                  <br>
                   <div class="card-header">
                     {{ projects[currentProject].name }}
                   </div>
@@ -148,9 +150,9 @@
                   <div class="card-type">
                     {{ getProjectType(projects[currentProject].type) }}
                   </div>
-                  <div class="card-index">
+                  <!-- <div class="card-index">
                     {{ currentProject + 1 }} / {{ projects.length }}
-                  </div>
+                  </div> -->
                 </div>
               </div>
 

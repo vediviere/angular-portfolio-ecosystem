@@ -914,6 +914,7 @@
 }
 
 .card-header {
+  top: 0.5rem;
   font-family: 'Courier New', monospace;
   font-size: 0.9rem;
   font-weight: 700;
@@ -930,50 +931,54 @@
 }
 
 .card-icon-simple {
-  width: 32px;
-  height: 32px;
-  border-radius: 6px;
+  width: 40px;
+  height: 40px;
+  border-radius: 4px;
   margin-bottom: 0.8rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1rem;
-  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
-  z-index: 2;
   position: relative;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4),
+    inset 0 2px 4px rgba(255, 255, 255, 0.3),
+    inset 0 -2px 4px rgba(0, 0, 0, 0.3);
+  z-index: 2;
+  background: linear-gradient(
+    135deg,
+    $oro-envejecido 0%,
+    $laton-oxidado 50%,
+    $cobre-viejo 100%
+  );
+  border: 1px solid $bronce-oscuro;
 
   @media (max-width: 768px) {
-    width: 28px;
-    height: 28px;
-    font-size: 0.9rem;
+    width: 32px;
+    height: 32px;
     margin-bottom: 0.6rem;
   }
 
-  &.icon--web {
-    background: linear-gradient(135deg, #2563eb, #1e40af);
-    color: white;
-
-    &::before {
-      content: '🌐';
-    }
+  &::before {
+    font-size: 1.3rem;
+    color: #ffffff;
+    text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.3), -1px -1px 0 rgba(0, 0, 0, 0.2);
   }
 
-  &.icon--mobile {
-    background: linear-gradient(135deg, #8b5cf6, #7c3aed);
-    color: white;
-
-    &::before {
-      content: '📱';
-    }
+  // WEB - Globo con símbolo
+  &.icon--web::before {
+    content: '◉';
+    font-size: 1.5rem;
   }
 
-  &.icon--fullstack {
-    background: linear-gradient(135deg, #10b981, #059669);
-    color: white;
+  // MOBILE - Rectángulo (pantalla)
+  &.icon--mobile::before {
+    content: '▯';
+    font-size: 1.4rem;
+  }
 
-    &::before {
-      content: '⚡';
-    }
+  // FULLSTACK - Estrella/asterisco
+  &.icon--fullstack::before {
+    content: '✦';
+    font-size: 1.3rem;
   }
 }
 
@@ -2053,5 +2058,146 @@
     &--20 {
       display: none;
     }
+  }
+}
+
+// =====================================================================
+// AhUJERO DE BALA REALISTA
+// =====================================================================
+
+.bullet-hole {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 50px;
+  height: 50px;
+  transform: translate(-50%, -50%) scale(0) rotate(0deg);
+  opacity: 0;
+  transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+  z-index: 10;
+
+  // Agujero central con profundidad
+  background: radial-gradient(
+    circle,
+    #000000 0%,
+    #0a0a0a 15%,
+    #1a1a1a 30%,
+    #2d2d2d 45%,
+    #4a4a4a 60%,
+    #666666 75%,
+    rgba(100, 100, 100, 0.6) 85%,
+    transparent 100%
+  );
+  border-radius: 50%;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.8));
+
+  // Grietas irregulares principales (8 grietas)
+  &::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100px;
+    height: 100px;
+    transform: translate(-50%, -50%);
+    background-image:
+      // Grieta superior
+      linear-gradient(
+        0deg,
+        transparent 49%,
+        rgba(0, 0, 0, 0.4) 50%,
+        transparent 51%
+      ),
+      // Grieta diagonal superior derecha
+      linear-gradient(
+          45deg,
+          transparent 49%,
+          rgba(0, 0, 0, 0.35) 50%,
+          transparent 51%
+        ),
+      // Grieta derecha
+      linear-gradient(
+          90deg,
+          transparent 49%,
+          rgba(0, 0, 0, 0.4) 50%,
+          transparent 51%
+        ),
+      // Grieta diagonal inferior derecha
+      linear-gradient(
+          135deg,
+          transparent 49%,
+          rgba(0, 0, 0, 0.3) 50%,
+          transparent 51%
+        ),
+      // Grieta inferior
+      linear-gradient(
+          180deg,
+          transparent 49%,
+          rgba(0, 0, 0, 0.4) 50%,
+          transparent 51%
+        ),
+      // Grieta diagonal inferior izquierda
+      linear-gradient(
+          225deg,
+          transparent 49%,
+          rgba(0, 0, 0, 0.35) 50%,
+          transparent 51%
+        ),
+      // Grieta izquierda
+      linear-gradient(
+          270deg,
+          transparent 49%,
+          rgba(0, 0, 0, 0.4) 50%,
+          transparent 51%
+        ),
+      // Grieta diagonal superior izquierda
+      linear-gradient(
+          315deg,
+          transparent 49%,
+          rgba(0, 0, 0, 0.3) 50%,
+          transparent 51%
+        );
+    opacity: 0.8;
+  }
+
+  // Grietas secundarias irregulares
+  &::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 120px;
+    height: 120px;
+    transform: translate(-50%, -50%) rotate(22.5deg);
+    background-image: linear-gradient(
+        22.5deg,
+        transparent 49.5%,
+        rgba(0, 0, 0, 0.2) 50%,
+        transparent 50.5%
+      ),
+      linear-gradient(
+        67.5deg,
+        transparent 49.5%,
+        rgba(0, 0, 0, 0.15) 50%,
+        transparent 50.5%
+      ),
+      linear-gradient(
+        112.5deg,
+        transparent 49.5%,
+        rgba(0, 0, 0, 0.2) 50%,
+        transparent 50.5%
+      ),
+      linear-gradient(
+        157.5deg,
+        transparent 49.5%,
+        rgba(0, 0, 0, 0.15) 50%,
+        transparent 50.5%
+      );
+    opacity: 0.6;
+  }
+
+  &.show {
+    transform: translate(-50%, -50%) scale(1) rotate(15deg);
+    opacity: 1;
   }
 }

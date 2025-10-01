@@ -10,6 +10,7 @@ import { Component } from '@angular/core';
 export class Hero {
   // Propiedades del Mini Rolodex
   currentProject = 0;
+  showBulletHole = false;
 
   projects = [
     {
@@ -48,33 +49,48 @@ export class Hero {
     const project = this.projects[index];
 
     // Reproducir sonido
-    try {
-      const audio = new Audio('sounds/card-flip.mp3');
-      audio.volume = 0.5;
-      audio.load();
-      audio.play().catch((error) => {
-        console.error('Error reproduciendo audio:', error);
-      });
-    } catch (error) {
-      console.error('Error creando audio:', error);
-    }
+    const audio = new Audio('sounds/card-flip.mp3');
+    audio.volume = 0.5;
 
     // Activar animación de disparo
     this.isShootingAnimation = true;
-    setTimeout(() => {
-      this.isShootingAnimation = false;
-    }, 300);
 
-    // Abrir URL después de la animación
-    setTimeout(() => {
+    // Cuando el audio carga, calcular cuándo mostrar el agujero
+    audio.addEventListener('loadedmetadata', () => {
+      const duration = audio.duration * 1000; // Convertir a milisegundos
+      const showHoleAt = duration - 700; // Mostrar 200ms antes de terminar
+
+      // Mostrar agujero justo antes de terminar
+      setTimeout(() => {
+        this.showBulletHole = true;
+      }, showHoleAt);
+    });
+
+    // Esperar a que termine el audio
+    audio.addEventListener('ended', () => {
+      this.isShootingAnimation = false;
+
+      // Esperar un poco más con el agujero visible
+      setTimeout(() => {
+        this.showBulletHole = false;
+
+        // Abrir URL
+        if (project.url) {
+          window.open(project.url, '_blank');
+        } else {
+          console.log(`${project.name} - Demo no disponible`);
+        }
+      }, 500); // Mantener visible medio segundo después del audio
+    });
+
+    audio.play().catch((error) => {
+      console.error('Error reproduciendo audio:', error);
+      this.isShootingAnimation = false;
       if (project.url) {
         window.open(project.url, '_blank');
-      } else {
-        console.log(`${project.name} - Demo no disponible`);
       }
-    }, 300);
+    });
   }
-
   // Métodos originales del Hero
   scrollToProjects(): void {
     const projectsSection = document.querySelector('.projects');
