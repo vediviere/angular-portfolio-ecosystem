@@ -1,13 +1,17 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-hero',
-  imports: [CommonModule],
+  imports: [CommonModule], // ← AGREGAMOS Router aquí
   templateUrl: './hero.html',
   styleUrl: './hero.scss',
 })
 export class Hero {
+  // Inyectar Router
+  constructor(private router: Router) {}
+
   // Propiedades del Mini Rolodex
   currentProject = 0;
   showBulletHole = false;
@@ -57,8 +61,8 @@ export class Hero {
 
     // Cuando el audio carga, calcular cuándo mostrar el agujero
     audio.addEventListener('loadedmetadata', () => {
-      const duration = audio.duration * 1000; // Convertir a milisegundos
-      const showHoleAt = duration - 700; // Mostrar 200ms antes de terminar
+      const duration = audio.duration * 1000;
+      const showHoleAt = duration - 700;
 
       // Mostrar agujero justo antes de terminar
       setTimeout(() => {
@@ -80,7 +84,7 @@ export class Hero {
         } else {
           console.log(`${project.name} - Demo no disponible`);
         }
-      }, 500); // Mantener visible medio segundo después del audio
+      }, 500);
     });
 
     audio.play().catch((error) => {
@@ -91,19 +95,14 @@ export class Hero {
       }
     });
   }
-  // Métodos originales del Hero
-  scrollToProjects(): void {
-    const projectsSection = document.querySelector('.projects');
-    if (projectsSection) {
-      projectsSection.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start',
-      });
-    }
+
+  // Navegación a páginas
+  navigateToAbout(): void {
+    this.router.navigate(['/about']);
   }
 
-  openContact(): void {
-    console.log('Abrir formulario de contacto');
+  navigateToContact(): void {
+    this.router.navigate(['/contacto']);
   }
 
   getProjectType(type: string): string {

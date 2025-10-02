@@ -138,8 +138,11 @@
               >
                 <div class="card-content">
                   <div class="vintage-stamp"></div>
-                  <div class="bullet-hole" [class.show]="showBulletHole && currentProject === projects.indexOf(projects[currentProject])"></div>
-                  <br>
+                  <div
+                    class="bullet-hole"
+                    [class.show]="showBulletHole && currentProject === projects.indexOf(projects[currentProject])"
+                  ></div>
+                  <br />
                   <div class="card-header">
                     {{ projects[currentProject].name }}
                   </div>
@@ -180,11 +183,11 @@
         </div>
 
         <div class="hero__actions">
-          <button class="btn btn--gold" (click)="scrollToProjects()">
-            <span class="btn-text">EXPLORE PORTFOLIO</span>
+          <button class="btn btn--gold" (click)="navigateToAbout()">
+            <span class="btn-text">ABOUT ME</span>
             <div class="btn-ornament"></div>
           </button>
-          <button class="btn btn--outline" (click)="openContact()">
+          <button class="btn btn--outline" (click)="navigateToContact()">
             <span class="btn-text">MAKE CONTACT</span>
           </button>
         </div>

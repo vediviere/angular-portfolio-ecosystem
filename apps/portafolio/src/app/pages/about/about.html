@@ -1,0 +1,266 @@
+<section class="about-page">
+  <!-- Tabs Navigation -->
+  <div class="tabs-navigation">
+    <div class="tabs-container">
+      <button
+        class="tab-btn"
+        [class.active]="activeTab === 'resumen'"
+        (click)="setActiveTab('resumen')"
+      >
+        <span class="tab-text">RESUMEN</span>
+        <div class="tab-underline"></div>
+      </button>
+
+      <button
+        class="tab-btn"
+        [class.active]="activeTab === 'experiencia'"
+        (click)="setActiveTab('experiencia')"
+      >
+        <span class="tab-text">EXPERIENCIA</span>
+        <div class="tab-underline"></div>
+      </button>
+
+      <button
+        class="tab-btn"
+        [class.active]="activeTab === 'habilidades'"
+        (click)="setActiveTab('habilidades')"
+      >
+        <span class="tab-text">HABILIDADES</span>
+        <div class="tab-underline"></div>
+      </button>
+
+      <button
+        class="tab-btn"
+        [class.active]="activeTab === 'credenciales'"
+        (click)="setActiveTab('credenciales')"
+      >
+        <span class="tab-text">CREDENCIALES</span>
+        <div class="tab-underline"></div>
+      </button>
+    </div>
+    <div class="tabs-border"></div>
+    <div class="back-to-home">
+      <button class="home-btn" (click)="navigateToHome()">
+        <span class="home-icon">◄</span>
+        <span class="home-text">VOLVER A INICIO</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Tab Content -->
+  <div class="tab-content">
+    <!-- RESUMEN TAB -->
+    <div class="tab-panel" *ngIf="activeTab === 'resumen'">
+      <div class="about-header">
+        <div class="header-ornament header-ornament--top"></div>
+
+        <div class="official-stamp">
+          <div class="stamp-inner">
+            <span class="stamp-text">OFICIAL</span>
+          </div>
+        </div>
+
+        <div class="header-content">
+          <div class="establishment-mark">
+            <span class="mark-text">PORTFOLIO</span>
+            <span class="mark-year">EST. 2025</span>
+          </div>
+
+          <h1 class="about-title">
+            <span class="title-prefix">DON</span>
+            <span class="title-name">MARCO VEDIVIERE</span>
+          </h1>
+
+          <div class="title-divider">
+            <div class="divider-line"></div>
+            <div class="divider-diamond"></div>
+            <div class="divider-line"></div>
+          </div>
+
+          <h2 class="about-subtitle">EL ARQUITECTO DEL CÓDIGO</h2>
+
+          <p class="about-intro">
+            Ingeniero en Sistemas con Maestría en Desarrollo de Software y más
+            de 7 años forjando soluciones digitales de alto impacto.
+            Especializado en arquitecturas enterprise, desarrollo ágil y
+            liderazgo técnico.
+          </p>
+        </div>
+
+        <div class="header-ornament header-ornament--bottom"></div>
+      </div>
+    </div>
+
+    <!-- EXPERIENCIA TAB -->
+    <div class="tab-panel" *ngIf="activeTab === 'experiencia'">
+      <div class="experience-section">
+        <div class="section-header">
+          <h3 class="section-title">LA TRAYECTORIA</h3>
+          <div class="section-border"></div>
+        </div>
+
+        <div class="timeline">
+          <div
+            class="timeline-item"
+            *ngFor="let exp of experience; let i = index"
+          >
+            <div class="timeline-marker">
+              <div class="marker-dot"></div>
+              <div class="marker-line" *ngIf="i < experience.length - 1"></div>
+            </div>
+
+            <div class="timeline-content">
+              <div class="experience-card">
+                <div class="card-corner card-corner--tl"></div>
+                <div class="card-corner card-corner--tr"></div>
+                <div class="card-corner card-corner--bl"></div>
+                <div class="card-corner card-corner--br"></div>
+
+                <div class="experience-header">
+                  <h4 class="experience-role">{{ exp.role }}</h4>
+                  <div class="experience-meta">
+                    <span class="company-name">{{ exp.company }}</span>
+                    <span class="location">{{ exp.location }}</span>
+                  </div>
+                  <div class="period">{{ exp.period }}</div>
+                </div>
+
+                <ul class="achievements-list">
+                  <li *ngFor="let achievement of exp.achievements">
+                    {{ achievement }}
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- HABILIDADES TAB -->
+    <div class="tab-panel" *ngIf="activeTab === 'habilidades'">
+      <div class="skills-section">
+        <div class="section-header">
+          <h3 class="section-title">ARSENAL TÉCNICO</h3>
+          <div class="section-border"></div>
+        </div>
+
+        <div class="skills-grid">
+          <div class="skill-category">
+            <h4 class="category-title">Frontend</h4>
+            <div class="skill-tags">
+              <span class="skill-tag" *ngFor="let skill of skills.frontend">
+                {{ skill }}
+              </span>
+            </div>
+          </div>
+
+          <div class="skill-category">
+            <h4 class="category-title">Backend</h4>
+            <div class="skill-tags">
+              <span class="skill-tag" *ngFor="let skill of skills.backend">
+                {{ skill }}
+              </span>
+            </div>
+          </div>
+
+          <div class="skill-category">
+            <h4 class="category-title">Bases de Datos</h4>
+            <div class="skill-tags">
+              <span class="skill-tag" *ngFor="let skill of skills.databases">
+                {{ skill }}
+              </span>
+            </div>
+          </div>
+
+          <div class="skill-category">
+            <h4 class="category-title">Herramientas</h4>
+            <div class="skill-tags">
+              <span class="skill-tag" *ngFor="let skill of skills.tools">
+                {{ skill }}
+              </span>
+            </div>
+          </div>
+
+          <div class="skill-category">
+            <h4 class="category-title">Metodologías</h4>
+            <div class="skill-tags">
+              <span
+                class="skill-tag"
+                *ngFor="let skill of skills.methodologies"
+              >
+                {{ skill }}
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CREDENCIALES TAB (Educación + Filosofía combinadas) -->
+    <div class="tab-panel" *ngIf="activeTab === 'credenciales'">
+      <!-- Educación y Certificaciones -->
+      <div class="credentials-section">
+        <div class="credentials-grid">
+          <div class="education-box">
+            <div class="box-header">
+              <h3 class="box-title">EDUCACIÓN</h3>
+              <div class="title-underline"></div>
+            </div>
+
+            <div class="education-list">
+              <div class="education-item" *ngFor="let edu of education">
+                <div class="degree-icon">◆</div>
+                <div class="education-details">
+                  <h4 class="degree-name">{{ edu.degree }}</h4>
+                  <p class="institution">{{ edu.institution }}</p>
+                  <span class="year">{{ edu.year }}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="certifications-box">
+            <div class="box-header">
+              <h3 class="box-title">CERTIFICACIONES</h3>
+              <div class="title-underline"></div>
+            </div>
+
+            <div class="certifications-list">
+              <div class="cert-item" *ngFor="let cert of certifications">
+                <div class="cert-seal">
+                  <div class="seal-content">
+                    <span class="seal-icon">{{ cert.icon }}</span>
+                  </div>
+                </div>
+                <div class="cert-details">
+                  <h4 class="cert-name">{{ cert.name }}</h4>
+                  <p class="cert-issuer">{{ cert.issuer }}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <br />
+
+      <!-- Filosofía -->
+      <div class="philosophy-section">
+        <div class="quote-box">
+          <div class="quote-mark">"</div>
+          <p class="philosophy-text">
+            La excelencia en código no es un acto, sino un hábito que se forja
+            en cada línea escrita. Apasionado por la innovación tecnológica y el
+            aprendizaje continuo, con foco en entregar productos de alto impacto
+            y aplicar IA generativa para aumentar la productividad.
+          </p>
+          <div class="philosophy-attribution">
+            <div class="attribution-line"></div>
+            <span class="attribution-name">Marco Vediviere</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

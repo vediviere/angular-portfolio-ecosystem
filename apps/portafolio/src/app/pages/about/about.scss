@@ -1,0 +1,766 @@
+// Variables de colores Prohibition Era
+$negro-esmoquin: #0d0d0d;
+$gris-carbon: #1a1a1a;
+$gris-ceniza: #404040;
+$oro-envejecido: #c9a96e;
+$laton-oxidado: #b8860b;
+$cobre-viejo: #8b4513;
+$bronce-oscuro: #665d1e;
+$caoba-casi-negro: #2b1810;
+$nogal-profundo: #3c1810;
+$crema-pergamino: #f5f4e8;
+
+// === TABS NAVIGATION ===
+.tabs-navigation {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: linear-gradient(180deg, #0d0d0d 0%, #1a1a1a 100%);
+  border-bottom: 2px solid $oro-envejecido;
+  padding: 1rem 0 0;
+}
+
+.tabs-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  gap: 0;
+  padding: 0 2rem;
+}
+
+.tab-btn {
+  position: relative;
+  background: transparent;
+  border: none;
+  padding: 1rem 2rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  .tab-text {
+    font-family: 'Cinzel', serif;
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+    color: $gris-ceniza;
+    transition: all 0.3s ease;
+  }
+
+  .tab-underline {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%) scaleX(0);
+    width: 80%;
+    height: 3px;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      $oro-envejecido 50%,
+      transparent 100%
+    );
+    transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+
+  &:hover:not(.active) {
+    .tab-text {
+      color: $laton-oxidado;
+    }
+  }
+
+  &.active {
+    .tab-text {
+      color: $oro-envejecido;
+      text-shadow: 0 0 10px rgba($oro-envejecido, 0.5);
+    }
+
+    .tab-underline {
+      transform: translateX(-50%) scaleX(1);
+    }
+  }
+}
+
+.tabs-border {
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    $bronce-oscuro 20%,
+    $bronce-oscuro 80%,
+    transparent 100%
+  );
+  opacity: 0.3;
+}
+
+// === TAB CONTENT ===
+.tab-content {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 3rem 2rem;
+  min-height: 60vh;
+}
+
+.tab-panel {
+  animation: fadeIn 0.4s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// === ESTILOS ORIGINALES DE ABOUT ===
+.about-page {
+  background: linear-gradient(180deg, $negro-esmoquin 0%, $gris-carbon 100%);
+  min-height: 100vh;
+  color: $crema-pergamino;
+  font-family: 'Crimson Text', serif;
+}
+
+// Header
+.about-header {
+  position: relative;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.header-ornament {
+  width: 200px;
+  height: 2px;
+  margin: 0 auto 2rem;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    $oro-envejecido 50%,
+    transparent 100%
+  );
+
+  &--top {
+    margin-bottom: 3rem;
+  }
+
+  &--bottom {
+    margin-top: 3rem;
+  }
+}
+
+.official-stamp {
+  position: absolute;
+  top: 3rem;
+  right: 2rem;
+  width: 80px;
+  height: 80px;
+  transform: rotate(15deg);
+}
+
+.stamp-inner {
+  width: 100%;
+  height: 100%;
+  border: 3px solid $oro-envejecido;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(
+    circle,
+    rgba($oro-envejecido, 0.1) 0%,
+    transparent 70%
+  );
+}
+
+.stamp-text {
+  font-family: 'Cinzel', serif;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: $oro-envejecido;
+}
+
+.establishment-mark {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 2rem;
+  font-family: 'Cinzel', serif;
+  font-size: 0.85rem;
+  letter-spacing: 3px;
+  color: $laton-oxidado;
+}
+
+.about-title {
+  margin: 2rem 0;
+}
+
+.title-prefix {
+  display: block;
+  font-family: 'Cinzel', serif;
+  font-size: 1.2rem;
+  letter-spacing: 4px;
+  color: $oro-envejecido;
+  margin-bottom: 0.5rem;
+}
+
+.title-name {
+  display: block;
+  font-family: 'Playfair Display', serif;
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: $crema-pergamino;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.title-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin: 2rem 0;
+}
+
+.divider-line {
+  width: 100px;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    $oro-envejecido 50%,
+    transparent 100%
+  );
+}
+
+.divider-diamond {
+  width: 8px;
+  height: 8px;
+  background: $oro-envejecido;
+  transform: rotate(45deg);
+}
+
+.about-subtitle {
+  font-family: 'Cinzel', serif;
+  font-size: 1.3rem;
+  letter-spacing: 3px;
+  color: $oro-envejecido;
+  margin-bottom: 2rem;
+}
+
+.about-intro {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: $gris-ceniza;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+// Experience Section
+.experience-section {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.section-title {
+  font-family: 'Cinzel', serif;
+  font-size: 2rem;
+  letter-spacing: 4px;
+  color: $oro-envejecido;
+  margin-bottom: 1rem;
+}
+
+.section-border {
+  width: 150px;
+  height: 2px;
+  margin: 0 auto;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    $oro-envejecido 50%,
+    transparent 100%
+  );
+}
+
+.timeline {
+  position: relative;
+  padding: 2rem 0;
+}
+
+.timeline-item {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 3rem;
+  position: relative;
+}
+
+.timeline-marker {
+  position: relative;
+  flex-shrink: 0;
+}
+
+.marker-dot {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: $oro-envejecido;
+  box-shadow: 0 0 20px rgba($oro-envejecido, 0.5);
+  position: relative;
+  z-index: 2;
+}
+
+.marker-line {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  height: calc(100% + 3rem);
+  background: linear-gradient(180deg, $bronce-oscuro 0%, transparent 100%);
+}
+
+.timeline-content {
+  flex: 1;
+}
+
+.experience-card {
+  position: relative;
+  background: linear-gradient(
+    135deg,
+    rgba($caoba-casi-negro, 0.8) 0%,
+    rgba($negro-esmoquin, 0.9) 100%
+  );
+  border: 1px solid rgba($oro-envejecido, 0.3);
+  padding: 2rem;
+  border-radius: 4px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  &:hover {
+    transform: translateX(10px);
+    box-shadow: 0 10px 30px rgba($oro-envejecido, 0.2);
+  }
+}
+
+.card-corner {
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  border: 2px solid $oro-envejecido;
+
+  &--tl {
+    top: -1px;
+    left: -1px;
+    border-right: none;
+    border-bottom: none;
+  }
+
+  &--tr {
+    top: -1px;
+    right: -1px;
+    border-left: none;
+    border-bottom: none;
+  }
+
+  &--bl {
+    bottom: -1px;
+    left: -1px;
+    border-right: none;
+    border-top: none;
+  }
+
+  &--br {
+    bottom: -1px;
+    right: -1px;
+    border-left: none;
+    border-top: none;
+  }
+}
+
+.experience-header {
+  margin-bottom: 1.5rem;
+}
+
+.experience-role {
+  font-family: 'Cinzel', serif;
+  font-size: 1.5rem;
+  color: $oro-envejecido;
+  margin-bottom: 0.5rem;
+}
+
+.experience-meta {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.company-name {
+  font-weight: 600;
+  color: $crema-pergamino;
+}
+
+.location {
+  color: $gris-ceniza;
+}
+
+.period {
+  font-size: 0.9rem;
+  color: $laton-oxidado;
+  font-style: italic;
+}
+
+.achievements-list {
+  list-style: none;
+  padding: 0;
+
+  li {
+    position: relative;
+    padding-left: 1.5rem;
+    margin-bottom: 0.8rem;
+    line-height: 1.6;
+    color: $gris-ceniza;
+
+    &::before {
+      content: '◆';
+      position: absolute;
+      left: 0;
+      color: $oro-envejecido;
+      font-size: 0.8rem;
+    }
+  }
+}
+
+// Skills Section
+.skills-section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.skill-category {
+  background: linear-gradient(
+    135deg,
+    rgba($caoba-casi-negro, 0.6) 0%,
+    rgba($negro-esmoquin, 0.8) 100%
+  );
+  border: 1px solid rgba($oro-envejecido, 0.2);
+  padding: 2rem;
+  border-radius: 4px;
+}
+
+.category-title {
+  font-family: 'Cinzel', serif;
+  font-size: 1.2rem;
+  color: $oro-envejecido;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  letter-spacing: 2px;
+}
+
+.skill-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  justify-content: center;
+}
+
+.skill-tag {
+  background: rgba($bronce-oscuro, 0.3);
+  border: 1px solid rgba($oro-envejecido, 0.4);
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  color: $crema-pergamino;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background: rgba($oro-envejecido, 0.2);
+    border-color: $oro-envejecido;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba($oro-envejecido, 0.3);
+  }
+}
+
+// Credentials Section
+.credentials-section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.credentials-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 3rem;
+}
+
+.education-box,
+.certifications-box {
+  background: linear-gradient(
+    135deg,
+    rgba($caoba-casi-negro, 0.7) 0%,
+    rgba($negro-esmoquin, 0.9) 100%
+  );
+  border: 2px solid rgba($oro-envejecido, 0.3);
+  padding: 2.5rem;
+  border-radius: 4px;
+}
+
+.box-header {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.box-title {
+  font-family: 'Cinzel', serif;
+  font-size: 1.5rem;
+  letter-spacing: 3px;
+  color: $oro-envejecido;
+  margin-bottom: 1rem;
+}
+
+.title-underline {
+  width: 100px;
+  height: 2px;
+  margin: 0 auto;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    $oro-envejecido 50%,
+    transparent 100%
+  );
+}
+
+.education-list,
+.certifications-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.education-item,
+.cert-item {
+  display: flex;
+  gap: 1.5rem;
+  align-items: flex-start;
+}
+
+.degree-icon {
+  font-size: 1.5rem;
+  color: $oro-envejecido;
+  flex-shrink: 0;
+}
+
+.education-details,
+.cert-details {
+  flex: 1;
+}
+
+.degree-name,
+.cert-name {
+  font-family: 'Cinzel', serif;
+  font-size: 1.1rem;
+  color: $crema-pergamino;
+  margin-bottom: 0.5rem;
+}
+
+.institution,
+.cert-issuer {
+  color: $gris-ceniza;
+  font-size: 0.95rem;
+  margin-bottom: 0.3rem;
+}
+
+.year {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  background: rgba($oro-envejecido, 0.2);
+  border: 1px solid rgba($oro-envejecido, 0.4);
+  border-radius: 15px;
+  font-size: 0.85rem;
+  color: $laton-oxidado;
+}
+
+.cert-seal {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba($oro-envejecido, 0.3) 0%,
+    rgba($oro-envejecido, 0.1) 70%,
+    transparent 100%
+  );
+  border: 2px solid $oro-envejecido;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.seal-icon {
+  font-size: 1.5rem;
+  color: $oro-envejecido;
+}
+
+// Philosophy Section
+.philosophy-section {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.quote-box {
+  position: relative;
+  background: linear-gradient(
+    135deg,
+    rgba($caoba-casi-negro, 0.8) 0%,
+    rgba($negro-esmoquin, 0.95) 100%
+  );
+  border: 2px solid rgba($oro-envejecido, 0.4);
+  padding: 3rem;
+  border-radius: 4px;
+  text-align: center;
+}
+
+.quote-mark {
+  font-family: 'Playfair Display', serif;
+  font-size: 6rem;
+  color: rgba($oro-envejecido, 0.2);
+  line-height: 1;
+  margin-bottom: 1rem;
+}
+
+.philosophy-text {
+  margin-top: -2rem;
+  font-size: 1.2rem;
+  line-height: 1.8;
+  color: $crema-pergamino;
+  font-style: italic;
+  margin-bottom: 2rem;
+}
+
+.philosophy-attribution {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.attribution-line {
+  width: 50px;
+  height: 1px;
+  background: $oro-envejecido;
+}
+
+.attribution-name {
+  font-family: 'Cinzel', serif;
+  font-size: 1rem;
+  letter-spacing: 2px;
+  color: $oro-envejecido;
+}
+
+// Responsive
+@media (max-width: 768px) {
+  .tabs-container {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .tab-btn {
+    padding: 0.75rem 1rem;
+
+    .tab-text {
+      font-size: 0.75rem;
+      letter-spacing: 1px;
+    }
+  }
+
+  .tab-content {
+    padding: 2rem 1rem;
+  }
+
+  .about-header {
+    padding: 2rem 1rem;
+  }
+
+  .title-name {
+    font-size: 2.5rem;
+  }
+
+  .official-stamp {
+    width: 60px;
+    height: 60px;
+    top: 1rem;
+    right: 1rem;
+  }
+
+  .timeline-item {
+    gap: 1rem;
+  }
+
+  .experience-card {
+    padding: 1.5rem;
+  }
+
+  .credentials-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .quote-box {
+    padding: 2rem;
+  }
+
+  .quote-mark {
+    font-size: 4rem;
+  }
+}
+
+// Back to Home Button
+.back-to-home {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 1rem 2rem 0;
+}
+
+.home-btn {
+  background: transparent;
+  border: 1px solid $oro-envejecido;
+  padding: 0.75rem 1.5rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background: rgba($oro-envejecido, 0.1);
+    border-color: $laton-oxidado;
+    transform: translateX(-5px);
+  }
+}
+
+.home-icon {
+  color: $oro-envejecido;
+  font-size: 1rem;
+}
+
+.home-text {
+  font-family: 'Cinzel', serif;
+  font-size: 0.85rem;
+  letter-spacing: 2px;
+  color: $oro-envejecido;
+}
