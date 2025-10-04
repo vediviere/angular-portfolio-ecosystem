@@ -20,13 +20,69 @@ $crema-pergamino: #f5f4e8;
   padding: 1rem 0 0;
 }
 
-.tabs-container {
+// === TABS NAVIGATION ===
+.tabs-navigation {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: linear-gradient(180deg, #0d0d0d 0%, #1a1a1a 100%);
+  border-bottom: 2px solid $oro-envejecido;
+  padding: 1rem 0 0;
+}
+
+.tabs-wrapper {
   max-width: 1400px;
   margin: 0 auto;
   display: flex;
+  align-items: center;
+  padding: 0 2rem;
+  position: relative;
+}
+
+// Botón Home con ícono
+.home-btn-icon {
+  position: absolute;
+  left: 2rem;
+  background: transparent;
+  border: 2px solid $oro-envejecido;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  .home-icon {
+    width: 22px;
+    height: 22px;
+    stroke: $oro-envejecido;
+    stroke-width: 2;
+    transition: all 0.3s ease;
+  }
+
+  &:hover {
+    background: rgba($oro-envejecido, 0.15);
+    border-color: $laton-oxidado;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba($oro-envejecido, 0.3);
+
+    .home-icon {
+      stroke: $laton-oxidado;
+    }
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+}
+
+.tabs-container {
+  flex: 1;
+  display: flex;
   justify-content: center;
   gap: 0;
-  padding: 0 2rem;
 }
 
 .tab-btn {
@@ -89,6 +145,43 @@ $crema-pergamino: #f5f4e8;
     transparent 100%
   );
   opacity: 0.3;
+}
+
+// Responsive
+@media (max-width: 768px) {
+  .tabs-wrapper {
+    padding: 0 1rem;
+  }
+
+  .home-btn-icon {
+    position: static;
+    margin-right: 1rem;
+    width: 40px;
+    height: 40px;
+
+    .home-icon {
+      width: 20px;
+      height: 20px;
+    }
+  }
+
+  .tabs-container {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .tab-btn {
+    padding: 0.75rem 1rem;
+
+    .tab-text {
+      font-size: 0.75rem;
+      letter-spacing: 1px;
+    }
+  }
+
+  .tab-content {
+    padding: 2rem 1rem;
+  }
 }
 
 // === TAB CONTENT ===
@@ -496,7 +589,7 @@ $crema-pergamino: #f5f4e8;
 
 // Credentials Section
 .credentials-section {
-  max-width: 1200px;
+  max-width: 1100px;
   margin: 0 auto;
   padding: 0;
 }
@@ -566,6 +659,7 @@ $crema-pergamino: #f5f4e8;
 
 .education-details,
 .cert-details {
+  margin-top: -1.5rem;
   flex: 1;
 }
 

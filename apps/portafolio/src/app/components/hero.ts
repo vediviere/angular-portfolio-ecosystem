@@ -21,15 +21,49 @@ export class Hero {
       name: 'VacunaApp Web',
       type: 'web',
       url: 'https://vacuna-app-3510b.web.app/?demo=true',
+      description:
+        'Plataforma web para gestión de vacunación con dashboard administrativo y panel de control de citas.',
+      stack: ['Angular', 'Firebase', 'Material Design'],
+      year: '2023',
+      status: 'Producción',
     },
-    { name: 'VacunaApp Mobile', type: 'mobile' },
-    { name: 'Joyería Gold', type: 'mobile' },
+    {
+      name: 'VacunaApp Mobile',
+      type: 'mobile',
+      description:
+        'Aplicación móvil para registro y seguimiento de esquemas de vacunación con notificaciones push.',
+      stack: ['React Native', 'Firebase', 'Expo'],
+      year: '2023',
+      status: 'Producción',
+    },
+    {
+      name: 'Joyería Gold',
+      type: 'mobile',
+      description:
+        'App de catálogo digital para joyería con carrito de compras y sistema de apartados.',
+      stack: ['React Native', 'Node.js', 'MongoDB'],
+      year: '2022',
+      status: 'Producción',
+    },
     {
       name: 'Sistema de Usuarios',
       type: 'web',
       url: 'https://sistemaregistrosusuarios.web.app/',
+      description:
+        'Sistema CRUD completo de gestión de usuarios con autenticación y roles administrativos.',
+      stack: ['Angular', 'Firebase', 'Tailwind CSS'],
+      year: '2024',
+      status: 'Producción',
     },
-    { name: 'Portfolio DevOps', type: 'fullstack' },
+    {
+      name: 'Portfolio DevOps',
+      type: 'fullstack',
+      description:
+        'Portfolio personal con integración CI/CD, despliegue automatizado y monitoreo de infraestructura.',
+      stack: ['Angular', 'Azure DevOps', 'Docker', 'NX'],
+      year: '2025',
+      status: 'En desarrollo',
+    },
   ];
 
   // Audio y animación

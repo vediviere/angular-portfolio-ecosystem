@@ -1,50 +1,64 @@
 <section class="about-page">
   <!-- Tabs Navigation -->
   <div class="tabs-navigation">
-    <div class="tabs-container">
+    <div class="tabs-wrapper">
+      <!-- Botón Home a la izquierda -->
       <button
-        class="tab-btn"
-        [class.active]="activeTab === 'resumen'"
-        (click)="setActiveTab('resumen')"
+        class="home-btn-icon"
+        (click)="navigateToHome()"
+        title="Volver a Inicio"
       >
-        <span class="tab-text">RESUMEN</span>
-        <div class="tab-underline"></div>
+        <svg
+          class="home-icon"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+        >
+          <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+          <polyline points="9 22 9 12 15 12 15 22"></polyline>
+        </svg>
       </button>
 
-      <button
-        class="tab-btn"
-        [class.active]="activeTab === 'experiencia'"
-        (click)="setActiveTab('experiencia')"
-      >
-        <span class="tab-text">EXPERIENCIA</span>
-        <div class="tab-underline"></div>
-      </button>
+      <!-- Tabs en el centro -->
+      <div class="tabs-container">
+        <button
+          class="tab-btn"
+          [class.active]="activeTab === 'resumen'"
+          (click)="setActiveTab('resumen')"
+        >
+          <span class="tab-text">RESUMEN</span>
+          <div class="tab-underline"></div>
+        </button>
 
-      <button
-        class="tab-btn"
-        [class.active]="activeTab === 'habilidades'"
-        (click)="setActiveTab('habilidades')"
-      >
-        <span class="tab-text">HABILIDADES</span>
-        <div class="tab-underline"></div>
-      </button>
+        <button
+          class="tab-btn"
+          [class.active]="activeTab === 'experiencia'"
+          (click)="setActiveTab('experiencia')"
+        >
+          <span class="tab-text">EXPERIENCIA</span>
+          <div class="tab-underline"></div>
+        </button>
 
-      <button
-        class="tab-btn"
-        [class.active]="activeTab === 'credenciales'"
-        (click)="setActiveTab('credenciales')"
-      >
-        <span class="tab-text">CREDENCIALES</span>
-        <div class="tab-underline"></div>
-      </button>
+        <button
+          class="tab-btn"
+          [class.active]="activeTab === 'habilidades'"
+          (click)="setActiveTab('habilidades')"
+        >
+          <span class="tab-text">HABILIDADES</span>
+          <div class="tab-underline"></div>
+        </button>
+
+        <button
+          class="tab-btn"
+          [class.active]="activeTab === 'credenciales'"
+          (click)="setActiveTab('credenciales')"
+        >
+          <span class="tab-text">CREDENCIALES</span>
+          <div class="tab-underline"></div>
+        </button>
+      </div>
     </div>
     <div class="tabs-border"></div>
-    <div class="back-to-home">
-      <button class="home-btn" (click)="navigateToHome()">
-        <span class="home-icon">◄</span>
-        <span class="home-text">VOLVER A INICIO</span>
-      </button>
-    </div>
   </div>
 
   <!-- Tab Content -->
